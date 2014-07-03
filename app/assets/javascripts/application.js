@@ -15,6 +15,16 @@
 //= require turbolinks
 //= require_tree .
 
+var positiveState = {
+  color: '#FF0000',
+  tweets: 120
+}
+
+var negativeState = {
+  color: '#0000FF',
+  tweets: 120
+}
+
 var ready = function() {
   Highcharts.setOptions({
     chart: {
@@ -35,8 +45,8 @@ var ready = function() {
       }
     },
     colorAxis: {
-      minColor: '#A9E455',
-      maxColor: '#71A33D'
+      minColor: '#0000FF',
+      maxColor: '#FF0000'
     }
   });
 
@@ -74,8 +84,8 @@ var ready = function() {
           min: 1,
           max: 1000,
           type: 'logarithmic',
-          minColor: '#9BDA6A',
-          maxColor: '#004D26',
+          minColor: '#0000FF',
+          maxColor: '#FF0000',
         },
         plotOptions: {
           series: {
