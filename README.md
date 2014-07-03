@@ -12,4 +12,5 @@ Our website offers a cutting-edge approach to data visualization by analyzing tw
 Maybe, in the end, we don't all think and feel as differently as we are led to believe. Why not come see ? 
 
 EmotionAll 
-We #laugh / #dance / #sing / #cry as one. 
+
+We #laugh / #dance / #sing / #cry together. 
