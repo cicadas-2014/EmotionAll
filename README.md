@@ -21,7 +21,7 @@ We #laugh / #dance / #sing / #cry as one.
 
 EmotionAll is an interactive data-visualization site that dynamically generates world maps, which feature overlays signifying either the positive or negative feeling of that location to a specific topic. Users can choose a trending topic from Twitter which then populates the map with a 'hot / cold' display of each country's disposition towards the affair. 
 
-### How it does it 
+### What it does 
 
 EmotionAll takes advantage of the Twitter API in order to pull down large amounts of tweets for various trending topics, and then parses this information for sentiment via AlchemyAPI. This coupled with a 'coloring' algorithm that  shades an area based on its relative positivity or negativity allow the program to paint a picture on the global scale of just how the world is feeling, at this moment, for any number of events. 
 
@@ -33,7 +33,7 @@ Choose away. And learn. Because maybe we just aren't so different after all.
 
 ### Contributors 
 
-* Jake Huhn, Project Manager ([github](https://github.com/masidonion) [twitter](https://twitter.com/huhnytunes)) 
-* Kevin Zhou, Team Lead ([github]() [twitter]())
-* Danielle Adams, Front-End Specialist ([github]() [twitter]())
-* Ruben Osorio, Back-End Specialist ([github]() [twitter]())
+* Jake Huhn, Project Manager ([github](https://github.com/masidonion) | [twitter](https://twitter.com/huhnytunes)) 
+* Kevin Zhou, Team Lead ([github]() | [twitter]())
+* Danielle Adams, Front-End Specialist ([github]() | [twitter]())
+* Ruben Osorio, Back-End Specialist ([github]() | [twitter]())
