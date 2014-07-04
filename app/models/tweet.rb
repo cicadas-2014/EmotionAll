@@ -10,4 +10,8 @@ class Tweet < ActiveRecord::Base
 		self.update_attributes( sentiment: results["type"],
 														sentiment_score: results["score"] )
 	end
+
+	def get_highmap_val
+		(self.sentiment_score + 1) / 2 # returns a decimal percentage of whatever scale we're using
+	end
 end
