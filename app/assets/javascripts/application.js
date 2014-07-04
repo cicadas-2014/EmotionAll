@@ -25,99 +25,102 @@ var negativeState = {
   tweets: 120
 }
 
-var ready = function() {
-  Highcharts.setOptions({
-    chart: {
-      backgroundColor: '#A4DEF4',
-      height: 600,
-      width: 1400
-    },
-    title: {
-      style: {
-        color: '#A4DEF4'
-      }
-    },
-    legend: {
-      title: {
-        style: {
-          color: '#161A59'
-        }
-      }
-    },
-    colorAxis: {
-      minColor: '#0000FF',
-      maxColor: '#FF0000'
-    }
-  });
+// var worldMap = function() {
+//   Highcharts.setOptions({
+//     chart: {
+//       backgroundColor: '#FFF',
+//       height: 600,
+//       width: 1400
+//     },
+//     // title: {
+//     //   style: {
+//     //     color: '#A4DEF4'
+//     //   }
+//     // },
+//     legend: {
+//       title: {
+//         style: {
+//           color: '#161A59'
+//         }
+//       }
+//     },
+//     colorAxis: {
+//       minColor: '#0000FF',
+//       maxColor: '#FF0000'
+//     }
+//   });
 
-  $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', function (data) {
-        // Initiate the chart
-        $('#container').highcharts('Map', {
-          mapNavigation: {
-            buttonOptions: {
-              verticalAlign: 'bottom'
-            },
-            enableDoubleClickZoomTo: true
-          },
-          legend: {
-            enabled: true
-          },
-          tooltip: {
-            style: {
-              backgroundColor: 'black',
-              opacity: '1.0',
-              color: 'black',
-              fontSize: '12px',
-              padding: '8px',
-              border: 'black'
-            }
-          },
-        //     chart: {
-        //     events: {
-        //         click: function(event) {
-        //             alert ('x: '+ event.xAxis[0].value +', y: '+
-        //                   event.yAxis[0].value);
-        //         }
-        //     }
-        // },
-        colorAxis: {
-          min: 1,
-          max: 1000,
-          type: 'logarithmic',
-          minColor: '#0000FF',
-          maxColor: '#FF0000',
-        },
-        plotOptions: {
-          series: {
-            cursor: 'pointer',
-            events: {
-              click: function(event) {
-                $("#search").val(event.point.code);
-                $("#searchbutton").click();
-              }
-            }
-          }
-        },
-        series : [{
-          data : data,
-          mapData: Highcharts.maps['custom/world'],
-          joinBy: ['iso-a2', 'code'],
-          borderColor: 'black',
-          name: 'Country',
-          states: {
-            hover: {
-              // changes country color on map
-              color: '#CCFFB3'
-            }
-          },
-          tooltip: {
-            pointFormat: '{point.name}'
-          }
-        }]
-      });
+//   $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', function (data) {
+//         // Initiate the chart
+//         $('#container').highcharts('Map', {
+//           mapNavigation: {
+//             buttonOptions: {
+//               verticalAlign: 'bottom'
+//             },
+//             enableDoubleClickZoomTo: true
+//           },
+//           legend: {
+//             enabled: true
+//           },
+//           tooltip: {
+//             style: {
+//               backgroundColor: 'black',
+//               opacity: '1.0',
+//               color: 'black',
+//               fontSize: '12px',
+//               padding: '8px',
+//               border: 'black'
+//             }
+//           },
+//         //     chart: {
+//         //     events: {
+//         //         click: function(event) {
+//         //             alert ('x: '+ event.xAxis[0].value +', y: '+
+//         //                   event.yAxis[0].value);
+//         //         }
+//         //     }
+//         // },
+//         colorAxis: {
+//           min: 1,
+//           max: 1000,
+//           type: 'logarithmic',
+//           minColor: '#0000FF',
+//           maxColor: '#FF0000',
+//         },
+//         plotOptions: {
+//           series: {
+//             cursor: 'pointer',
+//             events: {
+//               click: function(event) {
+//                 $("#search").val(event.point.code);
+//                 $("#searchbutton").click();
+//               }
+//             }
+//           }
+//         },
+//         series : [{
+//           data : data,
+//           mapData: Highcharts.maps['custom/world'],
+//           joinBy: ['iso-a2', 'code'],
+//           borderColor: 'black',
+//           name: 'Country',
+//           states: {
+//             select: {
+//                         color: '#a4edba',
+//                         borderColor: 'black',
+//                         dashStyle: 'shortdot'
+//                     }
+//           },
+//           tooltip: {
+//             pointFormat: '{point.name}'
+//           }
+//         }]
+//       });
+// });
+// };
+
+
+$(document).ready(function() {
+
 });
-};
-
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
+// $(document).on('page:load', ready);

@@ -23,13 +23,12 @@
   padding: 0;
 }
 #container {
-  float: left;
-  height: 500px;
-  width: 700px;
-  margin: 0;
+/*  height: 500px;
+  width: 700px;*/
+  margin: 0 auto;
 }
 #info {
-  float: left;
+  /*float: left;*/
   width: 270px;
   padding-left: 20px;
   margin: 100px 0 0 0;
