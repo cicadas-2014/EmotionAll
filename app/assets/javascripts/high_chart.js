@@ -1,3 +1,5 @@
+
+
 $(function () {
 
     $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-history.csv&callback=?', function (csv) {
@@ -76,7 +78,7 @@ $(function () {
         var mapData = Highcharts.geojson(Highcharts.maps['custom/world']);
         $.each(mapData, function () {
             this.id = this.properties['hc-key']; // for Chart.get()
-            this.flag = this.id.replace('UK', 'GB').toLowerCase();
+            // this.flag = this.id.replace('UK', 'GB').toLowerCase();
         });
 
         // Wrap point.select to get to the total selected points
