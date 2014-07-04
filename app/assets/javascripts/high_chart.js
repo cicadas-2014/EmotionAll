@@ -8,7 +8,6 @@ var Map = {
     dataInput: [],
     defaultView: function(mapData) {
         var self = this;
-        console.log(mapData);
         $('#map-container').highcharts('Map', {
             title : {
                 text : 'Title'
