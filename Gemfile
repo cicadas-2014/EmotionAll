@@ -54,3 +54,6 @@ gem 'pg'
 
 # Twitter gem
 gem 'twitter'
+
+# Alchemy gem
+gem 'alchemy-api-rb', :require => "alchemy_api"
