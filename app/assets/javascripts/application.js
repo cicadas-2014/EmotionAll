@@ -111,5 +111,5 @@
 
 
 $(document).ready(function() {
-
+  createMapView.init();
 });
