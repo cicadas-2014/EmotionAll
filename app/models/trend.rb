@@ -22,13 +22,13 @@ class Trend < ActiveRecord::Base
 		new_tweets.select{ |tweet| tweet.geo? }.each do |t| 
 			unless Tweet.find_by(text: t.text)
 				Tweet.create( text: t.text,
-											tweetid: t.id.to_s,
-											retweet_count: t.retweet_count,
-											language: t.lang,
-											country_code: t.place.country_code,
-											latitude: t.geo.coordinates[0],
-											longitude: t.geo.coordinates[1],
-											trend: self )
+					tweetid: t.id.to_s,
+					retweet_count: t.retweet_count,
+					language: t.lang,
+					country_code: t.place.country_code,
+					latitude: t.geo.coordinates[0],
+					longitude: t.geo.coordinates[1],
+					trend: self )
 			end
 		end
 	end
