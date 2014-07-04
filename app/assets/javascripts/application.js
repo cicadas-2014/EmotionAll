@@ -15,16 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-var positiveState = {
-  color: '#FF0000',
-  tweets: 120
-}
-
-var negativeState = {
-  color: '#0000FF',
-  tweets: 120
-}
-
 // var worldMap = function() {
 //   Highcharts.setOptions({
 //     chart: {
@@ -121,6 +111,5 @@ var negativeState = {
 
 
 $(document).ready(function() {
-
+  createMapView.init();
 });
-// $(document).on('page:load', ready);
