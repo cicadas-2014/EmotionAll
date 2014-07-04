@@ -8,6 +8,7 @@ var Map = {
     dataInput: [],
     defaultView: function(mapData) {
         var self = this;
+        console.log(mapData);
         $('#map-container').highcharts('Map', {
             title : {
                 text : 'Title'
@@ -26,25 +27,40 @@ var Map = {
                 endOnTick: false,
                 startOnTick: false,
                 min: 1,
-                max: 100
+                max: 100,
+                minColor: '#FF3E44',
+                maxColor: '#474CFF'
             },
+            colors: ['#FFF9E4'],
             tooltip: {
                 animation: true,
-                pointFormat: 'the sentiment index here',
+                pointFormat: '{point.labelrank}',
                 shadow: false
             },
-            series : [{
-                data : self.dataInput, // data is array of objects with country info
-                mapData: mapData, // default country objects that populate map
-                joinBy: ['iso-a2', 'code'],
-                name: 'TOPIC sentiment',
-                allowPointSelect: false,
+            legend: {
+                align: 'center',
+                itemWidth: 200,
+                reversed: false,
+            },
+            plotOptions: {
+                series: {
+                    joinBy: ['iso-a2', 'code'],
+                },
                 states: {
+                    hover: {
+                        enabled: true
+                    },
                     select: {
                         borderColor: 'black',
                         dashStyle: 'shortdot',
+                        color: '#FFF9E4'
                     }
                 }
+            },
+            series: [{
+                data: self.dataInput, // data is array of objects with country info
+                mapData: mapData, // default country objects that populate map
+                name: 'Sentiment Index'
             }]
         })
     },
