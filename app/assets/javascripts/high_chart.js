@@ -22,7 +22,7 @@ $(function () {
 
         var countries = {},
             mapChart,
-            countryChart,
+            // countryChart,
             numRegex = /^[0-9\.]+$/,
             quoteRegex = /\"/g,
             categories = CSVtoArray(csv[1]).slice(4);
@@ -80,110 +80,107 @@ $(function () {
         });
 
         // Wrap point.select to get to the total selected points
-        Highcharts.wrap(Highcharts.Point.prototype, 'select', function (proceed) {
+        // Highcharts.wrap(Highcharts.Point.prototype, 'select', function (proceed) {
 
-            proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+        //     proceed.apply(this, Array.prototype.slice.call(arguments, 1));
 
-            var points = mapChart.getSelectedPoints();
+        //     var points = mapChart.getSelectedPoints();
 
-            if (points.length) {
-                if (points.length === 1) {
-                    $('#info #flag').attr('class', 'flag ' + points[0].flag);
-                    $('#info h2').html(points[0].name);
-                } else {
-                    $('#info #flag').attr('class', 'flag');
-                    $('#info h2').html('Comparing countries');
+        //     if (points.length) {
+        //         if (points.length === 1) {
+        //             $('#info #flag').attr('class', 'flag ' + points[0].flag);
+        //             $('#info h2').html(points[0].name);
+        //         } else {
+        //             $('#info #flag').attr('class', 'flag');
+        //             $('#info h2').html('Comparing countries');
 
-                }
-                $('#info .subheader').html('<h4>Historical population</h4><small><em>Shift + Click on map to compare countries</em></small>')
+        //         }
+        //         $('#info .subheader').html('<h4>Historical population</h4><small><em>Shift + Click on map to compare countries</em></small>')
 
-                if (!countryChart) {
-                    countryChart = $('#country-chart').highcharts({
-                        chart: {
-                            height: 250,
-                            spacingLeft: 0
-                        },
-                        credits: {
-                            enabled: false
-                        },
-                        title: {
-                            text: null
-                        },
-                        subtitle: {
-                            text: null
-                        },
-                        xAxis: {
-                            tickPixelInterval: 50,
-                            crosshair: true
-                        },
-                        yAxis: {
-                            title: null,
-                            opposite: true
-                        },
-                        tooltip: {
-                            shared: true
-                        },
-                        plotOptions: {
-                            series: {
-                                animation: {
-                                    duration: 500
-                                },
-                                marker: {
-                                    enabled: false
-                                },
-                                threshold: 0,
-                                pointStart: parseInt(categories[0]),
-                            }
-                        }
-                    }).highcharts();
-                }
+        //         if (!countryChart) {
+        //             countryChart = $('#country-chart').highcharts({
+        //                 chart: {
+        //                     height: 250,
+        //                     spacingLeft: 0
+        //                 },
+        //                 credits: {
+        //                     enabled: false
+        //                 },
+        //                 title: {
+        //                     text: null
+        //                 },
+        //                 subtitle: {
+        //                     text: null
+        //                 },
+        //                 xAxis: {
+        //                     tickPixelInterval: 50,
+        //                     crosshair: true
+        //                 },
+        //                 yAxis: {
+        //                     title: null,
+        //                     opposite: true
+        //                 },
+        //                 tooltip: {
+        //                     shared: true
+        //                 },
+        //                 plotOptions: {
+        //                     series: {
+        //                         animation: {
+        //                             duration: 500
+        //                         },
+        //                         marker: {
+        //                             enabled: false
+        //                         },
+        //                         threshold: 0,
+        //                         pointStart: parseInt(categories[0]),
+        //                     }
+        //                 }
+        //             }).highcharts();
+        //         }
 
-                $.each(points, function (i) {
-                    // Update
-                    if (countryChart.series[i]) {
-                        /*$.each(countries[this.code3].data, function (pointI, value) {
-                            countryChart.series[i].points[pointI].update(value, false);
-                        });*/
-                        countryChart.series[i].update({
-                            name: this.name,
-                            data: countries[this.code3].data,
-                            type: points.length > 1 ? 'line' : 'area'
-                        }, false);
-                    } else {
-                        countryChart.addSeries({
-                            name: this.name,
-                            data: countries[this.code3].data,
-                            type: points.length > 1 ? 'line' : 'area'
-                        }, false);
-                    }
-                });
-                while (countryChart.series.length > points.length) {
-                    countryChart.series[countryChart.series.length - 1].remove(false);
-                }
-                countryChart.redraw();
+        //         $.each(points, function (i) {
+        //             // Update
+        //             if (countryChart.series[i]) {
+        //                 /*$.each(countries[this.code3].data, function (pointI, value) {
+        //                     countryChart.series[i].points[pointI].update(value, false);
+        //                 });*/
+        //                 countryChart.series[i].update({
+        //                     name: this.name,
+        //                     data: countries[this.code3].data,
+        //                     type: points.length > 1 ? 'line' : 'area'
+        //                 }, false);
+        //             } else {
+        //                 countryChart.addSeries({
+        //                     name: this.name,
+        //                     data: countries[this.code3].data,
+        //                     type: points.length > 1 ? 'line' : 'area'
+        //                 }, false);
+        //             }
+        //         });
+        //         while (countryChart.series.length > points.length) {
+        //             countryChart.series[countryChart.series.length - 1].remove(false);
+        //         }
+        //         countryChart.redraw();
 
-            } else {
-                $('#info #flag').attr('class', '');
-                $('#info h2').html('');
-                $('#info .subheader').html('');
-                if (countryChart) {
-                    countryChart = countryChart.destroy();
-                }
-            }
-
-
-
-        });
+        //     } else {
+        //         $('#info #flag').attr('class', '');
+        //         $('#info h2').html('');
+        //         $('#info .subheader').html('');
+        //         if (countryChart) {
+        //             countryChart = countryChart.destroy();
+        //         }
+        //     }
+        // });
 
         // Initiate the map chart
         mapChart = $('#container').highcharts('Map', {
 
             title : {
-                text : 'Population history by country'
+                text : 'Title'
             },
 
             subtitle: {
-                text: 'Source: <a href="http://data.worldbank.org/indicator/SP.POP.TOTL/countries/1W?display=default">The World Bank</a>'
+                text: 'Subtitle'
             },
 
             mapNavigation: {
@@ -201,26 +198,29 @@ $(function () {
             },
 
             tooltip: {
-                footerFormat: '<span style="font-size: 10px">(Click for details)</span>'
+                animation: true,
+                pointFormat: 'the sentiment index here'
             },
 
             series : [{
+                // data is array of objects with country info
                 data : data,
+                // default country objects that populate map
                 mapData: mapData,
                 joinBy: ['iso-a3', 'code3'],
-                name: 'Current population',
-                allowPointSelect: true,
-                cursor: 'pointer',
+                name: 'TOPIC sentiment',
+                allowPointSelect: false,
+                // cursor: 'pointer',
                 states: {
                     select: {
-                        color: '#a4edba',
+                        // color: '#a4edba',
                         borderColor: 'black',
-                        dashStyle: 'shortdot'
+                        dashStyle: 'shortdot',
+
                     }
                 }
             }]
+            // may not need below method
         }).highcharts();
-        // Pre-select a country
-        mapChart.get('us').select();
     });
 });
