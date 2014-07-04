@@ -29,3 +29,21 @@
 .highcharts-tooltip {
 	
 }
+
+#logo {
+	display: inline-block;
+}
+
+h1 {
+	font-family: "HelveticaNeue", Arial, sans-serif;
+}
+
+nav {
+	display: inline-block;
+	float: right;
+}
+
+nav li {
+	list-style: none;
+	display: inline-block;
+}
