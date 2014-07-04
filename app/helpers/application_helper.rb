@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def get_client
+	def get_twitter_client
 		Twitter::REST::Client.new do |config|
 			config.consumer_key        = Rails.application.secrets.consumer_key
 			config.consumer_secret     = Rails.application.secrets.consumer_secret
