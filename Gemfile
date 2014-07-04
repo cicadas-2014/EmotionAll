@@ -51,3 +51,6 @@ end
 
 # Use Postgres
 gem 'pg'
+
+# Twitter gem
+gem 'twitter'
