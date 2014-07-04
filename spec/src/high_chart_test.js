@@ -1,5 +1,5 @@
 $(function () {
-
+    // debugger;
     $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-history.csv&callback=?', function (csv) {
 
         // Parse the CSV Data
@@ -176,7 +176,7 @@ $(function () {
         });
 
         // Initiate the map chart
-        mapChart = $('#container').highcharts('Map', {
+         mapChart = $('#container').highcharts('Map', {
 
             title : {
                 text : 'Population history by country'
@@ -221,6 +221,10 @@ $(function () {
             }]
         }).highcharts();
         // Pre-select a country
+
         mapChart.get('us').select();
+
     });
 });
+
+
