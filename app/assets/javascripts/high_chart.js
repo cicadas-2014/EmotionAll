@@ -30,7 +30,8 @@ var Map = {
             },
             tooltip: {
                 animation: true,
-                pointFormat: 'the sentiment index here'
+                pointFormat: 'the sentiment index here',
+                shadow: false
             },
             series : [{
                 data : self.dataInput, // data is array of objects with country info
