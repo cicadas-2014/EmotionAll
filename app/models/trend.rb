@@ -2,7 +2,8 @@ class Trend < ActiveRecord::Base
 	has_many :tweets
 
 	# defaults to US trends
-	def self.get_current_trends(woeid=23424977) 
+
+	def self.get_current_trends(woeid=23424977)
 		new_trends = get_twitter_client.trends(woeid)
 		new_trends.each do |trend|
 			existing_trend = Trend.find_by(name: trend.name)
