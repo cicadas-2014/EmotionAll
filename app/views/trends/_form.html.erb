@@ -1,0 +1,25 @@
+<%= form_for(@trend) do |f| %>
+  <% if @trend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trend.errors.count, "error") %> prohibited this trend from being saved:</h2>
+
+      <ul>
+      <% @trend.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :trend %><br>
+    <%= f.text_field :trend %>
+  </div>
+  <div class="field">
+    <%= f.label :woeid %><br>
+    <%= f.number_field :woeid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
