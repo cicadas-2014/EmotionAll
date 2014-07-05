@@ -7,8 +7,8 @@ class Tweet < ActiveRecord::Base
 
 	def set_sentiment
 		results = get_sentiment
-		self.update_attributes(sentiment: results["type"],
-													 sentiment_score: results["score"])
+		self.update_attributes(sentiment: results["type"] || "neutral",
+													 sentiment_score: results["score"] || 0)
 	end
 
 	def get_highmap_val
