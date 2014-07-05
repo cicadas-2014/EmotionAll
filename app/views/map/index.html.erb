@@ -1,3 +1,16 @@
+<div id="trend-menu">
+	<div id="trend-header">
+		<h2>Pick a Trend:</h2>
+	</div>
+	<div id="trending-topics">
+		<ul>
+			<% @trends.each do |trend| %>
+				<li id="trend-<%= trend.id %>">
+					<%= link_to trend.name, trend_path(trend) %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
 <div id="map-wrapper">
-  <div id="map-container"></div>
 </div>

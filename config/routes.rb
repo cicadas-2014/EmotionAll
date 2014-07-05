@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # resources :trends
 
   get '/map' => 'map#index'
+  get '/map/show' => 'map#show'
   get '/' => 'trends#index'
-  get '/:id' => 'trends#json', constraints: {:format => /json/}
+  get '/trends/:id' => 'trends#json', constraints: {:format => /json/}, as: 'trend'
 end
