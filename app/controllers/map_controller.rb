@@ -1,6 +1,6 @@
 class MapController < ApplicationController
 
   def index
-  	@trends = ['Soccer', 'Independence Day', 'BBQ']
+    @trends = Trend.all
   end
 end
