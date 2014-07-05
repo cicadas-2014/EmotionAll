@@ -16,7 +16,6 @@ linkEvents = {
         })
         trendReq.fail(function() {
             console.log('Fetch Fail! :(');
-            console.log(trendId);
         })
     },
     fetchMap: function(trend, tweetData) {
