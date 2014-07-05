@@ -69,13 +69,10 @@ var Map = {
 var createMapView = {
   init: function() {
     var self = this;
-    $.ajax({
-      url: "http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?",
-      type: "GET", // in the future, pass server info on which Trend to get data for
-      dataType: "json"
-    }).done(function( response ){
-          debugger;
-    });
+  // .on(click, function)
+  // e.preventDefault
+  // ajax request to trends#json, send up trend id
+  // with response, send to createmapview
     $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', function(data) {
       var mapData = Highcharts.geojson(Highcharts.maps['custom/world']);
       self.inputData(data);
