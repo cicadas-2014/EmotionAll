@@ -14,6 +14,11 @@
  *= require_self
  */
 
+body {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 /* High-chart Map Style */
 #map-wrapper {
   height: 500px;
@@ -34,29 +39,46 @@
 	list-style: none;
 }
 
+/* App Copy */
+h1, h2 {
+  font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+/* Header */
+header {
+  margin: 20px auto;
+}
+
+nav {
+  display: inline-block;
+  float: right;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+}
+
 #logo {
 	display: inline-block;
 }
 
-h1 {
-	font-family: "HelveticaNeue", Arial, sans-serif;
-}
-
-nav {
-	display: inline-block;
-	float: right;
-}
-
-nav li {
-	list-style: none;
-	display: inline-block;
-}
-
+/* Trend Menu */
 #trend-menu {
 	float: left;
 }
 
-#trend-header, #trending-topics {
-	vertical-align: top;
+#trend-header {
+  padding: 10px 0;
+}
+
+#trending-topics li {
+  list-style: none;
+  padding: 5px 0;
 }
 
