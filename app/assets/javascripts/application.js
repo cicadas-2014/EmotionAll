@@ -16,6 +16,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  linkEvents.fetchMap(" ", []);
-  linkEvents.trendClick();
+    linkEvents.fetchMap(" ", []);
+    linkEvents.trendClick();
 });

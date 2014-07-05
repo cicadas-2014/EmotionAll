@@ -21,7 +21,7 @@ linkEvents = {
     fetchMap: function(trend, tweetData) {
         var mapReq = $.get('/map/show');
         mapReq.success(function(html) {
-            $('#map-wrapper').append(html);
+            $('#map-wrapper').html(html);
             createMapView.init(trend, tweetData);
         });
         mapReq.fail(function() {
