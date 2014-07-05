@@ -1,6 +1,6 @@
 class TrendsController < ApplicationController
 	def index
-
+    @recent_trends = Trends.most_recent_trends
 	end
 
   def json

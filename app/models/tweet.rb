@@ -2,7 +2,7 @@ class Tweet < ActiveRecord::Base
 	belongs_to :trend
 
 	def get_sentiment
-		AlchemyAPI.search(:sentiment_analysis, :text => self.text.delete("#"))
+		AlchemyAPI.search(:sentiment_analysis, :text => self.text.delete("#").delete("&amp;").delete("w2g"))
 	end
 
 	def set_sentiment

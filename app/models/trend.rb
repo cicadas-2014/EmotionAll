@@ -14,12 +14,8 @@ class Trend < ActiveRecord::Base
 		end
 	end
 
-	def self.
-
-	end
-
 	# default options are recent tweets and english language
-	def get_tweets
+	def get_tweets  # gets tweets connected to a trend
 		new_tweets = get_twitter_client.search("#{self.name}", result_type:"recent", lang: "en")
 		# in the future, add logic to get a more location-diverse sample of tweets
 		new_tweets.select{ |tweet| tweet.geo? }.each do |t|
@@ -39,6 +35,17 @@ class Trend < ActiveRecord::Base
 	def update_tweets_sentiments
 		self.tweets.each do |t|
 			t.set_sentiment unless t.sentiment && t.sentiment_score
+		end
+	end
+
+	def self.most_recent_trends
+		Trend.order(updated_at: :desc).take(9)
+	end
+
+	def self.update_tweets
+		self.most_recent_trends.each do |trend|
+			trend.get_tweets
+			trend.update_tweets_sentiments
 		end
 	end
 
