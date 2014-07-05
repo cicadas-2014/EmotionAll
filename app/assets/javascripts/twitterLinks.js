@@ -6,17 +6,18 @@ linkEvents = {
             var trend = $(this).text();
             var trendId = $(this).attr('id').substring(6);
             self.fetchTweets(trend, trendId);
-        })
+        });
     },
     fetchTweets: function(trend, trendId) {
         var self = this;
         var trendReq = $.get('/trends/' + trendId);
         trendReq.success(function(tweetData) {
             self.fetchMap(trend, tweetData);
-        })
+        });
         trendReq.fail(function() {
-            console.log('Fetch Fail! :(');
-        })
+            var errorDiv = '#trend-' + trendId + ' .errors-txt';
+            $(errorDiv).html('<p class="error">Error fetching tweets.</p>');
+        });
     },
     fetchMap: function(trend, tweetData) {
         var mapReq = $.get('/map/show');
@@ -26,7 +27,7 @@ linkEvents = {
         });
         mapReq.fail(function() {
             console.log('Load Fail! :(');
-        })
+        });
     }
 };
 

@@ -59,6 +59,17 @@ h2 {
   font-size: 1.6em;
 }
 
+p {
+  font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
+  font-size: 0.8em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 0.6em;
+}
+
 /* Header */
 #logo {
   display: inline-block;

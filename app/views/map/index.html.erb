@@ -7,6 +7,7 @@
 			<% @trends.each do |trend| %>
 				<li id="trend-<%= trend.id %>">
 					<%= link_to trend.name, trend_path(trend) %>
+					<div class="errors-txt"></div>
 				</li>
 			<% end %>
 		</ul>
