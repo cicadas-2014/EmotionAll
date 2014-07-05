@@ -47,7 +47,7 @@ class Trend < ActiveRecord::Base
 	end
 
 	def self.update_tweets
-		self.all.each do |trend|
+		self.most_recent_trends.each do |trend|
 			trend.create_tweets
 			trend.update_tweets_sentiments
 		end
