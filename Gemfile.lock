@@ -28,6 +28,12 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+<<<<<<< HEAD
+=======
+    alchemy-api-rb (0.2.2)
+      excon (~> 0.28.0)
+      faraday (~> 0.8.1)
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
     arel (5.0.1.20140414130214)
     buftok (0.2.0)
     builder (3.2.2)
@@ -45,15 +51,25 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     database_cleaner (1.3.0)
+<<<<<<< HEAD
     diff-lcs (1.2.5)
     equalizer (0.0.9)
     erubis (2.7.0)
+=======
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.2.5)
+    equalizer (0.0.9)
+    erubis (2.7.0)
+    excon (0.28.0)
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
     execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+<<<<<<< HEAD
     faker (1.3.0)
       i18n (~> 0.5)
     faraday (0.9.0)
@@ -61,6 +77,15 @@ GEM
     hike (1.2.3)
     http (0.6.1)
       http_parser.rb (~> 0.6.0)
+=======
+    faker (1.4.1)
+      i18n (~> 0.5)
+    faraday (0.8.9)
+      multipart-post (~> 1.2.0)
+    hike (1.2.3)
+    http (0.5.1)
+      http_parser.rb
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
     http_parser.rb (0.6.0)
     i18n (0.6.9)
     jbuilder (2.1.1)
@@ -79,8 +104,12 @@ GEM
     mini_portile (0.6.0)
     minitest (5.3.5)
     multi_json (1.10.1)
+<<<<<<< HEAD
     multipart-post (2.0.0)
     naught (1.0.0)
+=======
+    multipart-post (1.2.0)
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     pg (0.17.1)
@@ -150,6 +179,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
+<<<<<<< HEAD
     twitter (5.9.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -160,6 +190,18 @@ GEM
       json (~> 1.8)
       memoizable (~> 0.4.0)
       naught (~> 1.0)
+=======
+    twitter (5.5.1)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      descendants_tracker (~> 0.0.3)
+      equalizer (~> 0.0.9)
+      faraday (>= 0.8, < 0.10)
+      http (~> 0.5.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
       simple_oauth (~> 0.2.0)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
@@ -173,6 +215,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
+=======
+  alchemy-api-rb
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner

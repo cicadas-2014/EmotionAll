@@ -25,12 +25,21 @@ ActiveRecord::Schema.define(version: 20140704172244) do
 
   create_table "tweets", force: true do |t|
     t.string   "text"
+<<<<<<< HEAD
     t.integer  "tweetid"
     t.integer  "retweet_count"
     t.string   "language"
     t.string   "country_code"
     t.float    "longitude"
     t.float    "latitude"
+=======
+    t.string   "tweetid"
+    t.integer  "retweet_count"
+    t.string   "language"
+    t.string   "country_code"
+    t.float    "latitude"
+    t.float    "longitude"
+>>>>>>> 41060d8f32f99d724c4bbfa0efd869b8fc8b8d89
     t.string   "sentiment"
     t.float    "sentiment_score"
     t.integer  "trend_id"
