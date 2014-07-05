@@ -71,6 +71,8 @@ nav li {
 /* Trend Menu */
 #trend-menu {
 	float: left;
+  border: 1px solid black;
+  padding: 1em;
 }
 
 #trend-header {
