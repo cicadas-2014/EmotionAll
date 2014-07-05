@@ -12,17 +12,20 @@ linkEvents = {
         var self = this;
         var trendReq = $.get('/trends/' + trendId);
         trendReq.success(function(tweetData) {
-            self.fetchMap(tweetData);
+            self.fetchMap(trend, tweetData);
         })
-        trendReq.fail(function(response) {
+        trendReq.fail(function() {
             console.log('Fail! :(');
         })
     },
-    fetchMap: function(tweetData) {
+    fetchMap: function(trend, tweetData) {
         var mapReq = $.get('/map/show');
         mapReq.success(function(html) {
-            $('#map-wrapper').append(html);
-            createMapView.init(tweetData);
+            $('#map-wrapper').html(html);
+            createMapView.init(trend, tweetData);
+        });
+        mapReq.fail(function() {
+            console.log('Fail! :(');
         })
     }
 };

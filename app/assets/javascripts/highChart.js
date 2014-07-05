@@ -1,13 +1,10 @@
 var Map = {
   dataInput: [],
-  defaultView: function(mapData) {
+  defaultView: function(topic, mapData) {
     var self = this;
     $('#map-container').highcharts('Map', {
-      title : {
-        text : 'Title'
-      },
-      subtitle: {
-        text: 'Subtitle'
+      title: {
+        text: topic
       },
       mapNavigation: {
         enabled: true,
@@ -21,8 +18,8 @@ var Map = {
         startOnTick: false,
         min: 1,
         max: 100,
-        minColor: '#FF3E44',
-        maxColor: '#474CFF'
+        minColor: '#474CFF',
+        maxColor: '#FF3E44'
       },
       colors: ['#FFF9E4'],
       tooltip: {
@@ -60,11 +57,11 @@ var Map = {
 };
 
 var createMapView = {
-  init: function(tweetData) {
+  init: function(trend, tweetData) {
     var map = Highcharts.maps['custom/world'];
     var mapData = Highcharts.geojson(map);
     this.inputData(tweetData);
-    this.layoutMap(mapData);
+    this.layoutMap(trend, mapData);
   },
   inputData: function(data) { // may need to be refactor depending on response
     Map.dataInput = [];
@@ -72,7 +69,7 @@ var createMapView = {
       Map.dataInput.push(data[i]);
     }
   },
-  layoutMap: function(mapData) {
-    Map.defaultView(mapData);
+  layoutMap: function(topic, mapData) {
+    Map.defaultView(topic, mapData);
   }
 };
