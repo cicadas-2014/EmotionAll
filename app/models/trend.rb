@@ -47,7 +47,7 @@ class Trend < ActiveRecord::Base
 	end
 
 	def self.update_tweets
-		self.most_recent_trends.each do |trend|
+		self.all.each do |trend|
 			trend.create_tweets
 			trend.update_tweets_sentiments
 		end
@@ -72,7 +72,7 @@ class Trend < ActiveRecord::Base
 			json_output << { code: c,
 		        					 value: country_average }
 		end
-	
+
 		json_output
 	end
 

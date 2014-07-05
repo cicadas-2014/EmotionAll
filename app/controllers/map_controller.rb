@@ -1,7 +1,7 @@
 class MapController < ApplicationController
 
   def index
-    @trends = Trend.all
+    @trends = Trend.most_recent_trends
   end
 
 
