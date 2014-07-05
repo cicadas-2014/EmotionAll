@@ -53,7 +53,7 @@ var Map = {
         name: 'Sentiment Index'
       }]
     })
-  },
+  }
 };
 
 var createMapView = {
@@ -63,9 +63,9 @@ var createMapView = {
     this.inputData(tweetData);
     this.layoutMap(trend, mapData);
   },
-  inputData: function(data) { // may need to be refactor depending on response
+  inputData: function(data) {
     Map.dataInput = [];
-    for (var i in data) { // loops through the array of objects from the get json request
+    for (var i in data) {
       Map.dataInput.push(data[i]);
     }
   },

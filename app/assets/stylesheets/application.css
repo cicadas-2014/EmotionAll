@@ -53,6 +53,7 @@ h1, h2 {
 
 h1 {
   letter-spacing: 2px;
+  color: #FFF;
 }
 
 h2 {
@@ -62,6 +63,15 @@ h2 {
 p {
   font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
   font-size: 0.8em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: none;
 }
 
 .error {
@@ -87,7 +97,6 @@ nav li {
   vertical-align: center;
 }
 
-
 /* Trend Menu */
 #trend-menu {
 	float: left;
@@ -95,6 +104,7 @@ nav li {
   padding: 1em;
   width: 25%;
   overflow: hidden;
+  margin: 20px auto;
 }
 
 #trend-header {
