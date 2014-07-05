@@ -19,7 +19,7 @@ class Trend < ActiveRecord::Base
 	def get_tweets
 		new_tweets = get_twitter_client.search("#{self.name}", result_type:"recent", lang: "en")
 		# in the future, add logic to get a more location-diverse sample of tweets
-		new_tweets.select{ |tweet| tweet.geo? }.each do |t| 
+		new_tweets.select{ |tweet| tweet.geo? }.each do |t|
 			unless Tweet.find_by(text: t.text)
 				Tweet.create( text: t.text,
 					tweetid: t.id.to_s,
@@ -36,6 +36,14 @@ class Trend < ActiveRecord::Base
 	def update_tweets_sentiments
 		self.tweets.each do |t|
 			t.set_sentiment unless t.sentiment && t.sentiment_score
+		end
+	end
+
+	def self.get_json_for_tweets(trend_name)
+		trend = Trend.find_by(name: trend_name)
+		json = []
+		trend.tweets.each do |t|
+
 		end
 	end
 end
