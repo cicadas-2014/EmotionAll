@@ -1,9 +1,3 @@
-// function Country(alchemizedCountry) {
-//     this.code = alchemizedCountry.code;
-//     this.sentiment = alchemizedCountry.sentiment;
-//     this.name = alchemizedCountry.name;
-// }
-
 var Map = {
     dataInput: [],
     defaultView: function(mapData) {
