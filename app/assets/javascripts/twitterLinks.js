@@ -15,7 +15,8 @@ linkEvents = {
             self.fetchMap(trend, tweetData);
         })
         trendReq.fail(function() {
-            console.log('Fail! :(');
+            console.log('Fetch Fail! :(');
+            console.log(trendId);
         })
     },
     fetchMap: function(trend, tweetData) {
@@ -25,7 +26,7 @@ linkEvents = {
             createMapView.init(trend, tweetData);
         });
         mapReq.fail(function() {
-            console.log('Fail! :(');
+            console.log('Load Fail! :(');
         })
     }
 };
