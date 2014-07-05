@@ -43,6 +43,11 @@ body {
 h1, h2 {
   font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
   font-size: 2.4em;
+  font-weight: 300;
+}
+
+h1 {
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -52,20 +57,21 @@ h2 {
 /* Header */
 header {
   margin: 20px auto;
+  background-color: #AC41E8;
 }
 
 nav {
-  display: inline-block;
   float: right;
 }
 
 nav li {
   list-style: none;
   display: inline-block;
+  vertical-align: center;
 }
 
 #logo {
-	display: inline-block;
+  display: inline-block;
 }
 
 /* Trend Menu */
