@@ -5,7 +5,7 @@
 	<div id="trending-topics">
 		<ul>
 			<% @trends.each do |trend| %>
-				<li><%= link_to trend.name, trends_path %></li>
+				<li><%= link_to trend.name, trends_path, :id => trend.id %></li>
 			<% end %>
 		</ul>
 	</div>
