@@ -55,11 +55,25 @@ class Trend < ActiveRecord::Base
 
 	def self.get_json_for_tweets(trend_id)
 		trend = Trend.find(trend_id)
-		json = []
-		trend.tweets.each do |t|
-			json << { code: t.country_code,
-								value: t.get_highmap_val }
+		tweets = trend.tweets
+		countries = []
+		json_output = []
+
+		tweets.each do |t|
+			countries << t.country_code
 		end
-		json #MAKE THIS AN AVERAGE
+
+		countries.uniq.each do |c|
+			country_average = []
+			tweets.select{ |t| t.country_code == c }.each do |tweet|
+				country_average << tweet.get_highmap_val
+			end
+			country_average = country_average.inject(:+) / country_average.length
+			json_output << { code: c,
+		        					 value: country_average }
+		end
+	
+		json_output
 	end
+
 end
