@@ -8,8 +8,8 @@ class CreateTweets < ActiveRecord::Migration
       t.string :country_code
       t.float :latitude
       t.float :longitude
-      t.string :sentiment, default: "neutral"
-      t.float :sentiment_score, default: 0.0
+      t.string :sentiment
+      t.float :sentiment_score
       t.belongs_to :trend
 
       t.timestamps
