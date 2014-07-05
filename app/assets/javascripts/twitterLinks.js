@@ -13,7 +13,6 @@ linkEvents = {
         var trendReq = $.get('/trends/' + trendId);
         trendReq.success(function(tweetData) {
             self.fetchMap(tweetData);
-            console.log(tweetData);
         })
         trendReq.fail(function(response) {
             console.log('Fail! :(');
@@ -26,5 +25,5 @@ linkEvents = {
             createMapView.init(tweetData);
         })
     }
-}
+};
 
