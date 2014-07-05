@@ -27,7 +27,7 @@ var Map = {
       colors: ['#FFF9E4'],
       tooltip: { // add country names again
         animation: true,
-        pointFormat: '{point.labelrank}', // labelrank is converted sentiment score (1-100) .. eithe rpositive or negative
+        pointFormat: '{point.name}: {point.value}', // labelrank is converted sentiment score (1-100) .. eithe rpositive or negative
         shadow: false
       },
       legend: {

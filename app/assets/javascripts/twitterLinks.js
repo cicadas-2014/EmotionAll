@@ -11,18 +11,19 @@ linkEvents = {
     fetchTweets: function(trend, trendId) {
         var self = this;
         var trendReq = $.get('/trends/' + trendId);
-        trendReq.success(function(response) {
-            createMapView.init(response);
-            self.fetchMap();
+        trendReq.success(function(tweetData) {
+            self.fetchMap(tweetData);
+            console.log(tweetData);
         })
         trendReq.fail(function(response) {
             console.log('Fail! :(');
         })
     },
-    fetchMap: function() {
+    fetchMap: function(tweetData) {
         var mapReq = $.get('/map/show');
         mapReq.success(function(html) {
-            $('#trend-menu').append(html);
+            $('#map-wrapper').append(html);
+            createMapView.init(tweetData);
         })
     }
 }
