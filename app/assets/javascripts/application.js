@@ -17,5 +17,5 @@
 
 $(document).ready(function() {
   createMapView.init();
-  linkEvents.onClick();
+  linkEvents.trendClick();
 });
