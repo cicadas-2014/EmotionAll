@@ -4,5 +4,8 @@ class MapController < ApplicationController
     @trends = Trend.all
   end
 
-  def
+
+  def show
+    render :map, :layout => false
+  end
 end

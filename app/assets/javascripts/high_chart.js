@@ -61,17 +61,17 @@ var Map = {
 
 
 var createMapView = {
-  init: function() {
+  init: function(tweetData) {
     var self = this;
   // .on(click, function)
   // e.preventDefault
   // ajax request to trends#json, send up trend id
   // with response, send to createmapview
-    $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', function(data) {
+    // $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=world-population-density.json&callback=?', function(data) {
       var mapData = Highcharts.geojson(Highcharts.maps['custom/world']);
-      self.inputData(data);
+      self.inputData(tweetData);
       self.layoutMap(mapData);
-    })
+    // })
   },
     inputData: function(data) { // may need to be refactor depending on response
         for (var i in data) { // loops through the array of objects from the get json request
