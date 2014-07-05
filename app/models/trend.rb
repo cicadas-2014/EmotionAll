@@ -16,18 +16,22 @@ class Trend < ActiveRecord::Base
 
 	# default options are recent tweets and english language
 	def get_tweets  # gets tweets connected to a trend
-		new_tweets = get_twitter_client.search("#{self.name}", result_type:"recent", lang: "en")
+		get_twitter_client.search("#{self.name}", result_type:"recent", lang: "en").attrs[:statuses]
 		# in the future, add logic to get a more location-diverse sample of tweets
-		new_tweets.select{ |tweet| tweet.geo? }.each do |t|
-			unless Tweet.find_by(text: t.text)
-				Tweet.create( text: t.text,
-											tweetid: t.id.to_s,
-											retweet_count: t.retweet_count,
-											language: t.lang,
-											country_code: t.place.country_code,
-											latitude: t.geo.coordinates[0],
-											longitude: t.geo.coordinates[1],
-											trend: self )
+	end
+
+	def create_tweets
+		new_tweets = get_tweets
+		new_tweets.select{ |tweet| tweet[:geo] != nil }.each do |t|
+			unless Tweet.find_by(text: t[:text])
+				Tweet.create(text: t[:text],
+									 	 tweetid: t[:id_str],
+								 		 retweet_count: t[:retweet_count],
+							 			 language: t[:lang],
+						 				 country_code: t[:place][:country_code],
+										 latitude: t[:geo][:coordinates][0],
+			 	  					 longitude: t[:geo][:coordinates][1],
+				  					 trend: self)
 			end
 		end
 	end
@@ -44,7 +48,7 @@ class Trend < ActiveRecord::Base
 
 	def self.update_tweets
 		self.most_recent_trends.each do |trend|
-			trend.get_tweets
+			trend.create_tweets
 			trend.update_tweets_sentiments
 		end
 	end
@@ -56,6 +60,6 @@ class Trend < ActiveRecord::Base
 			json << { code: t.country_code,
 								value: t.get_highmap_val }
 		end
-		json
+		json #MAKE THIS AN AVERAGE
 	end
 end

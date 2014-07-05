@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20140704172244) do
     t.string   "country_code"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "sentiment"
-    t.float    "sentiment_score"
+    t.string   "sentiment",       default: "neutral"
+    t.float    "sentiment_score", default: 0.0
     t.integer  "trend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
