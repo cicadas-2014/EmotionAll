@@ -72,7 +72,7 @@ class Trend < ActiveRecord::Base
 			json_output << { code: c,
 		        					 value: country_average }
 		end
-	
+
 		json_output
 	end
 
