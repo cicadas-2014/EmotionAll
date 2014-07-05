@@ -14,9 +14,14 @@
  *= require_self
  */
 
-body {
-  margin: 0 auto;
+header {
+  background-color: #AC41E8;
+  padding: 20px 0;
+}
+
+#main {
   max-width: 800px;
+  margin: 10px auto;
 }
 
 /* High-chart Map Style */
@@ -33,16 +38,21 @@ body {
 }
 
 .highcharts-tooltip {
-	color: '#333333';
-	font-size: '12px';
-	padding: '8px';
-	list-style: none;
+  color: '#333333';
+  font-size: '12px';
+  padding: '8px';
+  list-style: none;
 }
 
 /* App Copy */
 h1, h2 {
   font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
   font-size: 2.4em;
+  font-weight: 300;
+}
+
+h1 {
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -50,29 +60,30 @@ h2 {
 }
 
 /* Header */
-header {
-  margin: 20px auto;
+#logo {
+  display: inline-block;
+  padding: 5px 10px;
 }
 
 nav {
-  display: inline-block;
   float: right;
+  padding: 5px 10px;
 }
 
 nav li {
   list-style: none;
   display: inline-block;
+  vertical-align: center;
 }
 
-#logo {
-	display: inline-block;
-}
 
 /* Trend Menu */
 #trend-menu {
 	float: left;
   border: 1px solid black;
   padding: 1em;
+  width: 25%;
+  overflow: hidden;
 }
 
 #trend-header {
