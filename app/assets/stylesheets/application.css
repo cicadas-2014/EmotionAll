@@ -17,9 +17,10 @@
 /* High-chart Map Style */
 #map-wrapper {
   height: 500px;
-  width: 800px;
+  width: 60%;
   margin: 0 auto;
   padding: 0;
+  float: right;
 }
 
 #map-container {
@@ -27,7 +28,10 @@
 }
 
 .highcharts-tooltip {
-	
+	color: '#333333';
+	font-size: '12px';
+	padding: '8px';
+	list-style: none;
 }
 
 #logo {
@@ -46,4 +50,12 @@ nav {
 nav li {
 	list-style: none;
 	display: inline-block;
+}
+
+#trend-menu {
+	float: left;
+}
+
+#trend-header, #trending-topics {
+	vertical-align: top;
 }
