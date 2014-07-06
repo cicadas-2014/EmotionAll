@@ -21,4 +21,5 @@ $(document).ready(function() {
     linkEvents.currentTrend();
     buttonEvents.allTrends();
     buttonEvents.lessTrends();
+    fixedMap();
 });
