@@ -31,7 +31,7 @@ describe Trend do
   end
 
   describe "#update_tweet_sentiments" do
-    pending
+    expect(trend.update_tweet_sentiments).to
   end
 
   describe "self#most_recent_trends" do
