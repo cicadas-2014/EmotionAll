@@ -6,6 +6,7 @@ var eventHandler = function() {
     scrollEvents.stickMap();
     scrollEvents.shrinkMenu();
     scrollEvents.showFooter();
+    scrollEvents.stickTrendHeader();
 };
 
 var errorHandler = {
