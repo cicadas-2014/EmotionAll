@@ -82,9 +82,9 @@ class Trend < ActiveRecord::Base
 		recent_trends
 	end
 
-	def self.get_past_trends(current_trends)
+	def self.get_past_trends
 		past_trends = []
-		Trend.all.each { |t| past_trends << t if !current_trends.include?(t) }
+		Trend.all.each { |t| past_trends << t if !self.most_recent_trends.include?(t) }
 		past_trends
 	end
 end
