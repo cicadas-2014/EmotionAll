@@ -169,6 +169,10 @@ nav li:hover{
   color: #FFF;
 }
 
+#all-trends-btn:hover, #less-trends-btn:hover {
+  cursor: pointer;
+}
+
 #less-trends-btn {
   display: none;
 }
