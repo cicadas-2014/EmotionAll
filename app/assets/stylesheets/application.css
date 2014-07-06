@@ -80,7 +80,7 @@ header.shrink h1 {
 /* High-chart Map Style */
 #map-wrapper.fixed-map {
   top: 0;
-  margin-top: 100px;
+  margin-top: 140px;
   position: fixed;
 }
 
@@ -90,6 +90,7 @@ header.shrink h1 {
   margin: 0 auto;
   display: inline-block;
   position: relative;
+  margin-top: 40px;
 }
 
 #map-container {

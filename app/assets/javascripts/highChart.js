@@ -4,7 +4,11 @@ var Map = {
     var self = this;
     $('#map-container').highcharts('Map', {
       title: {
-        text: topic
+        text: topic,
+        style: {
+          color: '#0099CC',
+          font: '24px "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif'
+        }
       },
       mapNavigation: {
         enabled: true,
