@@ -1,3 +1,13 @@
+var eventHandler = function() {
+    linkEvents.popularTrend();
+    linkEvents.currentTrend();
+    buttonEvents.allTrends();
+    buttonEvents.lessTrends();
+    scrollEvents.stickMap();
+    scrollEvents.shrinkMenu();
+    scrollEvents.showFooter();
+};
+
 var errorHandler = {
     Display: function(errorDiv, error) {
         $(errorDiv).html('<p class="error">Error fetching ' + error + '.</p>');
@@ -6,14 +16,4 @@ var errorHandler = {
         var errorDiv = '#trend-' + id + ' .errors-txt';
         $(errorDiv).remove();
     }
-}
-
-var eventHandler = function() {
-    linkEvents.popularTrend();
-    linkEvents.currentTrend();
-    buttonEvents.allTrends();
-    buttonEvents.lessTrends();
-    fixedMap();
-    scrollEvents.shrinkMenu();
-    scrollEvents.showFooter();
-}
+};
