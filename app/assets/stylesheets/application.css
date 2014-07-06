@@ -55,22 +55,6 @@ header.shrink {
   height: 400px;
 }
 
-h1 {
-  font-size: 3.2em;
-  letter-spacing: 4px;
-  color: #FFF;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-header.shrink h1 {
-  font-size: 2.8em;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
 #main {
   width: 100%;
   background-color: #FFF;
@@ -109,6 +93,22 @@ footer {
 
 
 /* App Copy */
+h1 {
+  font-size: 3.2em;
+  letter-spacing: 4px;
+  color: #FFF;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.shrink h1 {
+  font-size: 2.8em;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 h1, h2, p, a, li {
   font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
 }
@@ -197,7 +197,7 @@ nav li:hover{
 
 #trends-content h1 {
   letter-spacing: 2px;
-  font-size: 3.2em;
+  font-size: 2.4em;
   padding: 40px;
 }
 
@@ -207,7 +207,7 @@ nav li:hover{
 }
 
 #trends-content ul {
-  width: 50%;
+  width: 100%;
   list-style: none;
   display: inline-block;
 }
@@ -221,6 +221,10 @@ nav li:hover{
   font-size: 1.6em;
   color: #FFF;
   font-weight: 200;
+}
+
+#trends-content a:hover {
+  opacity: 0.8;
 }
 
 /* Appending content */
