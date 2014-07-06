@@ -13,7 +13,6 @@ var linkEvents = {
         $('#trends-content').on('click', 'li', function(event) {
             event.preventDefault();
             $('#main-content').show();
-            $('body').scrollTop(200);
             var trend = $(this).text();
             self.trendId = $(this).attr('id').substring(6);
             fetchTweets(trend, self.trendId);

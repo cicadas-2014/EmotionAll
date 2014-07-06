@@ -22,4 +22,5 @@ $(document).ready(function() {
     buttonEvents.allTrends();
     buttonEvents.lessTrends();
     fixedMap();
+    shrinkMenu();
 });
