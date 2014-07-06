@@ -3,7 +3,7 @@ var linkEvents = {
         var self = this;
         $('#trending-topics ul li').on('click', function(event) {
             event.preventDefault();
-            errorEvents.Clear(self.trendId);
+            errorHandler.Clear(self.trendId);
             var trend = $(this).text();
             self.trendId = $(this).attr('id').substring(6);
             fetchTweets(trend, self.trendId);
@@ -18,7 +18,7 @@ function fetchTweets(trend, trendId) {
     });
     trendReq.fail(function() {
         var errorDiv = '#trend-' + trendId + ' .errors-txt';
-        errorEvents.Display(errorDiv, 'tweets');
+        errorHandler.Display(errorDiv, 'tweets');
     });
 };
 
@@ -29,11 +29,11 @@ function fetchMap(trend, tweetData) {
         createMapView.init(trend, tweetData);
     });
     mapReq.fail(function() {
-        errorEvents.Display('#map-wrapper', 'map');
+        errorHandler.Display('#map-wrapper', 'map');
     });
 };
 
-var errorEvents = {
+var errorHandler = {
     Display: function(errorDiv, error) {
         $(errorDiv).html('<p class="error">Error fetching ' + error + '.</p>');
     },
