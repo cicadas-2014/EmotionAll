@@ -46,10 +46,22 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(9)
 	end
 
+	def self.most_recent_names_array
+		most_recent_trends.map{|t| t.name}
+	end
+
+	def find_own_tweets
+		own_tweets = Tweet.where("text ILIKE (?)", "%#{self.name}%")
+		own_tweets.each do |t|
+			t.update_attributes(trend: self)
+		end
+	end
+
 	def self.update_tweets
 		self.most_recent_trends.each do |trend|
-			trend.create_tweets
-			trend.update_tweets_sentiments
+			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
+			trend.find_own_tweets # for tweets that were saved using the Streaming API
+			trend.update_tweets_sentiments # makes Alchemy API calls if tweet doesn't have sentiments
 		end
 	end
 
