@@ -80,11 +80,11 @@ var createMapView = {
 };
 
 function fixedMap() {
-  var yDistance = $('.padding-div').height() + $('#main').height();
+  var height = $('.padding-div').height() + $('#main').height();
   var $map = $('#map-wrapper');
   $(window).scroll(function() {
     var y = $(this).scrollTop();
-    if ( y > yDistance ) {
+    if ( y > height ) {
       $map.addClass("fixed-map");
     } else {
       $map.removeClass("fixed-map");
