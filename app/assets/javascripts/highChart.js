@@ -74,3 +74,16 @@ var createMapView = {
     Map.defaultView(topic, mapData);
   }
 };
+
+function fixedMap() {
+  var $map = $('#map-wrapper');
+  $(window).scroll(function() {
+    var y = $(this).scrollTop();
+    if ( y > 380 ) {
+      $map.addClass("fixed-map");
+    } else {
+      $map.removeClass("fixed-map");
+    }
+  })
+};
+

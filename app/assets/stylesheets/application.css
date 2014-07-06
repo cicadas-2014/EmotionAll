@@ -32,17 +32,23 @@ header {
 }
 
 /* High-chart Map Style */
+#map-wrapper.fixed-map {
+  position: fixed;
+  top: 0;
+}
+
 #map-wrapper {
   height: 500px;
   width: 75%;
   margin: 0 auto;
-  padding: 0;
-  float: right;
+  display: inline-block;
+  position: relative;
 }
 
 #map-container {
   margin: 0 auto;
 }
+
 
 /* App Copy */
 h1, h2 {
@@ -126,7 +132,43 @@ nav li:hover{
   opacity: 0.8;
 }
 
-/* Trend Menu */
+/* Current Trends Filler */
+#trends-content {
+  background-color: #B0C4DE;
+  text-align: center;
+  padding: 24px;
+  z-index: 10;
+}
+
+#trends-content h1 {
+  letter-spacing: 2px;
+  font-size: 3.2em;
+  padding: 40px;
+}
+
+#trends-content a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+#trends-content ul {
+  width: 50%;
+  list-style: none;
+  display: inline-block;
+}
+
+#trends-content li {
+  display: inline-block;
+  padding: 12px 24px;
+}
+
+#trends-content a {
+  font-size: 1.6em;
+  color: #FFF;
+  font-weight: 200;
+}
+
+/* Appending content */
 #main-content {
   max-width: 1000px;
   height: 600px;
@@ -135,8 +177,9 @@ nav li:hover{
   display: none;
 }
 
+/* Trend Menu */
 #trend-menu {
-	float: left;
+  float: left;
   width: 25%;
   overflow: hidden;
   margin: 8px auto;
@@ -169,43 +212,12 @@ nav li:hover{
   color: #FFF;
 }
 
+#all-trends-btn:hover, #less-trends-btn:hover {
+  cursor: pointer;
+}
+
 #less-trends-btn {
   display: none;
-}
-
-/* Current Trends Filler */
-#trends-content {
-  background-color: #B0C4DE;
-  text-align: center;
-  padding: 24px;
-}
-
-#trends-content h1 {
-  letter-spacing: 2px;
-  font-size: 3.2em;
-  padding: 40px;
-}
-
-#trends-content a:hover {
-  color: #FFF;
-  text-decoration: none;
-}
-
-#trends-content ul {
-  width: 50%;
-  list-style: none;
-  display: inline-block;
-}
-
-#trends-content li {
-  display: inline-block;
-  padding: 12px 24px;
-}
-
-#trends-content a {
-  font-size: 1.6em;
-  color: #FFF;
-  font-weight: 200;
 }
 
 .past-trend {
