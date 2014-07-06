@@ -9,6 +9,7 @@ var Map = {
       mapNavigation: {
         enabled: true,
         buttonOptions: {
+          align: 'right',
           verticalAlign: 'bottom'
         }
       },
@@ -48,8 +49,8 @@ var Map = {
         }
       },
       series: [{
-        data: self.dataInput, // data is array of objects with country info
-        mapData: mapData, // default country objects that populate map
+        data: self.dataInput,
+        mapData: mapData,
         name: 'Sentiment Index'
       }]
     })

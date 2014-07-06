@@ -1,18 +1,33 @@
-<div id="trend-menu">
-	<div id="trend-header">
-		<h2>Current Trends</h2>
-	</div>
-	<div id="trending-topics">
-		<ul>
-			<% @trends.each do |trend| %>
-				<li id="trend-<%= trend.id %>">
-					<%= link_to trend.name, trend_path(trend) %>
-					<div class="errors-txt">
-					</div>
-				</li>
-			<% end %>
-		</ul>
-	</div>
+<div id="trends-content">
+	<h1>Recent Trends</h1>
+	<ul>
+		<% @recent_trends.each do |trend| %>
+			<li id="trend-<%= trend.id %>">
+				<h3><%= link_to trend.name, trend_path(trend) %></h3>
+			</li>
+		<% end %>
+	</ul>
 </div>
-<div id="map-wrapper">
+<div id="main-content">
+	<div id="trend-menu">
+		<div id="trend-header">
+			<h2>Current Trends</h2>
+		</div>
+		<div id="trending-topics">
+			<ul>
+				<% @trends.each do |trend| %>
+					<li id="trend-<%= trend.id %>">
+						<%= link_to trend.name, trend_path(trend) %>
+						<div class="errors-txt">
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div id="all-trends-container">
+			<button id="all-trends-btn">VIEW ALL TRENDS</button>
+		</div>
+	</div>
+	<div id="map-wrapper">
+	</div>
 </div>

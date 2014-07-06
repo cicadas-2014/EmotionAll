@@ -17,5 +17,6 @@
 
 $(document).ready(function() {
     fetchMap(" ", []);
-    linkEvents.trendClick();
+    linkEvents.popularTrend();
+    linkEvents.currentTrend();
 });

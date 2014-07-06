@@ -1,9 +1,20 @@
 var linkEvents = {
-    trendClick: function() {
+    currentTrend: function() {
         var self = this;
-        $('#trending-topics ul li').on('click', function(event) {
+        $('#main-content').on('click', 'li', function(event) {
             event.preventDefault();
             errorHandler.Clear(self.trendId);
+            var trend = $(this).text();
+            self.trendId = $(this).attr('id').substring(6);
+            fetchTweets(trend, self.trendId);
+        });
+    },
+    popularTrend: function() {
+        $('#trends-content').on('click', 'li', function(event) {
+            event.preventDefault();
+            $('#main-content').show();
+            $('')
+            $('body').scrollTop(200);
             var trend = $(this).text();
             self.trendId = $(this).attr('id').substring(6);
             fetchTweets(trend, self.trendId);
