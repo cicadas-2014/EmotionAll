@@ -32,17 +32,23 @@ header {
 }
 
 /* High-chart Map Style */
+#map-wrapper.fixed-map {
+  position: fixed;
+  top: 0;
+}
+
 #map-wrapper {
   height: 500px;
   width: 75%;
   margin: 0 auto;
-  padding: 0;
-  float: right;
+  display: inline-block;
+  position: relative;
 }
 
 #map-container {
   margin: 0 auto;
 }
+
 
 /* App Copy */
 h1, h2 {
@@ -126,54 +132,12 @@ nav li:hover{
   opacity: 0.8;
 }
 
-/* Trend Menu */
-#main-content {
-  max-width: 1000px;
-  height: 600px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  display: none;
-}
-
-#trend-menu {
-	float: left;
-  width: 25%;
-  overflow: hidden;
-  margin: 8px auto;
-}
-
-#trend-header {
-  padding: 12px 0 24px;
-  color: #AC41E8;
-}
-
-#trending-topics {
-  padding-left: 8px;
-}
-
-#trending-topics li {
-  list-style: none;
-  padding: 8px;
-}
-
-#all-trends-container {
-  display: block;
-}
-
-#all-trends-btn {
-  margin: 40px;
-  border: 0 transparent;
-  border-radius: 10px;
-  padding: 8px 16px;
-  background-color: #0099CC;
-  color: #FFF;
-}
-
 /* Current Trends Filler */
 #trends-content {
   background-color: #B0C4DE;
   text-align: center;
   padding: 24px;
+  z-index: 10;
 }
 
 #trends-content h1 {
@@ -202,4 +166,60 @@ nav li:hover{
   font-size: 1.6em;
   color: #FFF;
   font-weight: 200;
+}
+
+/* Appending content */
+#main-content {
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: none;
+}
+
+/* Trend Menu */
+#trend-menu {
+  float: left;
+  width: 25%;
+  overflow: hidden;
+  margin: 8px auto;
+}
+
+#trend-header {
+  padding: 12px 0 24px;
+  color: #AC41E8;
+}
+
+#trending-topics {
+  padding-left: 8px;
+}
+
+#trending-topics li {
+  list-style: none;
+  padding: 8px;
+}
+
+#all-trends-container {
+  display: block;
+}
+
+#all-trends-btn, #less-trends-btn {
+  margin: 40px;
+  border: 0 transparent;
+  border-radius: 10px;
+  padding: 8px 16px;
+  background-color: #0099CC;
+  color: #FFF;
+}
+
+#all-trends-btn:hover, #less-trends-btn:hover {
+  cursor: pointer;
+}
+
+#less-trends-btn {
+  display: none;
+}
+
+.past-trend {
+  display: none;
 }
