@@ -78,8 +78,16 @@ class Trend < ActiveRecord::Base
 
 	def self.get_random_trends
 		recent_trends = []
-		3.times { recent_trends << Trend.all.sample }
+		4.times do
+			trend = Trend.all.sample
+			recent_trends << trend if !recent_trends.include?(trend)
+		end
 		recent_trends
 	end
 
+	def self.get_past_trends
+		past_trends = []
+		Trend.all.each { |t| past_trends << t if !self.most_recent_trends.include?(t) }
+		past_trends
+	end
 end
