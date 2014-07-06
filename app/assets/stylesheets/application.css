@@ -209,7 +209,6 @@ nav li:hover{
 #trends-content ul {
   width: 100%;
   list-style: none;
-  display: inline-block;
 }
 
 #trends-content li {
