@@ -14,22 +14,48 @@ describe Trend do
 
   describe "self#get_current_trends" do
     it "gets new trends from Twitter" do
-      expect(Trend.get_current_trends).to eq trend
+      expect(Trend.get_current_trends).to_not change{trend.trends}.by(0)
     end
   end
 
   describe "#get_tweets" do
     it "gets tweets connected to a trend" do
-      expect(get_twitter_client)
+      expect(trend.get_tweets).to_not change{trend.tweets}.by(0)
     end
   end
 
   describe "#create_tweets" do
-
+    it "creates new tweet objects" do
+      expect(trend.create_tweets).to_not change{Tweet.count}.by(0)
+    end
   end
 
   describe "#update_tweet_sentiments" do
+    pending
+  end
 
+  describe "self#most_recent_trends" do
+    it "returns the most recent trends" do
+
+    end
+  end
+
+  describe "self#update_tweets" do
+    it "updates the tweets for the class" do
+
+    end
+  end
+
+  describe "self#get_json_for_tweets" do
+    it "correctly gets the json for tweets" do
+
+    end
+  end
+
+  describe "self#get_random_trends" do
+    it "" do
+      pending
+    end
   end
 
 end
