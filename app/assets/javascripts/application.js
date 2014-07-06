@@ -16,11 +16,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-    linkEvents.popularTrend();
-    linkEvents.currentTrend();
-    buttonEvents.allTrends();
-    buttonEvents.lessTrends();
-    fixedMap();
-    scrollEvents.shrinkMenu();
-    scrollEvents.showFooter();
+    eventHandler();
 });
