@@ -46,6 +46,10 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(9)
 	end
 
+	def self.most_recent_trends_string
+		most_recent_trends.map{|t| t.name}.join(', ')
+	end
+
 	def self.update_tweets
 		self.most_recent_trends.each do |trend|
 			trend.create_tweets
