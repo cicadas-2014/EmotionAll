@@ -76,4 +76,10 @@ class Trend < ActiveRecord::Base
 		json_output
 	end
 
+	def self.get_random_trends
+		recent_trends = []
+		3.times { recent_trends << Trend.all.sample }
+		recent_trends
+	end
+
 end
