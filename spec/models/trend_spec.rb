@@ -14,8 +14,22 @@ describe Trend do
 
   describe "self#get_current_trends" do
     it "gets new trends from Twitter" do
-      expect(get_twitter_client.trends(woeid))
+      expect(Trend.get_current_trends).to eq trend
     end
+  end
+
+  describe "#get_tweets" do
+    it "gets tweets connected to a trend" do
+      expect(get_twitter_client)
+    end
+  end
+
+  describe "#create_tweets" do
+
+  end
+
+  describe "#update_tweet_sentiments" do
+
   end
 
 end
