@@ -76,10 +76,11 @@ var createMapView = {
 };
 
 function fixedMap() {
+  var yDistance = 380;
   var $map = $('#map-wrapper');
   $(window).scroll(function() {
     var y = $(this).scrollTop();
-    if ( y > 380 ) {
+    if ( y > yDistance ) {
       $map.addClass("fixed-map");
     } else {
       $map.removeClass("fixed-map");
