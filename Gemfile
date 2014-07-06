@@ -29,8 +29,9 @@ gem 'spring',        group: :development
 group :development, :test do 
  gem 'rspec-rails' 
  gem 'factory_girl_rails' 
- gem 'jasmine-rails'
+ gem 'jasmine'
  gem 'selenium-webdriver', '~> 2.42.0'
+ gem 'jasmine-fixtures', '~> 0.1.7'
  gem 'pry'
  # gem 'debugger'
 end
@@ -40,6 +41,7 @@ group :test do
  gem 'capybara', '~> 2.4.1'
  gem 'database_cleaner' 
  gem 'capybara-webkit'
+ gem 'shoulda-matchers'
 end
 
 # Use unicorn as the app server
