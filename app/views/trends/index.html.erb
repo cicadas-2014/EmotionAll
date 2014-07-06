@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @trends.each do |trend| %>
+    <% @recent_trends.each do |trend| %>
       <tr>
         <td><%= trend.trend %></td>
         <td><%= trend.woeid %></td>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Trend', new_trend_path %>
+
