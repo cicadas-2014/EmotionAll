@@ -46,7 +46,7 @@ header {
 }
 
 header.shrink {
-  height: 100px;
+  height: 124px;
   line-height: 32px;
   text-align: left;
 }
@@ -80,6 +80,7 @@ header.shrink h1 {
 /* High-chart Map Style */
 #map-wrapper.fixed-map {
   top: 0;
+  margin-top: 100px;
   position: fixed;
 }
 

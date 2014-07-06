@@ -76,7 +76,7 @@ var createMapView = {
 };
 
 function fixedMap() {
-  var yDistance = 200;
+  var yDistance = $('.padding-div').height() + $('#main').height();
   var $map = $('#map-wrapper');
   $(window).scroll(function() {
     var y = $(this).scrollTop();
