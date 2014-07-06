@@ -32,6 +32,11 @@ feature 'Map Page', :js => true do
   let!(:trend) { create :trend }
   let!(:tweet) { create :tweet }
 
-
+  scenario 'user can view a world map' do
+    visit map_path
+    click_button trend.name
+    wait_for_ajax_to_finish
+    expect(page).to have_css("#map-container")
+  end
 
 end
