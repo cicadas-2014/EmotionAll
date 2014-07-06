@@ -22,10 +22,18 @@
 						</div>
 					</li>
 				<% end %>
+				<% @past_trends.each do |trend| %>
+					<li class="past-trend" id="trend-<%= trend.id %>">
+						<%= link_to trend.name, trend_path(trend) %>
+						<div class="errors-txt">
+						</div>
+					</li>
+				<% end %>
 			</ul>
 		</div>
 		<div id="all-trends-container">
 			<button id="all-trends-btn">VIEW ALL TRENDS</button>
+			<button id="less-trends-btn">VIEW LESS TRENDS</button>
 		</div>
 	</div>
 	<div id="map-wrapper">

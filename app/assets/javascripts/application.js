@@ -19,4 +19,6 @@ $(document).ready(function() {
     fetchMap(" ", []);
     linkEvents.popularTrend();
     linkEvents.currentTrend();
+    buttonEvents.allTrends();
+    buttonEvents.lessTrends();
 });
