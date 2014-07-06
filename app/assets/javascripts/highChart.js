@@ -9,6 +9,7 @@ var Map = {
       mapNavigation: {
         enabled: true,
         buttonOptions: {
+          align: 'right',
           verticalAlign: 'bottom'
         }
       },
@@ -48,12 +49,12 @@ var Map = {
         }
       },
       series: [{
-        data: self.dataInput, // data is array of objects with country info
-        mapData: mapData, // default country objects that populate map
+        data: self.dataInput,
+        mapData: mapData,
         name: 'Sentiment Index'
       }]
     })
-  },
+  }
 };
 
 var createMapView = {
@@ -63,9 +64,9 @@ var createMapView = {
     this.inputData(tweetData);
     this.layoutMap(trend, mapData);
   },
-  inputData: function(data) { // may need to be refactor depending on response
+  inputData: function(data) {
     Map.dataInput = [];
-    for (var i in data) { // loops through the array of objects from the get json request
+    for (var i in data) {
       Map.dataInput.push(data[i]);
     }
   },

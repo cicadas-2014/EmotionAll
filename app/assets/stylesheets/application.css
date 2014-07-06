@@ -14,20 +14,27 @@
  *= require_self
  */
 
+body {
+  background-color: #FFF;
+}
+
 header {
-  background-color: #AC41E8;
-  padding: 20px 0;
+  background-color: #0099CC;
+  padding: 24px 0;
+  height: 100px;
+  z-index: 100;
+  top: 0;
 }
 
 #main {
-  max-width: 800px;
-  margin: 10px auto;
+  width: 100%;
+  background-color: #FFF;
 }
 
 /* High-chart Map Style */
 #map-wrapper {
   height: 500px;
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
   padding: 0;
   float: right;
@@ -37,61 +44,162 @@ header {
   margin: 0 auto;
 }
 
-.highcharts-tooltip {
-  color: '#333333';
-  font-size: '12px';
-  padding: '8px';
-  list-style: none;
-}
-
 /* App Copy */
 h1, h2 {
   font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
-  font-size: 2.4em;
+  font-size: 2.8em;
   font-weight: 300;
 }
 
 h1 {
-  letter-spacing: 2px;
+  letter-spacing: 4px;
+  color: #FFF;
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 2.0em;
+  color: #0099CC;
+}
+
+p {
+  font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
+  font-size: 0.8em;
+}
+
+a {
+  text-decoration: none;
+  color: #D3D3D3;
+  font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #D3D3D3;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: transparent;
+  color: #0099CC;
+}
+
+li {
+  font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
+  list-style-image: none;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  font-size: 0.6em;
 }
 
 /* Header */
+#header-contents {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 #logo {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 24px 0;
+}
+
+#logo h1:hover {
+  opacity: 0.8;
 }
 
 nav {
   float: right;
-  padding: 5px 10px;
+  padding: 40px 0;
 }
 
 nav li {
-  list-style: none;
   display: inline-block;
-  vertical-align: center;
+  color: #FFF;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  padding: 0 12px;
 }
 
+nav li:hover{
+  opacity: 0.8;
+}
 
 /* Trend Menu */
+#main-content {
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: none;
+}
+
 #trend-menu {
 	float: left;
-  border: 1px solid black;
-  padding: 1em;
   width: 25%;
   overflow: hidden;
+  margin: 8px auto;
 }
 
 #trend-header {
-  padding: 10px 0;
+  padding: 12px 0 24px;
+  color: #AC41E8;
+}
+
+#trending-topics {
+  padding-left: 8px;
 }
 
 #trending-topics li {
   list-style: none;
-  padding: 5px 0;
+  padding: 8px;
 }
 
+#all-trends-container {
+  display: block;
+}
+
+#all-trends-btn {
+  margin: 40px;
+  border: 0 transparent;
+  border-radius: 10px;
+  padding: 8px 16px;
+  background-color: #0099CC;
+  color: #FFF;
+}
+
+/* Current Trends Filler */
+#trends-content {
+  background-color: #B0C4DE;
+  text-align: center;
+  padding: 24px;
+}
+
+#trends-content h1 {
+  letter-spacing: 2px;
+  font-size: 3.2em;
+  padding: 40px;
+}
+
+#trends-content a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+#trends-content ul {
+  width: 50%;
+  list-style: none;
+  display: inline-block;
+}
+
+#trends-content li {
+  display: inline-block;
+  padding: 12px 24px;
+}
+
+#trends-content a {
+  font-size: 1.6em;
+  color: #FFF;
+  font-weight: 200;
+}
