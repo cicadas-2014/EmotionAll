@@ -4,7 +4,11 @@ var Map = {
     var self = this;
     $('#map-container').highcharts('Map', {
       title: {
-        text: topic
+        text: topic,
+        style: {
+          color: '#0099CC',
+          font: '24px "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif'
+        }
       },
       mapNavigation: {
         enabled: true,
@@ -74,3 +78,17 @@ var createMapView = {
     Map.defaultView(topic, mapData);
   }
 };
+
+function fixedMap() {
+  var yDistance = $('.padding-div').height() + $('#main').height();
+  var $map = $('#map-wrapper');
+  $(window).scroll(function() {
+    var y = $(this).scrollTop();
+    if ( y > yDistance ) {
+      $map.addClass("fixed-map");
+    } else {
+      $map.removeClass("fixed-map");
+    }
+  })
+};
+
