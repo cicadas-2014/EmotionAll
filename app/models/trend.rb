@@ -46,8 +46,15 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(9)
 	end
 
-	def self.most_recent_trends_string
-		most_recent_trends.map{|t| t.name}.join(', ')
+	def self.most_recent_names_array
+		most_recent_trends.map{|t| t.name}
+	end
+
+	def find_own_tweets
+		own_tweets = Tweet.where("text ILIKE (?)", "%#{self.name}%")
+		own_tweets.each do |t|
+			t.update_attributes(trend: self)
+		end
 	end
 
 	def self.update_tweets
