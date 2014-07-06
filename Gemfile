@@ -29,17 +29,18 @@ gem 'spring',        group: :development
 group :development, :test do 
  gem 'rspec-rails' 
  gem 'factory_girl_rails' 
+ gem 'jasmine-rails'
+ gem 'selenium-webdriver', '~> 2.42.0'
  gem 'pry'
+ # gem 'debugger'
 end
 
 group :test do 
  gem 'faker' 
- gem 'capybara'
+ gem 'capybara', '~> 2.4.1'
  gem 'database_cleaner' 
+ gem 'capybara-webkit'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -47,14 +48,12 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
 # Use Postgres
 gem 'pg'
 
-# Twitter gem
+# Twitter gems
 gem 'twitter'
+gem 'tweetstream'
 
 # Alchemy gem
 gem 'alchemy-api-rb', :require => "alchemy_api"
