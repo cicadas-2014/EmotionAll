@@ -1,0 +1,309 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: kevin; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO kevin;
+
+--
+-- Name: trends; Type: TABLE; Schema: public; Owner: kevin; Tablespace: 
+--
+
+CREATE TABLE trends (
+    id integer NOT NULL,
+    name character varying(255),
+    woeid integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.trends OWNER TO kevin;
+
+--
+-- Name: trends_id_seq; Type: SEQUENCE; Schema: public; Owner: kevin
+--
+
+CREATE SEQUENCE trends_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.trends_id_seq OWNER TO kevin;
+
+--
+-- Name: trends_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kevin
+--
+
+ALTER SEQUENCE trends_id_seq OWNED BY trends.id;
+
+
+--
+-- Name: tweets; Type: TABLE; Schema: public; Owner: kevin; Tablespace: 
+--
+
+CREATE TABLE tweets (
+    id integer NOT NULL,
+    text character varying(255),
+    tweetid character varying(255),
+    retweet_count integer,
+    language character varying(255),
+    country_code character varying(255),
+    latitude double precision,
+    longitude double precision,
+    sentiment character varying(255),
+    sentiment_score double precision,
+    trend_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.tweets OWNER TO kevin;
+
+--
+-- Name: tweets_id_seq; Type: SEQUENCE; Schema: public; Owner: kevin
+--
+
+CREATE SEQUENCE tweets_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tweets_id_seq OWNER TO kevin;
+
+--
+-- Name: tweets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kevin
+--
+
+ALTER SEQUENCE tweets_id_seq OWNED BY tweets.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kevin
+--
+
+ALTER TABLE ONLY trends ALTER COLUMN id SET DEFAULT nextval('trends_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kevin
+--
+
+ALTER TABLE ONLY tweets ALTER COLUMN id SET DEFAULT nextval('tweets_id_seq'::regclass);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: kevin
+--
+
+COPY schema_migrations (version) FROM stdin;
+20140704163355
+20140704172244
+\.
+
+
+--
+-- Data for Name: trends; Type: TABLE DATA; Schema: public; Owner: kevin
+--
+
+COPY trends (id, name, woeid, created_at, updated_at) FROM stdin;
+1	#HAPPYBIRTHDAYLAURENELIZABETH	23424977	2014-07-06 19:29:53.376638	2014-07-06 19:29:53.376638
+2	#3YearsOfJanoskians	23424977	2014-07-06 19:29:53.427332	2014-07-06 19:29:53.427332
+3	#mutantfam	23424977	2014-07-06 19:29:53.453195	2014-07-06 19:29:53.453195
+4	#ASKDANINOE	23424977	2014-07-06 19:29:53.479681	2014-07-06 19:29:53.479681
+5	#Janoskians3YearAnniversary	23424977	2014-07-06 19:29:53.507982	2014-07-06 19:29:53.507982
+6	Tina Charles	23424977	2014-07-06 19:29:53.537172	2014-07-06 19:29:53.537172
+7	Will Power	23424977	2014-07-06 19:29:53.558292	2014-07-06 19:29:53.558292
+8	Marlon Byrd	23424977	2014-07-06 19:29:53.597638	2014-07-06 19:29:53.597638
+9	Teen Beach Movie	23424977	2014-07-06 19:29:53.629382	2014-07-06 19:29:53.629382
+10	Dan Uggla	23424977	2014-07-06 19:29:53.666657	2014-07-06 19:29:53.666657
+\.
+
+
+--
+-- Name: trends_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kevin
+--
+
+SELECT pg_catalog.setval('trends_id_seq', 10, true);
+
+
+--
+-- Data for Name: tweets; Type: TABLE DATA; Schema: public; Owner: kevin
+--
+
+COPY tweets (id, text, tweetid, retweet_count, language, country_code, latitude, longitude, sentiment, sentiment_score, trend_id, created_at, updated_at) FROM stdin;
+27	@kashif_Qaimi even they can't think to come into the power if they people will punish them hard  @Wiseguy70	485871159968141312	0	en	PK	\N	\N	\N	\N	\N	2014-07-06 19:41:26.817892	2014-07-06 19:41:26.817892
+24	Teen Beach Movie needs to end already because I just want to watch HSM	485870731390365696	0	en	US	35.3483310000000017	-94.3298400000000044	negative	-0.45793600000000001	9	2014-07-06 19:39:44.584041	2014-07-06 20:03:14.936297
+28	Trend Alert: 'Dan Uggla'. More trends at http://t.co/eHUbrdogSW #trndnl http://t.co/jIxMwqMqvt	485871318995185664	0	sv	US	38.8990999999999971	-77.0289999999999964	positive	0.242772999999999989	10	2014-07-06 19:42:04.801309	2014-07-06 20:03:14.127757
+25	watching teen beach movie	485870858117087232	0	en	US	27.7530800000000006	-82.6961840000000024	neutral	0	9	2014-07-06 19:40:14.803582	2014-07-06 20:03:15.123437
+30	I know every song on Teen Beach Movie by heart. #greatmovie	485871409566998528	0	en	US	44.7620890000000031	-94.1391129999999947	neutral	0	9	2014-07-06 19:42:26.417719	2014-07-06 20:03:15.308484
+31	“@illumibieberr: LETS GOOOOO SURFS UP” TEEN BEACH MOVIE	485871493013057536	0	en	US	42.7681249999999977	-73.8506320000000045	positive	0.752410000000000023	9	2014-07-06 19:42:46.156644	2014-07-06 20:03:15.491553
+37	Teen beach movie makes me sad 😭	485872124414808064	0	en	US	34.0927679999999995	-118.039769000000007	neutral	0	9	2014-07-06 19:45:16.794955	2014-07-06 20:03:15.668705
+39	TEEN BEACH MOVIE WAS ON BUT IT LITERALLY JUST ENDED 😭 😭 😭	485872255772028929	0	en	US	32.9237090000000023	-96.6220390000000009	neutral	0	9	2014-07-06 19:45:48.063193	2014-07-06 20:03:15.856952
+29	And I know it was quick mental math, but JPM is all of a sudden in this title fight, and I think Helio just tied Will Power for the lead	485871339043962880	0	en	US	39.9652180000000001	-86.0684150000000017	negative	-0.305757999999999974	7	2014-07-06 19:42:09.472548	2014-07-06 20:03:16.951817
+33	Will Power vs. Paul Tracy/Townsend Bell #IndyRivals	485871861729742849	0	en	US	39.9652140000000031	-86.0685370000000063	neutral	0	7	2014-07-06 19:44:14.240376	2014-07-06 20:03:17.126911
+13	also for anyone interested: you just missed the teen beach movie sing along. sorry that i had to be the one to break it to you	485869203988025344	0	en	US	32.0185200000000023	-80.9614530000000059	negative	-0.668524000000000007	9	2014-07-06 19:33:40.466078	2014-07-06 20:03:14.744944
+34	Will Power is a giant prick. #IndyCar #notevennews	485872020022775808	0	en	US	39.8255630000000025	-86.3980999999999995	positive	0.212250999999999995	7	2014-07-06 19:44:51.836027	2014-07-06 20:03:17.303759
+36	Will Power was an absolute jerk during that interview!	485872073298804739	0	en	US	41.3227309999999974	-93.0944640000000021	neutral	0	7	2014-07-06 19:45:04.58679	2014-07-06 20:03:17.671226
+38	Welp, that interview with Will Power covered it all, I think.	485872149035380737	0	en	US	38.9888929999999974	-90.9159539999999993	positive	0.507445000000000035	7	2014-07-06 19:45:22.648081	2014-07-06 20:03:17.852796
+40	Will Power in a master class in how to look like an utter prat #IndyCar	485872295026913281	0	en	GB	\N	\N	neutral	0	7	2014-07-06 19:45:57.43972	2014-07-06 20:03:18.021076
+45	Will Power seems to be going out of his way to make sure everyone hates him.	485873012533891073	0	en	CA	45.0169530000000009	-74.7716510000000056	positive	0.426063000000000025	7	2014-07-06 19:48:48.439583	2014-07-06 20:03:18.188449
+46	It seems like every week I dislike Will Power just a little bit more.	485873258550415360	0	en	US	39.7899960000000021	-85.9365430000000003	negative	-0.406424999999999981	7	2014-07-06 19:49:47.166368	2014-07-06 20:03:18.364151
+7	"@ThatGuyAJ: Tina Charles balling" wat channel. They. On fam	485868760075476992	0	en	US	38.7537349999999989	-90.23245	neutral	0	6	2014-07-06 19:31:54.621664	2014-07-06 20:03:19.430475
+12	#Janoskians3YearAnniversary	485869121511243776	0	en	US	40.6345850000000013	-98.4002229999999969	neutral	0	5	2014-07-06 19:33:20.825125	2014-07-06 20:03:20.882389
+20	Well, if nothing happens than Montoya will win today's race. At least it isn't Will Power	485870086298038272	0	en	US	27.9535829999999983	-82.7281810000000064	negative	-0.155438999999999994	7	2014-07-06 19:37:10.810053	2014-07-06 20:03:16.76682
+4	Tina Charles tenía que lucirse hoy y hacer su carrer high ? 😒✋	485868583189090305	0	es	PR	18.3468009999999992	-66.2004560000000026	neutral	0	6	2014-07-06 19:31:12.410655	2014-07-06 20:03:19.249807
+17	#Janoskians3YearAnniversary no no nope no	485869552841281536	0	en	GB	\N	\N	negative	-0.242234000000000005	5	2014-07-06 19:35:03.589484	2014-07-06 20:03:21.075854
+1	#3YearsOfJanoskians mis bebes 💞 http://t.co/MS6oOO4jm4	485868461697302529	0	sl	AR	-34.3905919999999981	-59.1248099999999965	neutral	0	2	2014-07-06 19:30:43.613612	2014-07-06 20:03:24.472886
+44	#Janoskians3YearAnniversary no. nope. nada. nein. neen. non.	485872884628594688	0	fi	BE	51.0919719999999984	4.50029400000000024	neutral	0	5	2014-07-06 19:48:19.436653	2014-07-06 20:03:21.430501
+2	“@luke_brooks: #3YearsOfJanoskians and James looks like a baby http://t.co/hp1qMpbh6S”He so cute	485868529111941120	0	en	US	37.7039410000000004	-121.809839999999994	positive	0.679155999999999982	2	2014-07-06 19:30:59.536636	2014-07-06 20:03:24.656024
+10	#Janoskians3YearAnniversary :O	485869006617055232	0	en	IT	\N	\N	neutral	0	5	2014-07-06 19:32:53.353709	2014-07-06 20:03:20.686547
+5	#3YearsOfJanoskians @JaiBrooks1 @luke_brooks @BrooksBeau @James_Yammouni @danielsahyounie IM SO FUCKING PROUD OF YOU OMG	485868594346336256	0	en	IT	41.8832969999999989	12.5548470000000005	positive	0.482984999999999998	2	2014-07-06 19:31:15.064045	2014-07-06 20:03:24.841601
+6	Proud of these boys I love them sooo much words can't even explain it❤️ #3YearsOfJanoskians http://t.co/Yt3x867A2T	485868701703766016	0	en	IT	44.4137229999999974	8.9693480000000001	positive	0.429306000000000021	2	2014-07-06 19:31:40.730279	2014-07-06 20:03:25.02775
+8	Italy loves you❤️🇮🇹 #3YearsOfJanoskians http://t.co/EZSbLH9B1v	485868892401971201	0	sk	IT	44.4137130000000013	8.96938199999999952	positive	0.504187000000000052	2	2014-07-06 19:32:26.397871	2014-07-06 20:03:25.205919
+9	I cant believe it 😫#3YearsOfJanoskians	485868939537162240	0	en	US	32.9587950000000021	-96.8054460000000034	negative	-0.308194999999999997	2	2014-07-06 19:32:37.401885	2014-07-06 20:03:25.393685
+11	#3YearsOfJanoskians	485869021896507393	0	sl	US	40.6345850000000013	-98.4002090000000038	neutral	0	2	2014-07-06 19:32:57.02329	2014-07-06 20:03:25.583285
+14	#3YearsOfJanoskians can't hold the tears :(	485869232211902465	0	en	GR	37.9188929999999971	23.7113559999999985	negative	-0.651804999999999968	2	2014-07-06 19:33:47.130057	2014-07-06 20:03:25.754408
+15	#3yearsofjanoskians #3YearsOfBeausBadJokes	485869256903385091	0	da	US	40.5839929999999995	-104.988039999999998	neutral	0	2	2014-07-06 19:33:53.090686	2014-07-06 20:03:25.925499
+16	'sta cosa un po' mi rattrista #3YearsOfJanoskians #3YearsOfFailVideos #3YearsOfBeausBadJokes	485869548412092416	0	it	IT	\N	\N	neutral	0	2	2014-07-06 19:35:02.530333	2014-07-06 20:03:26.09466
+18	#3YearsOfJanoskians los amo😍 http://t.co/KsHDwz421i	485870037686026241	0	sl	AR	-34.3905919999999981	-59.1248099999999965	negative	-0.519163999999999959	2	2014-07-06 19:36:59.318786	2014-07-06 20:03:26.291318
+22	Happy 3rd "Birthday" boys!!(: #3YearsOfJanoskians http://t.co/GAOkKeYtZa	485870456579186688	0	en	US	32.9079120000000032	-86.6108689999999939	neutral	0	2	2014-07-06 19:38:39.262851	2014-07-06 20:03:26.67064
+23	OMG has t been three years?!? #3YearsOfJanoskians	485870580072062976	0	en	US	36.0454429999999988	-90.4846119999999985	negative	-0.209249999999999992	2	2014-07-06 19:39:08.518405	2014-07-06 20:03:27.902559
+26	It's so hard to believe it's been 3 years...😮 Happy 3rd "Birthday" boys!(: #3YearsOfJanoskians http://t.co/lHrJdRkXpb	485871093782048768	0	en	US	32.9078670000000031	-86.6109320000000054	positive	0.223633999999999999	2	2014-07-06 19:41:11.157141	2014-07-06 20:03:28.100915
+32	#3yearsofjanoskians I'm watching their old videos and the feels I think I'm gonna cry	485871557978644480	0	en	IE	53.2001259999999974	-8.58585700000000074	negative	-0.813120999999999983	2	2014-07-06 19:43:01.66621	2014-07-06 20:03:28.27476
+42	Remember when Luke elbowed Jai in the face when he was getting sick after eating dog food #3yearsofjanoskians	485872586916917248	0	en	IE	53.2001490000000032	-8.58584500000000084	negative	-0.546270000000000033	2	2014-07-06 19:47:07.042422	2014-07-06 20:03:28.455835
+43	#3yearsofjanoskians \n#3YearsOfBeausBadJokes \n#Janoskians3YearAnniversary LOVE YOU GUYS\nWHUPPPPPPPP #AnotherFailVideo	485872821298823168	0	en	US	\N	\N	positive	0.707914999999999961	2	2014-07-06 19:48:03.191004	2014-07-06 20:03:23.762913
+53	📝 RT “@Rhay1991: People will call you cocky if they have no power over you.. It's their last resort to make you feel bad about yourself.”	485873791583916032	0	en	US	37.0350719999999995	-76.4435759999999931	\N	\N	\N	2014-07-06 19:51:54.251075	2014-07-06 19:51:54.251075
+63	Some people don't have the brain power and capacity to look at the bigger picture and that will always be their downfall.	485875178241400832	0	en	US	39.7406009999999981	-86.1302859999999981	\N	\N	\N	2014-07-06 19:57:24.831213	2014-07-06 19:57:24.831213
+82	When the power of love takes over the love of power, that's when things will change.	485876096701710338	0	en	US	41.9430690000000013	-88.1116580000000056	\N	\N	\N	2014-07-06 20:01:03.921083	2014-07-06 20:01:03.921083
+51	Bob Varsha on Will Power "it is what it is, dude". Lmao	485873641394307072	0	en	US	40.0536880000000011	-82.4265429999999952	positive	0.345503000000000005	7	2014-07-06 19:51:18.366058	2014-07-06 20:03:18.751792
+48	Teen Beach Movie and all three High School Musicals on Disney Channel? I love this holiday weekend! 🌊	485873450737618944	0	en	US	25.764247000000001	-80.2844269999999938	positive	0.746315999999999979	9	2014-07-06 19:50:32.960768	2014-07-06 20:03:16.239395
+62	Trend Alert: 'Will Power'. More trends at http://t.co/eHUbrdogSW #trndnl http://t.co/jRtS8B6oDA	485875095684927488	0	de	US	38.8990999999999971	-77.0289999999999964	positive	0.506052999999999975	7	2014-07-06 19:57:05.278495	2014-07-06 20:03:18.932987
+71	Tina Charles was balling 32 points	485875460174118912	0	en	US	25.7932479999999984	-80.1988699999999994	neutral	0	6	2014-07-06 19:58:32.05073	2014-07-06 20:03:19.794523
+76	Tina charles. Had 32 and 10 doe 👏👏👏👏	485875560464121856	0	en	US	38.7537280000000024	-90.2324200000000047	neutral	0	6	2014-07-06 19:58:55.97705	2014-07-06 20:03:19.971728
+49	#Janoskians3YearAnniversary \n@danielsahyounie \nI LOVE U SO MUCH ♥	485873537736265729	0	en	PL	\N	\N	positive	0.45707399999999998	5	2014-07-06 19:50:53.69129	2014-07-06 20:03:21.775419
+64	@tinacharles31 I have to give it up to Tina Charles! This is for you! Great game, great win! #HuskyPride http://t.co/f4dMs1f5It	485875181777219586	0	en	US	\N	\N	positive	0.471275999999999973	6	2014-07-06 19:57:25.963485	2014-07-06 20:03:19.61325
+54	#Janoskians3YearAnniversary 3 years with these assholes &lt;3 @JaiBrooks1 @danielsahyounie @BrooksBeau http://t.co/BYgtKzj6SD	485873893799100417	0	en	US	\N	\N	positive	0.215914999999999996	5	2014-07-06 19:52:18.676273	2014-07-06 20:03:22.140413
+55	@janoskians @luke_brooks @JaiBrooks1  @BrooksBeau @danielsahyounie @James_Yammouni I love you guys! :) #Janoskians3YearAnniversary	485874117493948416	0	en	GB	54.5445119999999974	-5.91787500000000044	positive	0.596521999999999997	5	2014-07-06 19:53:11.890375	2014-07-06 20:03:22.31076
+58	@BrooksBeau #Janoskians3YearAnniversary \nI LOVE U SO MUCH ♥	485874686208004096	0	en	PL	\N	\N	positive	0.45707399999999998	5	2014-07-06 19:55:27.550611	2014-07-06 20:03:22.504526
+61	@JaiBrooks1 #Janoskians3YearAnniversary thank you so much ❤️❤️	485874837039357952	0	en	IT	41.9438880000000012	12.4210019999999997	positive	0.221912999999999999	5	2014-07-06 19:56:03.429743	2014-07-06 20:03:22.725944
+69	#Janoskians3YearAnniversary 💕👧💭👦👦👦👦👦 http://t.co/r94vX148Jp	485875396702138370	0	en	IT	41.943876000000003	12.420966	neutral	0	5	2014-07-06 19:58:17.03025	2014-07-06 20:03:22.901298
+73	@JaiBrooks1 I'm in tears. No words can describe how proud of them I are🙌👌😭😔YOU👭♥😘#Janoskians3YearAnniversary ☺#JanoskianatorsRememberWhen♥	485875470559215616	0	en	MX	\N	\N	negative	-0.360584000000000016	5	2014-07-06 19:58:34.56907	2014-07-06 20:03:23.080458
+80	#Janoskians3YearAnniversary #JanoskiansRememberWhen beau  gave luke a hickey😂😂@BrooksBeau @JaiBrooks1 @danielsahyounie @James_Yammouni	485875982457253888	0	en	US	32.8370519999999999	-117.020274000000001	positive	0.34367399999999998	5	2014-07-06 20:00:36.582683	2014-07-06 20:03:23.264319
+57	#janoskianatorsrememberwhen Luke elbowed Jai in the face when he was getting sick after eating dog food #3yearsofjanoskians	485874685499166720	0	en	IE	53.2001580000000018	-8.58583999999999925	negative	-0.630411000000000055	2	2014-07-06 19:55:27.37153	2014-07-06 20:03:28.834294
+59	@jaibrooks1 IM SO PROUD OF YOU GUYS #3YearsOfJanoskians	485874729128329216	0	en	IT	41.8830930000000023	12.5549970000000002	positive	0.832667000000000046	2	2014-07-06 19:55:38.002408	2014-07-06 20:03:29.013662
+47	"@beauslovelyeyes: #Janoskians3YearAnniversary FROM THIS TO THIS http://t.co/mxMjUbkDMT"	485873420740349952	0	en	BE	51.0920539999999974	4.50044700000000031	positive	0.265181999999999973	5	2014-07-06 19:50:25.827685	2014-07-06 20:03:21.597242
+60	#3yearsofjanoskians http://t.co/BHDkYhBWc2	485874803975262208	0	sl	MX	\N	\N	neutral	0	2	2014-07-06 19:55:55.928849	2014-07-06 20:03:29.182501
+65	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x1	485875218184175616	0	en	FR	47.9789620000000028	0.209470999999999991	positive	0.552337999999999996	2	2014-07-06 19:57:34.340645	2014-07-06 20:03:29.36661
+66	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x2	485875281073541120	0	en	FR	47.9791299999999978	0.20946999999999999	positive	0.583740999999999954	2	2014-07-06 19:57:49.352964	2014-07-06 20:03:29.547305
+67	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x3	485875322542628864	0	en	FR	47.9789389999999969	0.209446999999999994	positive	0.563922999999999952	2	2014-07-06 19:57:59.209942	2014-07-06 20:03:29.739559
+68	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x4	485875362937978880	0	en	FR	47.9789389999999969	0.209446999999999994	positive	0.573786000000000018	2	2014-07-06 19:58:08.879259	2014-07-06 20:03:30.004052
+70	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x5	485875404662927360	0	en	FR	47.9789389999999969	0.209446999999999994	positive	0.519612999999999992	2	2014-07-06 19:58:18.887939	2014-07-06 20:03:30.189691
+74	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x7	485875506852925440	0	en	FR	47.978946999999998	0.209484000000000004	positive	0.559294999999999987	2	2014-07-06 19:58:43.202379	2014-07-06 20:03:30.557797
+75	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x8	485875543964127233	0	en	FR	47.978946999999998	0.209484000000000004	positive	0.597692000000000001	2	2014-07-06 19:58:52.015402	2014-07-06 20:03:30.752125
+77	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x9	485875583247994881	0	en	FR	47.978946999999998	0.209484000000000004	positive	0.573058999999999985	2	2014-07-06 19:59:01.425635	2014-07-06 20:03:30.932513
+79	#3YearsOfJanoskians nose como paso pero los amo!	485875902753280001	0	es	ES	40.4804689999999994	-3.68924399999999997	negative	-0.539278000000000035	2	2014-07-06 20:00:17.574504	2014-07-06 20:03:31.109366
+81	Wooooow 😱🙏 @luke_brooks @danielsahyounie @BrooksBeau @James_Yammouni @JaiBrooks1  #3YearsOfJanoskians http://t.co/0QByj0i6DA	485875994977636352	0	sl	FR	47.9789359999999974	0.209477999999999998	positive	0.250253999999999976	2	2014-07-06 20:00:39.600614	2014-07-06 20:03:31.284407
+83	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x11	485876141392404480	0	en	FR	47.9789549999999991	0.209432000000000007	positive	0.574205999999999994	2	2014-07-06 20:01:14.453631	2014-07-06 20:03:31.48183
+84	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x12	485876190457376768	0	en	FR	47.9789290000000008	0.20944299999999999	positive	0.558943999999999996	2	2014-07-06 20:01:26.187852	2014-07-06 20:03:31.654003
+85	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x13	485876236661817344	0	en	FR	47.9789290000000008	0.20944299999999999	positive	0.524476999999999971	2	2014-07-06 20:01:37.175215	2014-07-06 20:03:31.838712
+86	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x14	485876398310313984	0	en	FR	47.9789239999999992	0.209456000000000003	positive	0.583311000000000024	2	2014-07-06 20:02:15.719891	2014-07-06 20:03:32.024857
+56	Déjà.. Sa passe tellement vite ewwww, mais tellement fière d'eux 😍 #3YearsOfJanoskians	485874339473281024	0	fr	FR	47.9789770000000004	0.209477999999999998	positive	0.109496999999999997	2	2014-07-06 19:54:04.904831	2014-07-06 20:03:28.639052
+19	Trend Alert: 'Dan Uggla'. More trends at http://t.co/eHUbrdogSW #trndnl http://t.co/qNvLCxrl3a	485870057478557698	0	sv	US	38.8990999999999971	-77.0289999999999964	positive	0.242772999999999989	10	2014-07-06 19:37:03.982527	2014-07-06 20:03:14.317682
+41	was just singing along to teen beach movie &amp; my dad's friend walked in😪	485872441818771456	0	en	US	42.7577280000000002	-70.997641999999999	neutral	0	9	2014-07-06 19:46:32.445258	2014-07-06 20:03:16.063372
+35	Wow, I think I've seen it all. Will Power is nothing but a huge baby. You blocked fool, plain and simple. Don't like the replay? Don't block	485872056266158080	0	en	US	40.0536730000000034	-82.4264770000000055	negative	-0.230514999999999998	7	2014-07-06 19:45:00.472113	2014-07-06 20:03:17.482552
+50	Helio could have really dumped on Will Power there but didn't. That's a driver that deserves respect. #Pocono500	485873541070344192	0	en	US	41.3224810000000033	-93.0950600000000037	negative	-0.515479000000000021	7	2014-07-06 19:50:54.496589	2014-07-06 20:03:18.554545
+52	#Janoskians3YearAnniversary #3YearsOfBeausBadJokes #3YearsOfJanoskians  and 3 years of him http://t.co/mSQhnYOY5d	485873776781848576	0	en	US	\N	\N	positive	0.397948999999999997	2	2014-07-06 19:51:50.787033	2014-07-06 20:03:24.264536
+21	#3yearsofjanoskians and #3YearsOfBeausBadJokes wow http://t.co/eaSI3w1BfM	485870168149884928	0	en	IE	53.2001619999999988	-8.58586500000000008	positive	0.30960399999999999	2	2014-07-06 19:37:30.694271	2014-07-06 20:03:26.485418
+72	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x6	485875460308738048	0	en	FR	47.9789389999999969	0.209446999999999994	positive	0.580679999999999974	2	2014-07-06 19:58:32.092548	2014-07-06 20:03:30.372947
+3	#3yearsofjanoskians  these boys are the best♡ @JaiBrooks1 @James_Yammouni @luke_brooks @danielsahyounie @BrooksBeau http://t.co/Sua0deimh8	485868542211153920	0	en	GB	52.9952109999999976	-3.03065600000000002	neutral	0	2	2014-07-06 19:31:03.231042	2014-07-06 20:03:32.20449
+78	@luke_brooks please sunshine follow me 🙏 I'm french fan, I love you so much ❤  #3YearsOfJanoskians x10	485875640579923968	0	en	FR	47.9789359999999974	0.209477999999999998	positive	0.60430600000000001	2	2014-07-06 19:59:15.095835	2014-07-06 20:03:32.378144
+\.
+
+
+--
+-- Name: tweets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kevin
+--
+
+SELECT pg_catalog.setval('tweets_id_seq', 86, true);
+
+
+--
+-- Name: trends_pkey; Type: CONSTRAINT; Schema: public; Owner: kevin; Tablespace: 
+--
+
+ALTER TABLE ONLY trends
+    ADD CONSTRAINT trends_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tweets_pkey; Type: CONSTRAINT; Schema: public; Owner: kevin; Tablespace: 
+--
+
+ALTER TABLE ONLY tweets
+    ADD CONSTRAINT tweets_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: kevin; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
