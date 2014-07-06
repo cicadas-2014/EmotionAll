@@ -163,6 +163,10 @@ describe TrendsController do
   let!(:trend) { create :trend }
   let!(:tweet) { create :tweet }
 
-  context do
+  context 'trends#index' do
+    it 'assigns @recent_trends to the most recent trends from the database' do
+      get :index
+      expect(assigns(:trend)).to eq(Trend.most_recent_trends)
+    end
   end
 end
