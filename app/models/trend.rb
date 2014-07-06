@@ -23,7 +23,7 @@ class Trend < ActiveRecord::Base
 	def create_tweets
 		new_tweets = get_tweets
 		new_tweets.select{ |tweet| tweet[:geo] != nil }.each do |t|
-			unless Tweet.find_by(text: t[:text])
+			unless Tweet.find_by(tweetid: t[:id_str])
 				Tweet.create(text: t[:text],
 									 	 tweetid: t[:id_str],
 								 		 retweet_count: t[:retweet_count],
@@ -51,7 +51,8 @@ class Trend < ActiveRecord::Base
 	end
 
 	def find_own_tweets
-		own_tweets = Tweet.where("text ILIKE (?)", "%#{self.name}%")
+		longest_word = self.name.split(" ").group_by(&:size).max.last # doesn't work well for common words like today
+		own_tweets = Tweet.where("text ILIKE (?)", "%#{longest_word}%").where(sentiment: nil)
 		own_tweets.each do |t|
 			t.update_attributes(trend: self)
 		end
