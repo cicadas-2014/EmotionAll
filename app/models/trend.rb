@@ -51,7 +51,7 @@ class Trend < ActiveRecord::Base
 	end
 
 	def find_own_tweets
-		longest_word = self.name.split(" ").group_by(&:size).max.last # doesn't work well for common words like today
+		longest_word = self.name.split(" ").group_by(&:size).max.last.first # doesn't work well for common words like today
 		own_tweets = Tweet.where("text ILIKE (?)", "%#{longest_word}%").where(sentiment: nil)
 		own_tweets.each do |t|
 			t.update_attributes(trend: self)
@@ -68,7 +68,7 @@ class Trend < ActiveRecord::Base
 
 	def self.get_json_for_tweets(trend_id)
 		trend = Trend.find(trend_id)
-		tweets = trend.tweets
+		tweets = trend.tweets.where("sentiment != 'neutral'") # only care about positive or negative tweets
 		countries = []
 		json_output = []
 
