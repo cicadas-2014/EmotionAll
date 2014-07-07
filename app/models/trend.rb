@@ -24,14 +24,25 @@ class Trend < ActiveRecord::Base
 		new_tweets = get_tweets
 		new_tweets.select{ |tweet| tweet[:geo] != nil }.each do |t|
 			unless Tweet.find_by(tweetid: t[:id_str])
-				Tweet.create(text: t[:text],
-									 	 tweetid: t[:id_str],
-								 		 retweet_count: t[:retweet_count],
-							 			 language: t[:lang],
-						 				 country_code: t[:place][:country_code],
-										 latitude: t[:geo][:coordinates][0],
-			 	  					 longitude: t[:geo][:coordinates][1],
-				  					 trend: self)
+				if t[:place]
+					if t[:geo]
+						Tweet.create(text: t[:text],
+											 	 tweetid: t[:id_str],
+										 		 retweet_count: t[:retweet_count],
+									 			 language: t[:lang],
+								 				 country_code: t[:place][:country_code],
+												 latitude: t[:geo][:coordinates][0],
+					 	  					 longitude: t[:geo][:coordinates][1],
+						  					 trend: self)
+					else
+						Tweet.create(text: t[:text],
+											 	 tweetid: t[:id_str],
+										 		 retweet_count: t[:retweet_count],
+									 			 language: t[:lang],
+								 				 country_code: t[:place][:country_code],
+						  					 trend: self)
+					end
+				end
 			end
 		end
 	end
@@ -43,7 +54,7 @@ class Trend < ActiveRecord::Base
 	end
 
 	def self.most_recent_trends
-		Trend.order(updated_at: :desc).take(9)
+		Trend.order(updated_at: :desc).take(10)
 	end
 
 	def self.most_recent_names_array
