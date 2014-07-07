@@ -41,13 +41,3 @@ function fetchMap(trend, tweetData) {
         errorHandler.Display('#map-wrapper', 'map');
     });
 };
-
-var errorHandler = {
-    Display: function(errorDiv, error) {
-        $(errorDiv).html('<p class="error">Error fetching ' + error + '.</p>');
-    },
-    Clear: function(id) {
-        var errorDiv = '#trend-' + id + ' .errors-txt';
-        $(errorDiv).remove();
-    }
-}

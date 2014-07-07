@@ -79,16 +79,3 @@ var createMapView = {
   }
 };
 
-function fixedMap() {
-  var yDistance = $('.padding-div').height() + $('#main').height();
-  var $map = $('#map-wrapper');
-  $(window).scroll(function() {
-    var y = $(this).scrollTop();
-    if ( y > yDistance ) {
-      $map.addClass("fixed-map");
-    } else {
-      $map.removeClass("fixed-map");
-    }
-  })
-};
-
