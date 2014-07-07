@@ -22,11 +22,11 @@ end
 tweets_parsed = 0
 tweets_saved = 0
 daemon.track(Trend.most_recent_names_array) do |t|
-	# unless Tweet.find_by(tweetid: t.attrs[:id_str]) # can possibly remove this since stream is live
+	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
 	# only care about tweets with a place object to get the country code
 	# tweets don't inherently know what trend they belong to
 	# use Trend#find_own_tweets
-  	if t.place?
+  	if t.place? && t.lang == 'en'
 			if t.geo?
 				Tweet.create(text: t.text,
 										 tweetid: t.attrs[:id_str],
@@ -43,6 +43,7 @@ daemon.track(Trend.most_recent_names_array) do |t|
 						  			 country_code: t.place.country_code)
 			end
 		end
+	end
 end
 
 # @client = TweetStream::Client.new

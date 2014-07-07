@@ -60,7 +60,7 @@ var Map = {
       series: [{
         data: self.dataInput,
         mapData: mapData,
-        name: 'Sentiment Index'
+        name: 'Sentiment Index',
       }]
     })
   }
