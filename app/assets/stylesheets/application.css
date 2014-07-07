@@ -24,10 +24,6 @@ body {
   background-color: #FFF;
 }
 
-header:after {
-  clear: both;
-}
-
 header {
   background-color: #0099CC;
   padding: 24px 0;
@@ -191,14 +187,14 @@ nav li:hover{
 #trends-content {
   background-color: #B0C4DE;
   text-align: center;
-  padding: 24px;
+  padding: 40px;
   z-index: 10;
 }
 
 #trends-content h1 {
   letter-spacing: 2px;
   font-size: 2.4em;
-  padding: 40px;
+  padding: 0 40px 24px;
 }
 
 #trends-content a:hover {
@@ -246,6 +242,7 @@ nav li:hover{
 #trend-header {
   padding: 24px 0;
   background-color: #FFF;
+  width: 100%;
 }
 
 #trend-header.fixed {
