@@ -31,7 +31,7 @@ var Map = {
       //   minColor: '#FF0000',
       //   maxColor: '#00FF00'
       },
-      colors: ['#FFF9E4'],
+      colors: ['#B4DA55'],
       tooltip: {
         animation: true,
         pointFormat: '{point.name}: {point.value}',
@@ -53,7 +53,7 @@ var Map = {
           select: {
             borderColor: 'black',
             dashStyle: 'shortdot',
-            color: '#FFF9E4'
+            color: '#B4DA55'
           }
         }
       },
