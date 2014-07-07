@@ -68,25 +68,25 @@ footer {
 }
 
 /* High-chart Map Style */
-#map-wrapper.fixed-map {
-  top: 0;
-  margin-top: 140px;
-  position: fixed;
-}
-
 #map-wrapper {
   height: 500px;
   width: 75%;
   margin: 0 auto;
   display: inline-block;
-  position: relative;
   margin-top: 40px;
+}
+
+#map-wrapper.fixed-map {
+  top: 0;
+  float: right;
+  margin-top: 140px;
+  position: fixed;
+  width: 712px;
 }
 
 #map-container {
   margin: 0 auto;
 }
-
 
 /* App Copy */
 h1 {
