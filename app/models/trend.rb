@@ -52,7 +52,7 @@ class Trend < ActiveRecord::Base
 
 	def find_own_tweets
 		longest_word = self.name.split(" ").group_by(&:size).max.last.first # doesn't work well for common words like today
-		own_tweets = Tweet.where("text ILIKE (?)", "%#{longest_word}%").where(sentiment: nil)
+		own_tweets = Tweet.where("text ILIKE (?)", "%#{longest_word}%").where(trend: nil)
 		own_tweets.each do |t|
 			t.update_attributes(trend: self)
 		end
