@@ -26,9 +26,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-group :development, :test do 
- gem 'rspec-rails' 
- gem 'factory_girl_rails' 
+group :development, :test do
+ gem 'rspec-rails'
+ gem 'factory_girl_rails'
  gem 'jasmine'
  gem 'selenium-webdriver', '~> 2.42.0'
  gem 'jasmine-fixtures', '~> 0.1.7'
@@ -36,12 +36,16 @@ group :development, :test do
  # gem 'debugger'
 end
 
-group :test do 
- gem 'faker' 
+group :test do
+ gem 'faker'
  gem 'capybara', '~> 2.4.1'
- gem 'database_cleaner' 
+ gem 'database_cleaner'
  gem 'capybara-webkit'
  gem 'shoulda-matchers'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 # Use unicorn as the app server
