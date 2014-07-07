@@ -69,7 +69,7 @@ class Trend < ActiveRecord::Base
 		end
 	end
 
-	def self.update_tweets
+	def self.update_tweets 
 		self.most_recent_trends.each do |trend|
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API

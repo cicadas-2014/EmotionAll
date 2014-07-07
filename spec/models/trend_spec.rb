@@ -2,60 +2,58 @@ require 'rails_helper'
 require 'spec_helper'
 
 describe Trend do
-
-  let(:trend) { create :trend }
-  let(:get_twitter_client) { Twitter::REST::Client.new do |config|
-      config.consumer_key        = Rails.application.secrets.consumer_key
-      config.consumer_secret     = Rails.application.secrets.consumer_secret
-      config.access_token        = Rails.application.secrets.oauth_token
-      config.access_token_secret = Rails.application.secrets.oauth_token_secret
-    end }
-  let(:woeid) { 23424977 }
-
-  describe "self#get_current_trends" do
-    it "gets new trends from Twitter" do
-      expect(Trend.get_current_trends).to_not change{trend.trends}.by(0)
-    end
+  context "associations" do
+    it { should have_many :tweets }
   end
-
-  describe "#get_tweets" do
-    it "gets tweets connected to a trend" do
-      expect(trend.get_tweets).to_not change{trend.tweets}.by(0)
-    end
-  end
-
-  describe "#create_tweets" do
-    it "creates new tweet objects" do
-      expect(trend.create_tweets).to_not change{Tweet.count}.by(0)
-    end
-  end
-
-  describe "#update_tweet_sentiments" do
-    expect(trend.update_tweet_sentiments).to
-  end
-
-  describe "self#most_recent_trends" do
-    it "returns the most recent trends" do
-
-    end
-  end
-
-  describe "self#update_tweets" do
-    it "updates the tweets for the class" do
-
-    end
-  end
-
-  describe "self#get_json_for_tweets" do
-    it "correctly gets the json for tweets" do
-
-    end
-  end
-
-  describe "self#get_random_trends" do
-    it "" do
-      pending
-    end
-  end
-
 end
+
+describe "Trend model methods" do
+    before(:each) do
+         # @trend_tweets = Trend.tweets
+         @trend= Trend.create(name: "MyTrend", woeid: 23424977)
+    end
+    # before(:each) do
+    #      @trend= Trend.create(name: "MyTrend", woeid: 23424977)
+    # end
+    it "add ten trends to Trend table" do
+      expect{Trend.get_current_trends}.to change{Trend.all.length}.by(10)
+    end
+    it "gets tweets connected to a trend" do
+      expect(@trend.get_tweets).not_to be_nil 
+    end
+  describe "get json object for tweets" do
+    before(:each) do
+       @trend = Trend.create(name: "MyTrend", woeid: 23424977)
+       @tweet = Tweet.create(country_code: "US", sentiment: "positive", sentiment_score: 0.5, trend_id: @trend.id)
+       @response = Trend.get_json_for_tweets(@trend.id)
+    end
+    it "should create array" do
+      expect(@response).to_not be_empty
+    end
+  end
+  describe "get random trends" do
+    before(:each) do
+       @trend = Trend.create(name: "MyTrend", woeid: 23424977)
+       @tweet = Tweet.create(country_code: "US", sentiment: "positive", sentiment_score: 0.5, trend_id: @trend.id)
+       @response = Trend.get_random_trends
+    end
+    it "should create array" do
+      expect(@response).to_not be_empty
+    end
+  end
+  describe "get past trends" do
+    before(:each) do
+      15.times do
+        Trend.create(name: "MyTrend", woeid: 23424977)
+      end
+       @response = Trend.get_past_trends
+    end
+    it "should create array" do
+      # binding.pry
+      expect(@response).to_not be_empty
+    end
+  end
+end
+
+
+
