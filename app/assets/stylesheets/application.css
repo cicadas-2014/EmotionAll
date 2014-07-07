@@ -24,10 +24,6 @@ body {
   background-color: #FFF;
 }
 
-header:after {
-  clear: both;
-}
-
 header {
   background-color: #0099CC;
   padding: 24px 0;
@@ -55,22 +51,6 @@ header.shrink {
   height: 400px;
 }
 
-h1 {
-  font-size: 3.2em;
-  letter-spacing: 4px;
-  color: #FFF;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-header.shrink h1 {
-  font-size: 2.8em;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
 #main {
   width: 100%;
   background-color: #FFF;
@@ -88,27 +68,43 @@ footer {
 }
 
 /* High-chart Map Style */
-#map-wrapper.fixed-map {
-  top: 0;
-  margin-top: 140px;
-  position: fixed;
-}
-
 #map-wrapper {
   height: 500px;
   width: 75%;
   margin: 0 auto;
   display: inline-block;
-  position: relative;
   margin-top: 40px;
+}
+
+#map-wrapper.fixed-map {
+  top: 0;
+  float: right;
+  margin-top: 140px;
+  position: fixed;
+  width: 712px;
 }
 
 #map-container {
   margin: 0 auto;
 }
 
-
 /* App Copy */
+h1 {
+  font-size: 3.2em;
+  letter-spacing: 4px;
+  color: #FFF;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header.shrink h1 {
+  font-size: 2.8em;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 h1, h2, p, a, li {
   font-family: "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif;
 }
@@ -143,7 +139,7 @@ a:hover {
 }
 
 li {
-  list-style-image: none;
+  list-style: none;
 }
 
 .error {
@@ -175,30 +171,34 @@ header.shrink nav {
   display: inline-block;
 }
 
-nav li {
-  display: inline-block;
+nav a, nav a:visited {
   color: #FFF;
   font-size: 1.2em;
   letter-spacing: 2px;
+}
+
+nav li {
+  display: inline-block;
   padding: 0 12px;
 }
 
-nav li:hover{
+nav a:hover {
   opacity: 0.8;
+  text-decoration: none;
 }
 
 /* Current Trends Filler */
 #trends-content {
   background-color: #B0C4DE;
   text-align: center;
-  padding: 24px;
+  padding: 40px;
   z-index: 10;
 }
 
 #trends-content h1 {
   letter-spacing: 2px;
-  font-size: 3.2em;
-  padding: 40px;
+  font-size: 2.4em;
+  padding: 0 40px 24px;
 }
 
 #trends-content a:hover {
@@ -207,9 +207,8 @@ nav li:hover{
 }
 
 #trends-content ul {
-  width: 50%;
+  width: 100%;
   list-style: none;
-  display: inline-block;
 }
 
 #trends-content li {
@@ -221,6 +220,10 @@ nav li:hover{
   font-size: 1.6em;
   color: #FFF;
   font-weight: 200;
+}
+
+#trends-content a:hover {
+  opacity: 0.8;
 }
 
 /* Appending content */
@@ -243,6 +246,7 @@ nav li:hover{
 #trend-header {
   padding: 24px 0;
   background-color: #FFF;
+  width: 100%;
 }
 
 #trend-header.fixed {
