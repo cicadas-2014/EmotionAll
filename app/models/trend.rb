@@ -79,7 +79,7 @@ class Trend < ActiveRecord::Base
 		countries.uniq.each do |c|
 			country_average = []
 			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_average << tweet.get_highmap_val
+				country_average << tweet.sentiment_score
 			end
 			country_average = country_average.inject(:+) / country_average.length
 			json_output << { code: c,
