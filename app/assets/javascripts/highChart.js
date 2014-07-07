@@ -26,7 +26,7 @@ var Map = {
         stops: [
           [0, '#DC381F'],
           [0.5, '#FFFFFF'],
-          [1, '#70DB93']
+          [1, '#32CD32']
         ],
       //   minColor: '#FF0000',
       //   maxColor: '#00FF00'
