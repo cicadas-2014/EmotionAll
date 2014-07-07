@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EmotionAll</title>
+  <title><EmotionAll</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -19,6 +19,7 @@
 		</div>
 		<nav>
 			<ul>
+        <li><%= link_to 'Trends', root_path %></li>
 				<li><%= link_to 'About', about_path %></li>
         <li><a href="http://www.github.com/cicadas-2014/EmotionAll" target="_blank">GitHub</a></li>
 			</ul>
