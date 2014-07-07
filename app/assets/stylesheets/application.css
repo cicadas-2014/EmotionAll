@@ -139,7 +139,7 @@ a:hover {
 }
 
 li {
-  list-style-image: none;
+  list-style: none;
 }
 
 .error {
@@ -171,16 +171,20 @@ header.shrink nav {
   display: inline-block;
 }
 
-nav li {
-  display: inline-block;
+nav a, nav a:visited {
   color: #FFF;
   font-size: 1.2em;
   letter-spacing: 2px;
+}
+
+nav li {
+  display: inline-block;
   padding: 0 12px;
 }
 
-nav li:hover{
+nav a:hover {
   opacity: 0.8;
+  text-decoration: none;
 }
 
 /* Current Trends Filler */
