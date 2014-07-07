@@ -3,11 +3,15 @@ var Map = {
   defaultView: function(topic, mapData) {
     var self = this;
     $('#map-container').highcharts('Map', {
+      chart: {
+        width: 1500,
+        height: 1000
+      },
       title: {
         text: topic,
         style: {
           color: '#0099CC',
-          font: '24px "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif'
+          font: '44px "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif'
         }
       },
       mapNavigation: {
