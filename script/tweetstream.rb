@@ -23,24 +23,28 @@ tweets_parsed = 0
 tweets_saved = 0
 daemon.track(Trend.most_recent_names_array) do |t|
 	# unless Tweet.find_by(tweetid: t.attrs[:id_str]) # can possibly remove this since stream is live
-  	if t.geo? # only care about tweets with a geolocation or place object
-			Tweet.create(text: t.text,
-									 tweetid: t.attrs[:id_str],
-				  				 retweet_count: t.retweet_count,
-				  				 language: t.lang,
-				  				 country_code: t.place.country_code,
-				  				 latitude: t.geo.coordinates[0],
-				  				 longitude: t.geo.coordinates[1]) # tweets don't inherently know what trend they belong to
-		elsif t.place?							# use Trend#find_own_tweets
-			Tweet.create(text: t.text,
-					  			 tweetid: t.attrs[:id_str],
-					  			 retweet_count: t.retweet_count,
-					  			 language: t.lang,
-					  			 country_code: t.place.country_code)
+	# only care about tweets with a place object to get the country code
+	# tweets don't inherently know what trend they belong to
+	# use Trend#find_own_tweets
+  	if t.place?
+			if t.geo?
+				Tweet.create(text: t.text,
+										 tweetid: t.attrs[:id_str],
+					  				 retweet_count: t.retweet_count,
+					  				 language: t.lang,
+					  				 country_code: t.place.country_code,
+					  				 latitude: t.geo.coordinates[0],
+					  				 longitude: t.geo.coordinates[1])
+			else
+				Tweet.create(text: t.text,
+						  			 tweetid: t.attrs[:id_str],
+						  			 retweet_count: t.retweet_count,
+						  			 language: t.lang,
+						  			 country_code: t.place.country_code)
+			end
 		end
-	# end
 end
 
-	# @client = TweetStream::Client.new
+# @client = TweetStream::Client.new
 # @client.track(['bieber','Happy 5th of July']) do |t| puts "#{t.text} #{t.geo.coordinates}"  end
 # @client.locations('-180,-90,180,90') do |t| puts t.place.full_name end
