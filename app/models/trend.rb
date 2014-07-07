@@ -23,7 +23,7 @@ class Trend < ActiveRecord::Base
 	def create_tweets
 		new_tweets = get_tweets
 		new_tweets.select{ |tweet| tweet[:geo] != nil }.each do |t|
-			unless Tweet.find_by(text: t[:text])
+			unless Tweet.find_by(tweetid: t[:id_str])
 				Tweet.create(text: t[:text],
 									 	 tweetid: t[:id_str],
 								 		 retweet_count: t[:retweet_count],
@@ -51,7 +51,8 @@ class Trend < ActiveRecord::Base
 	end
 
 	def find_own_tweets
-		own_tweets = Tweet.where("text ILIKE (?)", "%#{self.name}%")
+		longest_word = self.name.split(" ").group_by(&:size).max.last.first # doesn't work well for common words like today
+		own_tweets = Tweet.where("text ILIKE (?)", "%#{longest_word}%").where(trend: nil)
 		own_tweets.each do |t|
 			t.update_attributes(trend: self)
 		end
@@ -67,7 +68,7 @@ class Trend < ActiveRecord::Base
 
 	def self.get_json_for_tweets(trend_id)
 		trend = Trend.find(trend_id)
-		tweets = trend.tweets
+		tweets = trend.tweets.where("sentiment != 'neutral'") # only care about positive or negative tweets
 		countries = []
 		json_output = []
 
@@ -78,7 +79,7 @@ class Trend < ActiveRecord::Base
 		countries.uniq.each do |c|
 			country_average = []
 			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_average << tweet.get_highmap_val
+				country_average << tweet.sentiment_score
 			end
 			country_average = country_average.inject(:+) / country_average.length
 			json_output << { code: c,

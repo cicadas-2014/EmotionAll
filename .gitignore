@@ -41,6 +41,7 @@ pickle-email-*.html
 
 # Daemon log
 tracker.output
+tracker.pid
 
 # Kevin's files
 notes.txt

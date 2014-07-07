@@ -10,7 +10,7 @@ FactoryGirl.define do
     longitude { 18 }
     latitude { 20 }
     sentiment { "positive" }
-    sentiment_score { 75 }
+    sentiment_score { 1.0 }
     trend_id { 1 }
   end
 end
