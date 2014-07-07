@@ -21,10 +21,15 @@ var Map = {
         type: 'linear',
         endOnTick: false,
         startOnTick: false,
-        min: 1,
-        max: 100,
-        minColor: '#474CFF',
-        maxColor: '#FF3E44'
+        min: -1,
+        max: 1,
+        stops: [
+          [0, '#DC381F'],
+          [0.5, '#FFFFFF'],
+          [1, '#70DB93']
+        ],
+      //   minColor: '#FF0000',
+      //   maxColor: '#00FF00'
       },
       colors: ['#FFF9E4'],
       tooltip: {
