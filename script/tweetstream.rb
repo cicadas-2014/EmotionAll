@@ -2,7 +2,7 @@ require 'tweetstream'
 
 root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 require File.join(root, "config", "environment")
-ENV["RAILS_ENV"] ||= "development"
+ENV["RAILS_ENV"] ||= "production"
 
 TweetStream.configure do |config|
 	config.consumer_key       = Rails.application.secrets.consumer_key
@@ -19,8 +19,6 @@ daemon.on_inited do
 	ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
 end
 
-tweets_parsed = 0
-tweets_saved = 0
 daemon.track(Trend.most_recent_names_array) do |t|
 	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
 	# only care about tweets with a place object to get the country code

@@ -33,7 +33,6 @@ group :development, :test do
  gem 'selenium-webdriver', '~> 2.42.0'
  gem 'jasmine-fixtures', '~> 0.1.7'
  gem 'pry'
- # gem 'debugger'
 end
 
 group :test do
