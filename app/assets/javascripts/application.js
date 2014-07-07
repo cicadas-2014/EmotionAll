@@ -16,5 +16,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-  createMapView.init();
+  eventHandler();
 });

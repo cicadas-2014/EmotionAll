@@ -2,15 +2,15 @@
 
 FactoryGirl.define do
   factory :tweet do
-    tweet "MyString"
-    tweetid 1
-    retweet_count 1
-    language "MyString"
-    country_code "MyString"
-    longitude 1.5
-    latitude 1.5
-    sentiment "MyString"
-    sentiment_score 1.5
-    trend_id 1
+    tweet { "Hello there, I am happy to see you all again! " }
+    tweetid { 1 }
+    retweet_count { 1 }
+    language { "en" }
+    country_code { "NG" }
+    longitude { 18 }
+    latitude { 20 }
+    sentiment { "positive" }
+    sentiment_score { 1.0 }
+    trend_id { 1 }
   end
 end

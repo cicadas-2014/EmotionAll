@@ -1,7 +1,6 @@
 class TrendsController < ApplicationController
-	def index
-		# looking for tweets from the US
-		# each trend has #name, #query, #url, #promoted_content
-		@trends = get_twitter_client.trends(23424977)
-	end
+  def json
+    map_info = Trend.get_json_for_tweets(params[:id])
+    render json: map_info.to_json
+  end
 end

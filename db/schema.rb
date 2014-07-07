@@ -11,27 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140704172244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "trends", force: true do |t|
-    t.string   "trend"
+    t.string   "name"
     t.integer  "woeid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tweets", force: true do |t|
-    t.string   "tweet"
-    t.integer  "tweetid"
+    t.string   "text"
+    t.string   "tweetid"
     t.integer  "retweet_count"
     t.string   "language"
     t.string   "country_code"
-    t.float    "longitude"
     t.float    "latitude"
+    t.float    "longitude"
     t.string   "sentiment"
     t.float    "sentiment_score"
     t.integer  "trend_id"
