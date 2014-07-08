@@ -1,0 +1,12 @@
+<h1>How to use?</h1>
+<h2><small>Here's how to use our application.</small></h2>
+
+<ul class="nav nav-pills nav-justified">
+  <% @current_trends.each do |trend| %>
+  <li id="trend-<%= trend.id %>">
+    <%= link_to trend.name, trend_path(trend) %>
+    <div class="errors-txt">
+    </div>
+  </li>
+  <% end %>
+</ul>
