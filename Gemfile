@@ -47,9 +47,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -59,6 +56,9 @@ gem 'pg'
 # Twitter gems
 gem 'twitter'
 gem 'tweetstream'
+
+# For running TweetStream script
+gem 'whenever', :require => false
 
 # Alchemy gem
 gem 'alchemy-api-rb', :require => "alchemy_api"
