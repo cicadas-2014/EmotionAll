@@ -90,7 +90,6 @@ var createMapView = {
   },
   setMapWidth: function() {
     $width = $(document).width();
-    console.log($width);
     if ($width > 1280) {
       return 1200;
     } else if ($width > 1025) {
