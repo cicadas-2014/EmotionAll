@@ -18,31 +18,78 @@
 
 #container-1 {
   background-color: #0099cc;
+  padding: 0 0 40px;
+  width: 100%;
 }
 
 #container-1 h1 {
   color: #FFF;
+  font-size: 4.0em;
 }
 
 #container-1 .btn {
   border: 1px solid #FFF;
-  background-color: #0099cc;
+  background-color: #0099CC;
   color: #FFF;
+  margin: 24px;
+  display: inline;
 }
 
+#container-1 ul {
+  margin: 0 auto;
+  max-width: 300px;
+}
 
+#page-image {
+  width: 100%;
+  background-color: grey;
+  height: 400px;
+  padding: 0;
+  margin-bottom: 24px;
+}
 
 /* Container 2 */
 
 #container-2 {
-  background-color: #FFF;
+  background-color: #00CC99;
+  padding: 0 0 40px;
+  width: 100%;
 }
 
+#about-header {
+  padding: 0 40px;
+}
+
+#container-2 h1 {
+  font-size: 3.0em;
+  color: #FFF;
+}
 
 /* Container 3 */
 
 #container-3 {
+  width: 100%;
+}
 
+#container-3 h2 {
+  color: #0099CC;
+}
+
+#container-3 ul li {
+  text-align: right;
+  padding: 4px 28px;
+}
+
+#container-3 ul li.active {
+
+}
+
+#container-3 ul li a {
+  color: #D3D3D3;
+}
+
+#container-3 ul li a:hover {
+  color: #D3D3D3;
 }
 
 
