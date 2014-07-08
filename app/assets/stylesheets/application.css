@@ -34,35 +34,6 @@
 }
 
 /* Trend Menu */
-#trend-menu {
-  float: left;
-  margin: 0 auto;
-}
-
-#trend-header {
-  padding: 64px 0 32px;
-  background-color: #FFF;
-  width: 100%;
-}
-
-#trend-header.fixed {
-  top: 0;
-  margin-top: 124px;
-  position: fixed;
-}
-
-#trending-topics {
-  padding-left: 8px;
-}
-
-#trending-topics li {
-  list-style: none;
-  padding: 8px;
-}
-
-#all-trends-container {
-  display: block;
-}
 
 #less-trends-btn {
   display: none;
