@@ -26,7 +26,7 @@ describe TrendsController do
   context 'trends#index' do
     it 'assigns @recent_trends to the most recent trends from the database' do
       get :index
-      expect(assigns(:trend)).to eq(Trend.most_recent_trends)
+      expect(assigns(:trend)).to eq(Trend.most_recent)
     end
   end
 end

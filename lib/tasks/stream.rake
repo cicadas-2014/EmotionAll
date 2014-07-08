@@ -12,7 +12,7 @@ namespace :stream do
   desc "Grab trends/tweets from REST API and restart Twitter stream"
   task :update => :environment do
     system('bundle exec rails runner script/tweetstream.rb stop')
-    Trend.get_current_trends
+    Trend.current_trends
     Trend.update_tweets
     system('bundle exec rails runner script/tweetstream.rb start')
   end
