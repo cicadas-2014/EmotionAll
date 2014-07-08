@@ -5,31 +5,69 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src="http://code.highcharts.com/maps/modules/map.js"></script>
   <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
 </head>
 <body>
-	<header>
-    <div id="header-contents">
-		<div id="logo">
-			<h1>EmotionAll</h1>
-		</div>
-		<nav>
-			<ul>
-        <li><%= link_to 'Trends', root_path %></li>
-				<li><%= link_to 'About', about_path %></li>
-        <li><a href="http://www.github.com/cicadas-2014/EmotionAll" target="_blank">GitHub</a></li>
-			</ul>
-		</nav>
+  <div id="container-1" class="container-fluid">
+    <div class="row center-block">
+      <div class="col-md-2 col-md-offset-5">
+        <h1 class="text-center">EmotionAll</h1>
+      </div>
     </div>
-	</header>
-  <div class="padding-div"></div>
-  <div id="main">
-    <%= yield %>
+    <div class="row center-block">
+      <div class="col-md-12">
+        <div id="page-image">
+        </div>
+      </div>
+    </div>
+    <div class="row center-block">
+      <div class="col-md-1 col-md-offset-5">
+        <button class="btn">GitHub</button>
+      </div>
+      <div class="col-md-1">
+        <button class="btn">Creators</button>
+      </div>
+    </div>
+    <div class="row center-block">
+      <div class="col-md-2 col-md-offset-5">
+        <div class="scroll-image">
+          <p class="text-center">Scroll Down</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <footer></footer>
+  <div id="container-2" class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>About</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-md-offset-3">
+        <h2><small>Text about what we're doing and how we're doing it and where we got our data and how to use our map.</small></h2>
+        <blockquote class="blockquote-reverse"><p>Some quote if we want it here.</p>
+        <footer>Someone notable</footer></blockquote>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <dl class="dl-horizontal">
+          <dt>Sentiment Index<dt>
+          <dd>Description of SI.</dd>
+          <dt>Trends</dt>
+          <dd>How we picked trends if we want.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+        <h5>Scroll <span class="glyphicon glyphicon-chevron-down"></span></h5>
+      </div>
+  </div>
+</div>
+<%= yield %>
 </body>
 </html>
