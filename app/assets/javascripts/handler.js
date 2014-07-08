@@ -1,14 +1,3 @@
-var eventHandler = function() {
-    linkEvents.currentTrend();
-    // buttonEvents.allTrends();
-    // buttonEvents.lessTrends();
-    createMapView.init();
-    // scrollEvents.stickMap();
-    // scrollEvents.shrinkMenu();
-    // scrollEvents.showFooter();
-    // scrollEvents.stickTrendHeader();
-};
-
 var errorHandler = {
     Display: function(errorDiv, error) {
         $(errorDiv).html('<p class="error">Error fetching ' + error + '.</p>');
