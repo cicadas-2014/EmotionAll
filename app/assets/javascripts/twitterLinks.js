@@ -1,7 +1,7 @@
 var linkEvents = {
     accessTrend: function() {
         var self = this;
-        $('#container-3').on('click', 'li', function(event) {
+        $('#outer-map-container').on('click', 'li', function(event) {
             event.preventDefault();
             errorHandler.Clear(self.trendId);
             var trend = $(this).text();
