@@ -12,62 +12,66 @@
 </head>
 <body>
   <div id="container-1" class="container-fluid">
-    <div class="row center-block">
-      <div class="col-md-4 col-md-offset-4">
-        <h1 class="text-center">EmotionAll</h1>
-      </div>
-    </div>
-    <div class="row center-block">
+    <div class="row">
       <div class="col-md-12">
         <div id="page-image">
         </div>
       </div>
     </div>
     <div class="row center-block">
-      <div class="col-md-2 col-md-offset-4">
-        <button class="btn">GitHub</button>
-      </div>
-      <div class="col-md-2">
-        <button class="btn">Creators</button>
+      <div class="col-md-12">
+        <h1 class="text-center">EmotionAll</h1>
       </div>
     </div>
     <div class="row center-block">
-      <div class="col-md-2 col-md-offset-5">
-        <div class="scroll-image">
-          <p class="text-center">Scroll Down</p>
-        </div>
+      <div class="col-md-12">
+        <ul class="list-inline">
+          <li>
+        <button class="btn">GitHub</button>
+      </li>
+      <li>
+        <button class="btn">Creators</button>
+      </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row center-block">
+      <div class="col-md-12 text-center">
+          <p style="color: white">Scroll</p>
       </div>
     </div>
   </div>
   <div id="container-2" class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>About</h1>
+    <div id="about-header">
+      <div class="row">
+        <div class="col-md-4">
+          <h1>About</h1>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9 col-md-offset-3">
-        <h2>Text about what we're doing and how we're doing it and where we got our data and how to use our map.</h2>
-        <blockquote class="blockquote-reverse"><p>Some quote if we want it here.</p>
-        <footer>Someone notable</footer></blockquote>
+      <div class="row">
+        <div class="col-md-9 col-md-offset-3">
+          <h3>Text about what we're doing and how we're doing it and where we got our data and how to use our map.</h3>
+          <blockquote class="blockquote-reverse"><p>Some quote if we want it here.</p>
+            <footer>Someone notable</footer></blockquote>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <dl class="dl-horizontal">
-          <dt>Sentiment Index<dt>
-          <dd>Description of SI.</dd>
-          <dt>Trends</dt>
-          <dd>How we picked trends if we want.</dd>
-        </dl>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <dl class="dl-horizontal">
+            <dt>Sentiment Index<dt>
+              <dd>Description of SI.</dd>
+              <dt>Trends</dt>
+              <dd>How we picked trends if we want.</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p style="color: white">Scroll</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-5">
-        <h5>Scroll <span class="glyphicon glyphicon-chevron-down"></span></h5>
-      </div>
-  </div>
-</div>
-<%= yield %>
-</body>
-</html>
+      <%= yield %>
+    </body>
+    </html>
