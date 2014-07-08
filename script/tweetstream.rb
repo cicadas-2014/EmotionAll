@@ -1,7 +1,7 @@
 require 'tweetstream'
 
-root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-require File.join(root, "config", "environment")
+# root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+# require File.join(root, "config", "environment")
 ENV["RAILS_ENV"] ||= "development"
 
 TweetStream.configure do |config|
@@ -12,15 +12,13 @@ TweetStream.configure do |config|
 	config.auth_method        = :oauth
 end
 
-daemon = TweetStream::Daemon.new('tracker', :log_output => true) # change to true for debugging
+daemon = TweetStream::Daemon.new('tracker', :log_output => false) # change to true for debugging
 
 daemon.on_inited do
 	ActiveRecord::Base.connection.reconnect!
-	ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
+	# ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
 end
 
-tweets_parsed = 0
-tweets_saved = 0
 daemon.track(Trend.most_recent_names_array) do |t|
 	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
 	# only care about tweets with a place object to get the country code
