@@ -14,8 +14,6 @@
  *= require_self
  */
 
-/* Container 1 */
-
 #front-container {
   background-color: #0099cc;
   padding: 0 0 40px;
@@ -48,7 +46,42 @@
   margin-bottom: 24px;
 }
 
-/* Container 2 */
+#outer-map-container {
+  width: 100%;
+  padding: 40px 10px;
+  background-color: #FFF;
+  text-align: center;
+}
+
+#outer-map-container h3 {
+  color: #FFF;
+}
+
+#outer-map-container h3 a:hover {
+  color: #FFF;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#outer-map-container ul li {
+  padding: 12px 12px 0 0;
+}
+
+#outer-map-container ul li a {
+  color: #2B2B2B;
+  font-size: 1.4em;
+}
+
+.active a {
+  font-weight: bold;
+  color: #00cc33 !important;
+}
+
+#outer-map-container ul li a:hover {
+  color: #00cc33;
+  background-color: #FFF;
+  text-decoration: none;
+}
 
 #about-container {
   background-color: #00cc99;
@@ -72,51 +105,6 @@
 
 #about-container h3 {
   padding: 24px 0 32px;
-}
-
-/* Container 3 */
-
-#outer-map-container {
-  width: 100%;
-  padding: 40px 10px;
-  background-color: #FFF;
-}
-
-#outer-map-container h3 {
-  color: #FFF;
-}
-
-#outer-map-container h3 a:hover {
-  color: #FFF;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-#outer-map-container .panel-heading {
-  background-color: #0099cc !important;
-  background-image: none !important;
-  border: 0.5px solid #FFF !important;
-}
-
-#outer-map-container ul li {
-  padding: 12px 12px 0 0;
-  text-align: right;
-}
-
-#outer-map-container ul li.active {
-
-}
-
-#outer-map-container ul li a {
-  color: #2B2B2B;
-  font-size: 1.0em;
-}
-
-#outer-map-container ul li a:hover {
-  color: #0099cc;
-  background-color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
 }
 
 /* High-chart Map Style */
