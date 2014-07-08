@@ -27,7 +27,6 @@ class Trend < ActiveRecord::Base
 				if t[:geo]
 					Tweet.create(text: t[:text],
 										 	 tweetid: t[:id_str],
-									 		 retweet_count: t[:retweet_count],
 								 			 language: t[:lang],
 							 				 country_code: t[:place][:country_code],
 											 latitude: t[:geo][:coordinates][0],
@@ -36,7 +35,6 @@ class Trend < ActiveRecord::Base
 				else
 					Tweet.create(text: t[:text],
 										 	 tweetid: t[:id_str],
-									 		 retweet_count: t[:retweet_count],
 								 			 language: t[:lang],
 							 				 country_code: t[:place][:country_code],
 					  					 trend: self)
@@ -55,7 +53,7 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(10)
 	end
 
-	def self.trend_names_array
+	def self.names_array
 		Trend.order(updated_at: :desc).take(400).map{ |t| t.name }
 	end
 

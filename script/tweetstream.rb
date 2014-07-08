@@ -19,16 +19,15 @@ daemon.on_inited do
 	ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
 end
 
-daemon.track(Trend.trend_names_array) do |t|
-	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
+daemon.track(Trend.names_array) do |t|
 	# only care about tweets with a place object to get the country code
-	# tweets don't inherently know what trend they belong to
-	# use Trend#find_own_tweets
+	# tweets don't inherently know what trend they belong to, so use Trend#find_own_tweets
+	puts 1
+	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
   	if t.place? && t.lang == 'en'
 			if t.geo?
 				Tweet.create(text: t.text,
 										 tweetid: t.attrs[:id_str],
-					  				 retweet_count: t.retweet_count,
 					  				 language: t.lang,
 					  				 country_code: t.place.country_code,
 					  				 latitude: t.geo.coordinates[0],
@@ -36,12 +35,12 @@ daemon.track(Trend.trend_names_array) do |t|
 			else
 				Tweet.create(text: t.text,
 						  			 tweetid: t.attrs[:id_str],
-						  			 retweet_count: t.retweet_count,
 						  			 language: t.lang,
 						  			 country_code: t.place.country_code)
 			end
 		end
 	end
+	puts 2
 end
 
 # @client = TweetStream::Client.new
