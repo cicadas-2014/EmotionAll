@@ -6,7 +6,7 @@
           <h2>Current Trends</h2>
         </div>
         <div id="trending-topics">
-          <ul class="list-unstayled">
+          <ul class="list-unstyled">
             <% @current_trends.each do |trend| %>
             <li id="trend-<%= trend.id %>">
               <%= link_to trend.name, trend_path(trend) %>
