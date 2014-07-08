@@ -1,12 +1,12 @@
 var eventHandler = function() {
-    linkEvents.popularTrend();
     linkEvents.currentTrend();
-    buttonEvents.allTrends();
-    buttonEvents.lessTrends();
-    scrollEvents.stickMap();
-    scrollEvents.shrinkMenu();
-    scrollEvents.showFooter();
-    scrollEvents.stickTrendHeader();
+    // buttonEvents.allTrends();
+    // buttonEvents.lessTrends();
+    createMapView.init();
+    // scrollEvents.stickMap();
+    // scrollEvents.shrinkMenu();
+    // scrollEvents.showFooter();
+    // scrollEvents.stickTrendHeader();
 };
 
 var errorHandler = {
