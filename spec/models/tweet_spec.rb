@@ -19,10 +19,10 @@ describe "Tweet model methods" do
                           	   trend_id: 1)
 	  end
 	it "should return results from alchemy api" do
-		expect(@tweet.get_sentiment).not_to be_nil
+		expect(@tweet.analyze_sentiment).not_to be_nil
     end
 	it "should update tweet sentiment values" do
-		@tweet.set_sentiment
+		@tweet.analyze_sentiment
 		expect(@tweet.sentiment).not_to be_nil
 		expect(@tweet.sentiment_score).not_to be_nil
     end
