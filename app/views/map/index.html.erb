@@ -1,3 +1,39 @@
 <%= render partial: "front" %>
-<%= render partial: "map" %>
+<div id="outer-map-container" class="container-fluid">
+  <div class="row center-block">
+    <h1>How to use?</h1>
+    <h2><small>Here's how to use our application.</small></h2>
+    <div id="trends-display">
+      <ul class="list-inline">
+        <% first_trend = @current_trends.shift %>
+        <% last_trend = @current_trends.pop %>
+        <li id="trend-<%= first_trend.id %>" class="active" >
+          <%= link_to first_trend.name, trend_path(first_trend) %>
+          <div class="errors-txt">
+          </div>
+        </li>
+        <% @current_trends.each do |trend| %>
+        <li id="trend-<%= trend.id %>">
+          <%= link_to trend.name, trend_path(trend) %>
+          <div class="errors-txt">
+          </div>
+        </li>
+        <% end %>
+        <li id="trend-<%= last_trend.id %>">
+          <%= link_to last_trend.name, trend_path(last_trend) %>
+          <div class="errors-txt">
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row center-block">
+    <div class="col-md-12">
+      <div id="map-wrapper">
+        <div id="map-container">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <%= render partial: "about" %>
