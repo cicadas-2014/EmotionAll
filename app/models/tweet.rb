@@ -11,7 +11,7 @@ class Tweet < ActiveRecord::Base
 													 sentiment_score: results["score"] || 0.0)
 	end
 
-	def get_highmap_val
-		((self.sentiment_score + 1) / 2 * 101).round
+	def self.country_sentiment(country_code)
+		tweets = Tweet.where(country_code: country_code)
 	end
 end

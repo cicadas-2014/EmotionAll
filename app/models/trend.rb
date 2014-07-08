@@ -22,26 +22,24 @@ class Trend < ActiveRecord::Base
 
 	def create_tweets
 		new_tweets = get_tweets
-		new_tweets.select{ |tweet| tweet[:geo] != nil }.each do |t|
+		new_tweets.select{ |tweet| tweet[:place] != nil }.each do |t|
 			unless Tweet.find_by(tweetid: t[:id_str])
-				if t[:place]
-					if t[:geo]
-						Tweet.create(text: t[:text],
-											 	 tweetid: t[:id_str],
-										 		 retweet_count: t[:retweet_count],
-									 			 language: t[:lang],
-								 				 country_code: t[:place][:country_code],
-												 latitude: t[:geo][:coordinates][0],
-					 	  					 longitude: t[:geo][:coordinates][1],
-						  					 trend: self)
-					else
-						Tweet.create(text: t[:text],
-											 	 tweetid: t[:id_str],
-										 		 retweet_count: t[:retweet_count],
-									 			 language: t[:lang],
-								 				 country_code: t[:place][:country_code],
-						  					 trend: self)
-					end
+				if t[:geo]
+					Tweet.create(text: t[:text],
+										 	 tweetid: t[:id_str],
+									 		 retweet_count: t[:retweet_count],
+								 			 language: t[:lang],
+							 				 country_code: t[:place][:country_code],
+											 latitude: t[:geo][:coordinates][0],
+				 	  					 longitude: t[:geo][:coordinates][1],
+					  					 trend: self)
+				else
+					Tweet.create(text: t[:text],
+										 	 tweetid: t[:id_str],
+									 		 retweet_count: t[:retweet_count],
+								 			 language: t[:lang],
+							 				 country_code: t[:place][:country_code],
+					  					 trend: self)
 				end
 			end
 		end
@@ -57,8 +55,8 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(10)
 	end
 
-	def self.most_recent_names_array
-		most_recent_trends.map{|t| t.name}
+	def self.trend_names_array
+		Trend.order(updated_at: :desc).take(400).map{ |t| t.name }
 	end
 
 	def find_own_tweets
@@ -69,7 +67,7 @@ class Trend < ActiveRecord::Base
 		end
 	end
 
-	def self.update_tweets 
+	def self.update_tweets
 		self.most_recent_trends.each do |trend|
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API
