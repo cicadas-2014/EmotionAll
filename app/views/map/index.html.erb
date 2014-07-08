@@ -1,41 +1,37 @@
-<div id="trends-content">
-	<h1>Popular Trends</h1>
-	<ul>
-		<% @sample_trends.each do |trend| %>
-			<li id="trend-<%= trend.id %>">
-				<h3><%= link_to trend.name, trend_path(trend) %></h3>
-			</li>
-		<% end %>
-	</ul>
-</div>
-<div id="main-content">
-	<div id="trend-menu">
-		<div id="trend-header">
-			<h2>Current Trends</h2>
-		</div>
-		<div id="trending-topics">
-			<ul>
-				<% @current_trends.each do |trend| %>
-					<li id="trend-<%= trend.id %>">
-						<%= link_to trend.name, trend_path(trend) %>
-						<div class="errors-txt">
-						</div>
-					</li>
-				<% end %>
-				<% @past_trends.each do |trend| %>
-					<li class="past-trend" id="trend-<%= trend.id %>">
-						<%= link_to trend.name, trend_path(trend) %>
-						<div class="errors-txt">
-						</div>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-		<div id="all-trends-container">
-			<button id="all-trends-btn">VIEW ALL TRENDS</button>
-			<button id="less-trends-btn">VIEW LESS TRENDS</button>
-		</div>
-	</div>
-	<div id="map-wrapper">
-	</div>
+<div id="container-3" class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div id="trend-menu">
+        <div id="trend-header">
+          <h2>Current Trends</h2>
+        </div>
+        <div id="trending-topics">
+          <ul class="list-unstayled">
+            <% @current_trends.each do |trend| %>
+            <li id="trend-<%= trend.id %>">
+              <%= link_to trend.name, trend_path(trend) %>
+              <div class="errors-txt">
+              </div>
+            </li>
+            <% end %>
+            <% @past_trends.each do |trend| %>
+            <li class="past-trend" id="trend-<%= trend.id %>">
+              <%= link_to trend.name, trend_path(trend) %>
+              <div class="errors-txt">
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+        <div id="all-trends-container">
+          <button class="btn" id="all-trends-btn">VIEW ALL TRENDS</button>
+          <button class="btn" id="less-trends-btn">VIEW LESS TRENDS</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div id="map-wrapper">
+      </div>
+    </div>
+  </div>
 </div>
