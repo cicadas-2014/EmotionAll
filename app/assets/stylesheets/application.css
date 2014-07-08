@@ -76,43 +76,43 @@
 
 /* Container 3 */
 
-#container-3 {
+#outer-map-container {
   width: 100%;
   padding: 40px 10px;
   background-color: #FFF;
 }
 
-#container-3 h3 {
+#outer-map-container h3 {
   color: #FFF;
 }
 
-#container-3 h3 a:hover {
+#outer-map-container h3 a:hover {
   color: #FFF;
   background-color: transparent;
   text-decoration: none;
 }
 
-#container-3 .panel-heading {
+#outer-map-container .panel-heading {
   background-color: #0099cc !important;
   background-image: none !important;
   border: 0.5px solid #FFF !important;
 }
 
-#container-3 ul li {
+#outer-map-container ul li {
   padding: 12px 12px 0 0;
   text-align: right;
 }
 
-#container-3 ul li.active {
+#outer-map-container ul li.active {
 
 }
 
-#container-3 ul li a {
+#outer-map-container ul li a {
   color: #2B2B2B;
   font-size: 1.0em;
 }
 
-#container-3 ul li a:hover {
+#outer-map-container ul li a:hover {
   color: #0099cc;
   background-color: #FFF;
   font-weight: bold;
