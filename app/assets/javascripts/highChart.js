@@ -1,17 +1,19 @@
 var Map = {
   dataInput: [],
-  defaultView: function(topic, mapData) {
-    var self = this;
+  defaultView: function(topic, mapData, width) {
+    var self = this,
+        width = width;
     $('#map-container').highcharts('Map', {
       chart: {
-        width: 1200,
-        height: 800
+        width: width,
+        height: 800,
+        backgroundColor: '#FFFFFF'
       },
       title: {
         text: topic,
         style: {
           color: '#0099CC',
-          font: '44px "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif'
+          font: '44px "HelveticaNeue", Arial, sans-serif'
         }
       },
       mapNavigation: {
@@ -28,12 +30,10 @@ var Map = {
         min: -1,
         max: 1,
         stops: [
-          [0, '#B1EB00'],
+          [0, '#CC0033'],
           [0.5, '#FFFFFF'],
-          [1, '#FF432E']
+          [1, '#00CC33']
         ],
-      //   minColor: '#FF0000',
-      //   maxColor: '#00FF00'
       },
       colors: ['#B4DA55'],
       tooltip: {
@@ -84,7 +84,25 @@ var createMapView = {
     }
   },
   layoutMap: function(topic, mapData) {
-    Map.defaultView(topic, mapData);
+    var deviceWidth = this.setMapWidth();
+    Map.defaultView(topic, mapData, deviceWidth);
+  },
+  setMapWidth: function() {
+    $width = $(document).width();
+    console.log($width);
+    if ($width > 1280) {
+      return 1200;
+    } else if ($width > 1025) {
+      return 850;
+    } else if ($width > 960) {
+      return 800;
+    } else if ($width > 640) {
+      return 640;
+    } else if ($width > 480) {
+      return 480;
+    } else {
+      return 300;
+    };
   }
 };
 
