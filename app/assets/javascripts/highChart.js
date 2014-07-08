@@ -89,20 +89,9 @@ var createMapView = {
     Map.defaultView(topic, mapData, deviceWidth);
   },
   setMapWidth: function() {
-    $width = $(document).width();
-    if ($width > 1280) {
-      return 1200;
-    } else if ($width > 1025) {
-      return 850;
-    } else if ($width > 960) {
-      return 800;
-    } else if ($width > 640) {
-      return 640;
-    } else if ($width > 480) {
-      return 480;
-    } else {
-      return 300;
-    };
+    var $width = $(document).width();
+    var mapPadding = 50;
+    return $width - (mapPadding * 2);
   }
 };
 
