@@ -2,7 +2,7 @@ require 'tweetstream'
 
 # root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 # require File.join(root, "config", "environment")
-ENV["RAILS_ENV"] ||= "development"
+ENV["RAILS_ENV"] ||= "production"
 
 TweetStream.configure do |config|
 	config.consumer_key       = ENV['CONSUMER_KEY']
@@ -12,11 +12,11 @@ TweetStream.configure do |config|
 	config.auth_method        = :oauth
 end
 
-daemon = TweetStream::Daemon.new('tracker', :log_output => true) # change to true for debugging
+daemon = TweetStream::Daemon.new('tracker', :log_output => false) # change to true for debugging
 
 daemon.on_inited do
 	ActiveRecord::Base.connection.reconnect!
-	ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
+	# ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
 end
 
 daemon.track(Trend.names_array) do |t|
