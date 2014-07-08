@@ -14,17 +14,46 @@
  *= require_self
  */
 
+/* Container 1 */
+
+#container-1 {
+  background-color: #0099cc;
+}
+
+#container-1 h1 {
+  color: #FFF;
+}
+
+#container-1 .btn {
+  border: 1px solid #FFF;
+  background-color: #0099cc;
+  color: #FFF;
+}
+
+
+
+/* Container 2 */
+
+#container-2 {
+  background-color: #FFF;
+}
+
+
+/* Container 3 */
+
+#container-3 {
+
+}
 
 
 /* High-chart Map Style */
 #map-wrapper {
   margin: 0 auto;
-  margin-top: 40px;
+  display: inline-block;
 }
 
 #map-wrapper.fixed-map {
   top: 0;
-  float: right;
   margin-top: 140px;
   position: fixed;
 }
