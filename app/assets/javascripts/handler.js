@@ -1,7 +1,8 @@
 var eventHandler = function() {
     linkEvents.currentTrend();
-    buttonEvents.allTrends();
-    buttonEvents.lessTrends();
+    // buttonEvents.allTrends();
+    // buttonEvents.lessTrends();
+    createMapView.init();
     // scrollEvents.stickMap();
     // scrollEvents.shrinkMenu();
     // scrollEvents.showFooter();
