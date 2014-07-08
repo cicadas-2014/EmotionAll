@@ -4,8 +4,8 @@ var Map = {
     var self = this;
     $('#map-container').highcharts('Map', {
       chart: {
-        width: 1500,
-        height: 1000
+        width: 1200,
+        height: 800
       },
       title: {
         text: topic,
@@ -28,9 +28,9 @@ var Map = {
         min: -1,
         max: 1,
         stops: [
-          [0, '#DC381F'],
+          [0, '#B1EB00'],
           [0.5, '#FFFFFF'],
-          [1, '#32CD32']
+          [1, '#FF432E']
         ],
       //   minColor: '#FF0000',
       //   maxColor: '#00FF00'
