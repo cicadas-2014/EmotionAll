@@ -12,6 +12,7 @@ class Tweet < ActiveRecord::Base
 	end
 
 	def self.country_sentiment(country_code)
-		tweets = Tweet.where(country_code: country_code)
+		tweets = Tweet.where("country_code = '#{country_code}' and sentiment_score is not null")
+		(tweets.pluck(:sentiment_score).inject(:+) / tweets.length).round(4)
 	end
 end
