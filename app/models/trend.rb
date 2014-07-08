@@ -90,7 +90,7 @@ class Trend < ActiveRecord::Base
 			tweets.select{ |t| t.country_code == c }.each do |tweet|
 				country_average << tweet.sentiment_score
 			end
-			country_average = country_average.inject(:+) / country_average.length
+			country_average = (country_average.inject(:+) / country_average.length).round(4)
 			json_output << { code: c,
 		        					 value: country_average }
 		end
