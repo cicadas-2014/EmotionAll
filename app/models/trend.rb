@@ -83,13 +83,15 @@ class Trend < ActiveRecord::Base
 		end
 
 		countries.uniq.each do |c|
-			country_average = []
+			country_sentiments = []
 			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_average << tweet.sentiment_score
+				country_sentiments << tweet.sentiment_score
 			end
-			country_average = (country_average.inject(:+) / country_average.length).round(4)
+			country_average = (country_sentiments.inject(:+) / country_sentiments.length).round(2)
 			map_info << { code: c,
-		        				value: country_average }
+		        				value: country_average,
+		        				overall: Tweet.country_sentiment(c),
+		        				tweet_count: country_sentiments.length }
 		end
 
 		map_info
