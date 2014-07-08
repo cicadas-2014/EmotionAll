@@ -1,5 +1,5 @@
 var linkEvents = {
-    currentTrend: function() {
+    accessTrend: function() {
         var self = this;
         $('#container-3').on('click', 'li', function(event) {
             event.preventDefault();
