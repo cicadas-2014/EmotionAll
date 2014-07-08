@@ -16,18 +16,18 @@
 
 /* Container 1 */
 
-#container-1 {
+#front-container {
   background-color: #0099cc;
   padding: 0 0 40px;
   width: 100%;
 }
 
-#container-1 h1 {
+#front-container h1 {
   color: #FFF;
   font-size: 4.0em;
 }
 
-#container-1 .btn {
+#front-container .btn {
   border: 1px solid #FFF;
   background-color: #0099CC;
   color: #FFF;
@@ -35,7 +35,7 @@
   display: inline;
 }
 
-#container-1 ul {
+#front-container ul {
   margin: 0 auto;
   max-width: 300px;
 }
