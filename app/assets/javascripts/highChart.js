@@ -21,7 +21,8 @@ var Map = {
         buttonOptions: {
           align: 'right',
           verticalAlign: 'bottom'
-        }
+        },
+        enableMouseWheelZoom: false
       },
       colorAxis: {
         type: 'linear',
