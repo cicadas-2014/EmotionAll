@@ -48,8 +48,8 @@ class Trend < ActiveRecord::Base
 		end
 	end
 
-	def self.most_recent
-		Trend.order(updated_at: :desc).take(10)
+	def self.most_recent(number=10)
+		Trend.order(updated_at: :desc).take(number)
 	end
 
 	def self.names_array
@@ -65,7 +65,7 @@ class Trend < ActiveRecord::Base
 	end
 
 	def self.update_tweets
-		self.most_recent.each do |trend|
+		self.most_recent(400).each do |trend|
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API
 			trend.update_tweets_sentiments # makes Alchemy API calls if tweet doesn't have sentiments
