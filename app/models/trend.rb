@@ -1,47 +1,42 @@
 class Trend < ActiveRecord::Base
 	has_many :tweets
 
+	# WOEID (Where On Earth IDentifier) is used by Twitter to define regions of the world
 	# defaults to US trends
-	def self.get_current_trends(woeid=23424977)
-		new_trends = get_twitter_client.trends(woeid)
+	def self.current_trends(woeid=23424977)
+		new_trends = TwitterService.client.trends(woeid)
 		new_trends.each do |trend|
-			existing_trend = Trend.find_by(name: trend.name)
-			if existing_trend
-				existing_trend.update(updated_at: Time.now)
-			else
-				Trend.create(name: trend.name, woeid: woeid)
-			end
+			existing_trend = Trend.find_or_initialize_by(name: trend.name)
+			existing_trend.updated_at = Time.now unless existing_trend.new_record?
+			existing_trend.woeid = woeid if existing_trend.new_record?
+			existing_trend.save
 		end
 	end
 
 	# default options are recent tweets and english language
-	def get_tweets  # gets tweets connected to a trend
-		get_twitter_client.search("#{self.name}", result_type:"recent", lang: "en").attrs[:statuses]
+	def tweet_search  # gets tweets connected to a trend
+		TwitterService.client.search("#{self.name}", result_type:"recent", lang: "en").attrs[:statuses]
 		# in the future, add logic to get a more location-diverse sample of tweets
 	end
 
 	def create_tweets
-		new_tweets = get_tweets
-		new_tweets.select{ |tweet| tweet[:geo] != nil }.each do |t|
+		new_tweets = tweet_search
+		new_tweets.select{ |tweet| tweet[:place] != nil }.each do |t|
 			unless Tweet.find_by(tweetid: t[:id_str])
-				if t[:place]
-					if t[:geo]
-						Tweet.create(text: t[:text],
-											 	 tweetid: t[:id_str],
-										 		 retweet_count: t[:retweet_count],
-									 			 language: t[:lang],
-								 				 country_code: t[:place][:country_code],
-												 latitude: t[:geo][:coordinates][0],
-					 	  					 longitude: t[:geo][:coordinates][1],
-						  					 trend: self)
-					else
-						Tweet.create(text: t[:text],
-											 	 tweetid: t[:id_str],
-										 		 retweet_count: t[:retweet_count],
-									 			 language: t[:lang],
-								 				 country_code: t[:place][:country_code],
-						  					 trend: self)
-					end
+				if t[:geo]
+					Tweet.create(text: t[:text],
+										 	 tweetid: t[:id_str],
+								 			 language: t[:lang],
+							 				 country_code: t[:place][:country_code],
+											 latitude: t[:geo][:coordinates][0],
+				 	  					 longitude: t[:geo][:coordinates][1],
+					  					 trend: self)
+				else
+					Tweet.create(text: t[:text],
+										 	 tweetid: t[:id_str],
+								 			 language: t[:lang],
+							 				 country_code: t[:place][:country_code],
+					  					 trend: self)
 				end
 			end
 		end
@@ -49,16 +44,16 @@ class Trend < ActiveRecord::Base
 
 	def update_tweets_sentiments
 		self.tweets.each do |t|
-			t.set_sentiment unless t.sentiment && t.sentiment_score
+			t.analyze_sentiment unless t.sentiment && t.sentiment_score
 		end
 	end
 
-	def self.most_recent_trends
-		Trend.order(updated_at: :desc).take(10)
+	def self.most_recent(number=10)
+		Trend.order(updated_at: :desc).take(number)
 	end
 
-	def self.most_recent_names_array
-		most_recent_trends.map{|t| t.name}
+	def self.names_array
+		Trend.order(updated_at: :desc).take(400).map(&:name)
 	end
 
 	def find_own_tweets
@@ -69,49 +64,49 @@ class Trend < ActiveRecord::Base
 		end
 	end
 
-	def self.update_tweets 
-		self.most_recent_trends.each do |trend|
+	def self.update_tweets
+		self.most_recent(400).each do |trend|
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API
 			trend.update_tweets_sentiments # makes Alchemy API calls if tweet doesn't have sentiments
 		end
 	end
 
-	def self.get_json_for_tweets(trend_id)
+	def self.map_info(trend_id)
 		trend = Trend.find(trend_id)
 		tweets = trend.tweets.where("sentiment != 'neutral'") # only care about positive or negative tweets
 		countries = []
-		json_output = []
+		map_info = []
 
 		tweets.each do |t|
 			countries << t.country_code
 		end
 
 		countries.uniq.each do |c|
-			country_average = []
+			country_sentiments = []
 			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_average << tweet.sentiment_score
+				country_sentiments << tweet.sentiment_score
 			end
-			country_average = country_average.inject(:+) / country_average.length
-			json_output << { code: c,
-		        					 value: country_average }
+			country_average = (country_sentiments.inject(:+) / country_sentiments.length).round(2)
+			map_info << { code: c,
+		        				value: country_average,
+		        				overall: Tweet.country_sentiment(c),
+		        				tweet_count: country_sentiments.length }
 		end
 
-		json_output
+		map_info
 	end
 
-	def self.get_random_trends
+	def self.random_trends
 		recent_trends = []
 		4.times do
-			trend = self.most_recent_trends.sample
+			trend = self.most_recent.sample
 			recent_trends << trend unless recent_trends.include?(trend)
 		end
 		recent_trends
 	end
 
-	def self.get_past_trends
-		past_trends = []
-		Trend.all.each { |t| past_trends << t if !self.most_recent_trends.include?(t) }
-		past_trends
+	def self.old_trends
+		Trend.order(updated_at: :desc) - Trend.most_recent
 	end
 end

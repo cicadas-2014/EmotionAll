@@ -1,7 +1,7 @@
 var scrollEvents = {
     shrinkMenu: function() {
         $(window).scroll(function() {
-            var height = 300,
+            var height = 120,
             y = $(this).scrollTop();
             if( y > height ) {
                 $('header').addClass('shrink');
@@ -12,7 +12,7 @@ var scrollEvents = {
     },
     showFooter: function() {
         $(window).scroll(function() {
-            var height = 300,
+            var height = 120,
             y = $(this).scrollTop();
             if( y > height ) {
                 $('footer').show();

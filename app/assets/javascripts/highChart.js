@@ -1,13 +1,19 @@
 var Map = {
   dataInput: [],
-  defaultView: function(topic, mapData) {
-    var self = this;
+  defaultView: function(topic, mapData, width) {
+    var self = this,
+        width = width;
     $('#map-container').highcharts('Map', {
+      chart: {
+        width: width,
+        height: 800,
+        backgroundColor: '#FFFFFF'
+      },
       title: {
         text: topic,
         style: {
           color: '#0099CC',
-          font: '24px "HelveticaNeue-Thin", "HelveticaNeue", Arial, sans-serif'
+          font: '44px "HelveticaNeue", Arial, sans-serif'
         }
       },
       mapNavigation: {
@@ -24,18 +30,20 @@ var Map = {
         min: -1,
         max: 1,
         stops: [
-          [0, '#DC381F'],
+          [0, '#CC0033'],
           [0.5, '#FFFFFF'],
-          [1, '#32CD32']
+          [1, '#00CC33']
         ],
-      //   minColor: '#FF0000',
-      //   maxColor: '#00FF00'
       },
       colors: ['#B4DA55'],
       tooltip: {
         animation: true,
-        pointFormat: '{point.name}: {point.value}',
-        shadow: false
+        shadow: false,
+        followPointer: true,
+        headerFormat: '<span style="font-size:10px">{series.name}</span><br/>',
+        pointFormat: '<span style="font-size:10px"><strong>{point.name}</strong></span><br/><span style="font-size:9.5px">S: {point.value} | TS: {point.overall} | TC: {point.tweet_count}</span><br/>',
+        footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
+        hideDelay: 50
       },
       legend: {
         align: 'center',
@@ -60,7 +68,7 @@ var Map = {
       series: [{
         data: self.dataInput,
         mapData: mapData,
-        name: 'Sentiment Index',
+        name: 'Sentiment Analysis',
       }]
     })
   }
@@ -80,7 +88,25 @@ var createMapView = {
     }
   },
   layoutMap: function(topic, mapData) {
-    Map.defaultView(topic, mapData);
+    var deviceWidth = this.setMapWidth();
+    Map.defaultView(topic, mapData, deviceWidth);
+  },
+  setMapWidth: function() {
+    $width = $(document).width();
+    console.log($width);
+    if ($width > 1280) {
+      return 1200;
+    } else if ($width > 1025) {
+      return 850;
+    } else if ($width > 960) {
+      return 800;
+    } else if ($width > 640) {
+      return 640;
+    } else if ($width > 480) {
+      return 480;
+    } else {
+      return 300;
+    };
   }
 };
 

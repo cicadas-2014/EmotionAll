@@ -16,5 +16,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-    eventHandler();
+  eventHandler();
 });

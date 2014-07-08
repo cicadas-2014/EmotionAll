@@ -1,3 +1,3 @@
 AlchemyAPI.configure do |config|
-	config.apikey = Rails.application.secrets.alchemyapi
+	config.apikey = ENV['ALCHEMY_API']
 end

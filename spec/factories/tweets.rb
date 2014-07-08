@@ -4,7 +4,6 @@ FactoryGirl.define do
   factory :tweet do
     tweet { "Hello there, I am happy to see you all again! " }
     tweetid { 1 }
-    retweet_count { 1 }
     language { "en" }
     country_code { "NG" }
     longitude { 18 }
