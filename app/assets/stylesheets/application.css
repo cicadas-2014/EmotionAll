@@ -50,7 +50,7 @@
 
 /* Container 2 */
 
-#container-2 {
+#about-container {
   background-color: #00cc99;
   padding: 0 0 40px;
   width: 100%;
@@ -60,17 +60,17 @@
   padding: 0 40px;
 }
 
-#container-2 h1 {
+#about-container h1 {
   font-size: 3.0em;
   color: #FFF;
 }
 
-#container-2 dl {
+#about-container dl {
   padding: 12px;
   font-size: 1.4em;
 }
 
-#container-2 h3 {
+#about-container h3 {
   padding: 24px 0 32px;
 }
 
