@@ -1,8 +1,10 @@
-def get_twitter_client
-  Twitter::REST::Client.new do |config|
-    config.consumer_key        = Rails.application.secrets.consumer_key
-    config.consumer_secret     = Rails.application.secrets.consumer_secret
-    config.access_token        = Rails.application.secrets.oauth_token
-    config.access_token_secret = Rails.application.secrets.oauth_token_secret
+class TwitterService
+  def self.client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['CONSUMER_KEY']
+      config.consumer_secret     = ENV['CONSUMER_SECRET']
+      config.access_token        = ENV['ACCESS_TOKEN']
+      config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+    end
   end
 end

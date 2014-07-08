@@ -33,7 +33,7 @@ group :development, :test do
  gem 'selenium-webdriver', '~> 2.42.0'
  gem 'jasmine-fixtures', '~> 0.1.7'
  gem 'pry'
- # gem 'debugger'
+ gem 'json_spec'
 end
 
 group :test do
@@ -44,8 +44,9 @@ group :test do
  gem 'shoulda-matchers'
 end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :production do
+  gem 'rails_12factor'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -56,6 +57,9 @@ gem 'pg'
 # Twitter gems
 gem 'twitter'
 gem 'tweetstream'
+
+# For running TweetStream script
+gem 'whenever', :require => false
 
 # Alchemy gem
 gem 'alchemy-api-rb', :require => "alchemy_api"
