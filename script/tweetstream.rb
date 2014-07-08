@@ -18,7 +18,7 @@ daemon.on_inited do
 	ActiveRecord::Base.connection.reconnect!
 	# ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
 end
-binding.pry
+
 daemon.track(Trend.most_recent_names_array) do |t|
 	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
 	# only care about tweets with a place object to get the country code

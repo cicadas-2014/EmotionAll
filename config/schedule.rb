@@ -18,7 +18,11 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-
-every 10.minutes do
-  rake "stream:update"
+every 30.minutes do
+  job_type :stream_update, "cd :path && RAILS_ENV=development CONSUMER_KEY=:consumer_key CONSUMER_SECRET=:consumer_secret ACCESS_TOKEN=:access_token ACCESS_TOKEN_SECRET=:access_token_secret ALCHEMY_API=:alchemy_api bundle exec rake :task --silent :output"
+  stream_update "stream:update", :consumer_Key => @consumer_key, :consumer_secret => @consumer_secret, :access_token => @access_token, :access_token_secret => @access_token_secret
 end
+# every 1.minute do
+#   rake "stream:update"
+# end
+# whenever --set "consumer_key=$CONSUMER_KEY&consumer_secret=$CONSUMER_SECRET&access_token=$ACCESS_TOKEN&access_token_secret=$ACCESS_TOKEN_SECRET&alchemy_api=$ALCHEMY_API" --update-crontab
