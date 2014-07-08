@@ -105,6 +105,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include CapybaraHelpers
   config.include Capybara::DSL
+  config.include Capybara::RSpecMatchers
 
   config.use_transactional_fixtures = false
   config.before(:suite) do

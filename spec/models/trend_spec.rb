@@ -9,12 +9,8 @@ end
 
 describe "Trend model methods" do
     before(:each) do
-         # @trend_tweets = Trend.tweets
          @trend= Trend.create(name: "MyTrend", woeid: 23424977)
     end
-    # before(:each) do
-    #      @trend= Trend.create(name: "MyTrend", woeid: 23424977)
-    # end
     it "add ten trends to Trend table" do
       expect{Trend.get_current_trends}.to change{Trend.all.length}.by(10)
     end

@@ -43,6 +43,7 @@ group :test do
  gem 'database_cleaner' 
  gem 'capybara-webkit'
  gem 'shoulda-matchers'
+ gem 'launchy'
 end
 
 # Use unicorn as the app server
