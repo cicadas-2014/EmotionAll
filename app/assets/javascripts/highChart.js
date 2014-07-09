@@ -13,8 +13,9 @@ var Map = {
         text: topic,
         style: {
           color: '#0099CC',
-          font: '44px "HelveticaNeue", Arial, sans-serif'
-        }
+          font: '36px "HelveticaNeue", Arial, sans-serif'
+        },
+        enabled: false
       },
       mapNavigation: {
         enabled: true,
@@ -36,7 +37,7 @@ var Map = {
           [1, '#00CC33']
         ],
       },
-      colors: ['#B4DA55'],
+      colors: ['#0099CC'],
       tooltip: {
         animation: true,
         pointFormat: '{point.name}: {point.value}',
