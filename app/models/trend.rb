@@ -97,15 +97,6 @@ class Trend < ActiveRecord::Base
 		map_info
 	end
 
-	def self.random_trends
-		recent_trends = []
-		4.times do
-			trend = self.most_recent.sample
-			recent_trends << trend unless recent_trends.include?(trend)
-		end
-		recent_trends
-	end
-
 	def self.old_trends
 		Trend.order(updated_at: :desc) - Trend.most_recent
 	end
