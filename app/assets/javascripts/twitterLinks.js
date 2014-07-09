@@ -24,8 +24,7 @@ function fetchTweets(trend, trendId) {
 
 function fetchMap(trend, tweetData) {
     var mapReq = $.get('/map/show');
-    mapReq.success(function(html) {
-        $('#map-wrapper').html(html);
+    mapReq.success(function() {
         createMapView.init(trend, tweetData);
     });
     mapReq.fail(function() {
