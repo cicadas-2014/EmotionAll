@@ -14,6 +14,7 @@ namespace :stream do
     system('bundle exec rails runner script/tweetstream.rb stop')
     Trend.current_trends
     Trend.update_tweets
+    Country.update_sentiments # updates the overall sentiment average for every country
     Rails.cache.write('cache', Cache.new)
     system('bundle exec rails runner script/tweetstream.rb start')
   end

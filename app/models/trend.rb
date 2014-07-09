@@ -52,6 +52,10 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(number)
 	end
 
+	def self.most_popular(number=10)
+		Trend.order(tweet_count: :desc).take(number)
+	end
+
 	def self.names_array
 		Trend.order(updated_at: :desc).take(400).map(&:name)
 	end
@@ -69,7 +73,7 @@ class Trend < ActiveRecord::Base
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API
 			trend.update_tweets_sentiments # makes Alchemy API calls if tweet doesn't have sentiments
-			Country.update_sentiments # updates the overall sentiment average for every country
+			trend.update_attributes(tweet_count: trend.tweets.count)
 		end
 	end
 
