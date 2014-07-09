@@ -15,22 +15,39 @@
  */
 
 #front-container {
+  /*background-image: url('/assets/images/pikachu.jpg');*/
+  /*background-size: contain;*/
   background-color: #0099cc;
-  padding: 0 0 40px;
+  padding: 360px 0;
   width: 100%;
 }
 
 #front-container h1 {
   color: #FFF;
-  font-size: 4.0em;
+  font-size: 6.0em;
+  display: inline;
+  letter-spacing: 4px;
+}
+
+#front-container h1:hover {
+  opacity: 0.8;
+}
+
+#front-container .no-fade {
+  opacity: 1.0 !important;
 }
 
 #front-container .btn {
   border: 1px solid #FFF;
-  background-color: #0099CC;
+  background-color: transparent;
   color: #FFF;
-  margin: 24px;
+  margin: 64px 24px 40px;
   display: inline;
+}
+
+#front-container .btn:hover {
+  background-color: #FFF;
+  color: #0099cc;
 }
 
 #front-container ul {
@@ -38,33 +55,33 @@
   max-width: 300px;
 }
 
-#page-image {
+/*#page-image {
   width: 100%;
   background-color: grey;
   height: 400px;
   padding: 0;
   margin-bottom: 24px;
-}
+
+}*/
 
 #outer-map-container {
   width: 100%;
+  margin: 0 auto;
+  /*padding: 0;*/
   padding: 40px 10px;
   background-color: #FFF;
   text-align: center;
 }
 
+/*.map-header {
+  background-color: #00cc99;
+  width: 100%;
+  padding: 40px;
+  margin: 0 auto;
+}
+*/
 #trends-display {
   padding-bottom: 24px;
-}
-
-#outer-map-container h3 {
-  color: #FFF;
-}
-
-#outer-map-container h3 a:hover {
-  color: #FFF;
-  background-color: transparent;
-  text-decoration: none;
 }
 
 #outer-map-container ul li {
@@ -140,4 +157,18 @@
 
 #map-container {
   margin: 0 auto;
+}
+
+.scroll-icon {
+  padding: 160px 0;
+  font-size: 3.0em;
+}
+
+.scroll-icon a {
+  color: #FFF;
+}
+
+.scroll-icon a:hover {
+  background-color: transparent;
+  text-decoration: none;
 }
