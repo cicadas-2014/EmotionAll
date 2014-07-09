@@ -10,7 +10,7 @@ namespace :cron do
   end
 
   desc "List cron tasks"
-  task :stop => :environment do
+  task :list => :environment do
     system('crontab -l')
   end
 end
