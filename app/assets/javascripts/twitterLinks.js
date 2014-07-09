@@ -14,6 +14,25 @@ var linkEvents = {
         var trendId = $trend.attr('id').substring(6);
         var trend = $trend.text();
         fetchTweets(trend, trendId);
+    },
+    scrollToMap: function() {
+        $('#top-scroll-icon').on('click', function(event) {
+            event.preventDefault();
+            var $anchor = $('#outer-map-container');
+            $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
+        })
+    },
+    scrollToAbout: function() {
+        $('#btn-for-about').on('click', function() {
+            var $anchor = $('#about-container');
+            $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
+        })
+    },
+    logoClick: function() {
+        $('#logo').on('click', function() {
+            var $anchor = $('#outer-map-container');
+            $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
+        })
     }
 };
 

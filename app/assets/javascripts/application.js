@@ -16,6 +16,9 @@
 //= require_tree .
 
 $(document).ready(function() {
+  linkEvents.scrollToMap();
   linkEvents.launchOnReady();
   linkEvents.accessTrend();
+  linkEvents.scrollToAbout();
+  linkEvents.logoClick();
 });

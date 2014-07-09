@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EmotionAll</title>
+  <title>emotionall</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,5 +12,8 @@
 </head>
 <body>
   <%= yield %>
+  <footer>
+    <p class="footer-text">Made at DBC <span class="glyphicon glyphicon-book"></span></p>
+  </footer>
 </body>
 </html>
