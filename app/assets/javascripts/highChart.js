@@ -39,7 +39,7 @@ var Map = {
           [1, '#00CC33']
         ],
       },
-      colors: ['#0099CC'],
+      colors: ['#99d6ea'],
       tooltip: {
         animation: true,
         shadow: false,
