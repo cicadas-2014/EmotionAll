@@ -15,7 +15,7 @@ class Trend < ActiveRecord::Base
 
 	# default options are recent tweets and english language
 	def tweet_search  # gets tweets connected to a trend
-		TwitterService.client.search("#{self.name}", result_type:"recent", lang: "en").attrs[:statuses]
+		TwitterService.client.search("#{self.name}", lang: "en").attrs[:statuses]
 		# in the future, add logic to get a more location-diverse sample of tweets
 	end
 
