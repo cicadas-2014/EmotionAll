@@ -18,7 +18,7 @@
   /*background-image: url('/assets/images/pikachu.jpg');*/
   /*background-size: contain;*/
   background-color: #0099cc;
-  padding: 360px 0;
+  padding: 240px 0;
   width: 100%;
 }
 
@@ -29,9 +29,9 @@
   letter-spacing: 4px;
 }
 
-#front-container h1:hover {
+/*#front-container h1:hover {
   opacity: 0.8;
-}
+}*/
 
 #front-container .no-fade {
   opacity: 1.0 !important;
@@ -43,6 +43,8 @@
   color: #FFF;
   margin: 64px 24px 40px;
   display: inline;
+  width: 80px;
+  text-align: center;
 }
 
 #front-container .btn:hover {
@@ -73,66 +75,65 @@
   text-align: center;
 }
 
-/*.map-header {
-  background-color: #00cc99;
-  width: 100%;
-  padding: 40px;
-  margin: 0 auto;
-}
-*/
-#trends-display {
-  padding-bottom: 24px;
+#outer-map-container h1 {
+  font-size: 3.0em;
 }
 
-#outer-map-container ul li {
-  padding: 12px 12px 0 0;
+#outer-map-container h2 {
+  font-size: 3.2em;
+  color: #00cc99;
+}
+
+#outer-map-container ul {
+  width: 64%;
+  text-align: center;
+  margin: 16px auto 0;
 }
 
 #outer-map-container ul li a {
   color: #2B2B2B;
-  font-size: 1.4em;
-}
-
-.active a {
-  font-weight: bold;
-  color: #00cc33 !important;
-  font-size: 2.8em !important;
+  font-size: 1.0em;
+  background-color: #00cc99;
+  padding: 12px;
+  line-height: 56px;
+  border-radius: 4px;
 }
 
 #outer-map-container ul li a:hover {
-  color: #00cc33;
-  background-color: #FFF;
   text-decoration: none;
+  background-color: #CC0033;
+  color: #FFF;
 }
 
 #legend {
   vertical-align: bottom;
-  background-color: #00cc33;
-  height: 160px;
   width: 160px;
   margin: -240px -240px 0 100px;
   position: absolute;
+  border: 1px solid #00cc99;
+  border-radius: 4px;
 }
 
 #legend .legend-header {
   font-weight: bold;
   text-align: right;
-  padding: 8px;
+  padding: 4px 8px 4px 4px;
+  background-color: #00cc99;
 }
 
 #legend .legend-body {
   text-align: left;
-  padding: 8px;
+  padding: 4px 4px 4px 8px;
 }
 
 #about-container {
   background-color: #00cc99;
-  padding: 0 0 40px;
+  padding: 56px 40px;
   width: 100%;
 }
 
 #about-header {
-  padding: 0 40px;
+  padding-bottom: 40px;
 }
 
 #about-container h1 {
@@ -141,26 +142,15 @@
 }
 
 #about-container dl {
-  padding: 12px;
   font-size: 1.4em;
 }
 
-#about-container h3 {
-  padding: 24px 0 32px;
-}
-
-/* High-chart Map Style */
-#map-wrapper {
-  margin: 0 auto;
-  display: inline-block;
-}
-
-#map-container {
-  margin: 0 auto;
+#about-container dd {
+  padding-bottom: 12px;
 }
 
 .scroll-icon {
-  padding: 160px 0;
+  margin: 160px auto;
   font-size: 3.0em;
 }
 
