@@ -15,8 +15,6 @@
  */
 
 #front-container {
-  /*background-image: url('/assets/images/pikachu.jpg');*/
-  /*background-size: contain;*/
   background-color: #0099cc;
   padding: 240px 0;
   width: 100%;
@@ -28,10 +26,6 @@
   display: inline;
   letter-spacing: 4px;
 }
-
-/*#front-container h1:hover {
-  opacity: 0.8;
-}*/
 
 #front-container .no-fade {
   opacity: 1.0 !important;
@@ -57,19 +51,9 @@
   max-width: 300px;
 }
 
-/*#page-image {
-  width: 100%;
-  background-color: grey;
-  height: 400px;
-  padding: 0;
-  margin-bottom: 24px;
-
-}*/
-
 #outer-map-container {
   width: 100%;
   margin: 0 auto;
-  /*padding: 0;*/
   padding: 40px 10px;
   background-color: #FFF;
   text-align: center;
