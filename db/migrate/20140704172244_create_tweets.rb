@@ -3,7 +3,6 @@ class CreateTweets < ActiveRecord::Migration
     create_table :tweets do |t|
       t.string :text
       t.string :tweetid
-      t.integer :retweet_count
       t.string :language
       t.string :country_code
       t.float :latitude

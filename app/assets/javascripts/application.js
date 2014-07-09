@@ -16,5 +16,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-    eventHandler();
+  createMapView.init();
+  linkEvents.accessTrend();
 });

@@ -5,31 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src="http://code.highcharts.com/maps/modules/map.js"></script>
   <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
 </head>
 <body>
-	<header>
-    <div id="header-contents">
-		<div id="logo">
-			<h1>EmotionAll</h1>
-		</div>
-		<nav>
-			<ul>
-        <li><%= link_to 'Trends', root_path %></li>
-				<li><%= link_to 'About', about_path %></li>
-        <li><a href="http://www.github.com/cicadas-2014/EmotionAll" target="_blank">GitHub</a></li>
-			</ul>
-		</nav>
-    </div>
-	</header>
-  <div class="padding-div"></div>
-  <div id="main">
-    <%= yield %>
-  </div>
-  <footer></footer>
+  <%= yield %>
 </body>
 </html>

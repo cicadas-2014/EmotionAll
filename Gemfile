@@ -26,26 +26,28 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-group :development, :test do 
- gem 'rspec-rails' 
- gem 'factory_girl_rails' 
+group :development, :test do
+ gem 'rspec-rails'
+ gem 'factory_girl_rails'
  gem 'jasmine'
  gem 'selenium-webdriver', '~> 2.42.0'
  gem 'jasmine-fixtures', '~> 0.1.7'
  gem 'pry'
- # gem 'debugger'
+ gem 'json_spec'
 end
 
-group :test do 
- gem 'faker' 
+group :test do
+ gem 'faker'
  gem 'capybara', '~> 2.4.1'
- gem 'database_cleaner' 
+ gem 'database_cleaner'
  # gem 'capybara-webkit'
  gem 'shoulda-matchers'
+ gem 'launchy'
 end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :production do
+  gem 'rails_12factor'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -56,6 +58,9 @@ gem 'pg'
 # Twitter gems
 gem 'twitter'
 gem 'tweetstream'
+
+# For running TweetStream script
+gem 'whenever', :require => false
 
 # Alchemy gem
 gem 'alchemy-api-rb', :require => "alchemy_api"
