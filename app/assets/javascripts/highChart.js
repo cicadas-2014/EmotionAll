@@ -10,12 +10,11 @@ var Map = {
         backgroundColor: '#FFFFFF'
       },
       title: {
-        text: topic,
+        text: "",
         style: {
           color: '#0099CC',
           font: '36px "HelveticaNeue", Arial, sans-serif'
-        },
-        enabled: false
+        }
       },
       mapNavigation: {
         enabled: true,
