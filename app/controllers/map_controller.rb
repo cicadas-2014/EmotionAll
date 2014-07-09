@@ -9,3 +9,4 @@ class MapController < ApplicationController
     render :partial => 'map/map', :layout => false
   end
 end
+=

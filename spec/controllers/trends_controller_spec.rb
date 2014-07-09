@@ -19,14 +19,13 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe TrendsController do
-  let!(:trend) { create :trend }
-  let!(:tweet) { create :tweet }
+# describe TrendsController do
+#   let!(:trend) { create :trend }
 
-  context 'trends#index' do
-    it 'assigns @recent_trends to the most recent trends from the database' do
-      get :index
-      expect(assigns(:trend)).to eq(Trend.most_recent)
-    end
-  end
-end
+#   context 'trends#index' do
+#     it 'assigns @recent_trends to the most recent trends from the database' do
+#       get :index
+#       expect(assigns(:trend)).to eq(Trend.most_recent)
+#     end
+#   end
+# end
