@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709162837) do
+ActiveRecord::Schema.define(version: 20140709183103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20140709162837) do
   enable_extension "unaccent"
   enable_extension "uuid-ossp"
   enable_extension "xml2"
+
+  create_table "countries", force: true do |t|
+    t.string   "country_code"
+    t.float    "overall_sentiment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "countries", ["country_code"], name: "index_countries_on_country_code", using: :btree
+  add_index "countries", ["overall_sentiment"], name: "index_countries_on_overall_sentiment", using: :btree
 
   create_table "trends", force: true do |t|
     t.string   "name"

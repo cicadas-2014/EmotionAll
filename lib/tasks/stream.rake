@@ -14,6 +14,7 @@ namespace :stream do
     system('bundle exec rails runner script/tweetstream.rb stop')
     Trend.current_trends
     Trend.update_tweets
+    Rails.cache.write('cache', Cache.new)
     system('bundle exec rails runner script/tweetstream.rb start')
   end
 end
