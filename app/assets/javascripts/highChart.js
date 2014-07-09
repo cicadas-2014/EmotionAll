@@ -54,7 +54,7 @@ var Map = {
         title: {
           text: '<span style="font-weight: bold">Sentiment Score</span>',
           style: {
-            color: '#333',
+            color: '#333333',
             font: '13.5px "HelveticaNeue", Arial, sans-serif',
             fontWeight: 'normal'
           }
