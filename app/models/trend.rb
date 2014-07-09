@@ -97,6 +97,16 @@ class Trend < ActiveRecord::Base
 		map_info
 	end
 
+	def world_average
+		average = []
+
+		self.tweets.each do |t|
+			average << t.sentiment_score
+		end
+
+		(average.inject(:+) / average.length).round(2)
+	end
+
 	def self.random_trends
 		recent_trends = []
 		4.times do
