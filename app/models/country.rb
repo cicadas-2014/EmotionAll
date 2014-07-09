@@ -7,4 +7,10 @@ class Country < ActiveRecord::Base
       c.update_attributes(overall_sentiment: overall_sentiment)
     end
   end
+
+  def self.new_countries
+    Tweet.all.each do |t|
+      Country.find_or_create_by(country_code: t.country_code)
+    end
+  end
 end
