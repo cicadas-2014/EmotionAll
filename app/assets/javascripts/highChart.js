@@ -10,10 +10,10 @@ var Map = {
         backgroundColor: '#FFFFFF'
       },
       title: {
-        text: topic,
+        text: "",
         style: {
           color: '#0099CC',
-          font: '44px "HelveticaNeue", Arial, sans-serif'
+          font: '36px "HelveticaNeue", Arial, sans-serif'
         }
       },
       mapNavigation: {
@@ -21,7 +21,8 @@ var Map = {
         buttonOptions: {
           align: 'right',
           verticalAlign: 'bottom'
-        }
+        },
+        enableMouseWheelZoom: false
       },
       colorAxis: {
         type: 'linear',
@@ -35,7 +36,7 @@ var Map = {
           [1, '#00CC33']
         ],
       },
-      colors: ['#B4DA55'],
+      colors: ['#0099CC'],
       tooltip: {
         animation: true,
         shadow: false,
@@ -92,21 +93,9 @@ var createMapView = {
     Map.defaultView(topic, mapData, deviceWidth);
   },
   setMapWidth: function() {
-    $width = $(document).width();
-    console.log($width);
-    if ($width > 1280) {
-      return 1200;
-    } else if ($width > 1025) {
-      return 850;
-    } else if ($width > 960) {
-      return 800;
-    } else if ($width > 640) {
-      return 640;
-    } else if ($width > 480) {
-      return 480;
-    } else {
-      return 300;
-    };
+    var $width = $(document).width();
+    var mapPadding = 50;
+    return $width - (mapPadding * 2);
   }
 };
 

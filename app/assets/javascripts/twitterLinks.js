@@ -1,7 +1,7 @@
 var linkEvents = {
-    currentTrend: function() {
+    accessTrend: function() {
         var self = this;
-        $('#container-3').on('click', 'li', function(event) {
+        $('#outer-map-container').on('click', 'li', function(event) {
             event.preventDefault();
             errorHandler.Clear(self.trendId);
             var trend = $(this).text();
@@ -24,8 +24,7 @@ function fetchTweets(trend, trendId) {
 
 function fetchMap(trend, tweetData) {
     var mapReq = $.get('/map/show');
-    mapReq.success(function(html) {
-        $('#map-wrapper').html(html);
+    mapReq.success(function() {
         createMapView.init(trend, tweetData);
     });
     mapReq.fail(function() {
