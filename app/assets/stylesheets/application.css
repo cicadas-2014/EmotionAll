@@ -99,27 +99,6 @@
   color: #FFF;
 }
 
-#key {
-  margin-left: 24px;
-  width: 160px;
-  position: absolute;
-  border: 1px solid #00cc99;
-  border-radius: 4px;
-  z-index: 1000;
-}
-
-#key .legend-header {
-  font-weight: bold;
-  text-align: right;
-  padding: 4px 8px 4px 4px;
-  background-color: #00cc99;
-}
-
-#key .legend-body {
-  text-align: left;
-  padding: 4px 4px 4px 8px;
-}
-
 p.map-footer {
   font-size: 1.2em;
   margin: 0 auto;
