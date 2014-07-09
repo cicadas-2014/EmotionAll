@@ -81,13 +81,13 @@ class Trend < ActiveRecord::Base
 		tweets.each do |t|
 			countries << t.country_code
 		end
+		# tweets.map {|tweet| tweet.country }.uniq
+		# tweets.filter {|tweet| tweet.country == "US" }
 
 		countries.uniq.each do |c|
-			country_sentiments = []
-			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_sentiments << tweet.sentiment_score
-			end
+			country_sentiments = tweets.where(country_code: c).pluck(:sentiment_score)
 			country_average = (country_sentiments.inject(:+) / country_sentiments.length).round(2)
+
 			map_info << { code: c,
 		        				value: country_average,
 		        				overall: Tweet.country_sentiment(c),
