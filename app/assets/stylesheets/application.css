@@ -92,30 +92,30 @@
   border: 1px solid #0099cc;
 }
 
-#legend {
-  vertical-align: bottom;
+#key {
+  margin-left: 24px;
   width: 160px;
-  margin: -240px -240px 0 100px;
   position: absolute;
   border: 1px solid #00cc99;
   border-radius: 4px;
+  z-index: 1000;
 }
 
-#legend .legend-header {
+#key .legend-header {
   font-weight: bold;
   text-align: right;
   padding: 4px 8px 4px 4px;
   background-color: #00cc99;
 }
 
-#legend .legend-body {
+#key .legend-body {
   text-align: left;
   padding: 4px 4px 4px 8px;
 }
 
 #about-container {
   background-color: #00cc99;
-  padding: 56px 40px;
+  padding: 48px;
   width: 100%;
 }
 
@@ -128,9 +128,21 @@
   letter-spacing: 1px;
 }
 
-#about-container h1 {
-  font-size: 3.0em;
+#about-container a {
+  background-color: #ffffe4;
+  color: #00cc99;
+}
+
+#about-container a:hover {
+  text-decoration: none;
+  background-color: #00cc99;
   color: #ffffe4;
+}
+
+#about-container h1 {
+  font-size: 3.2em;
+  color: #ffffe4;
+  margin-left: -24px;
 }
 
 #about-container h3 {
@@ -157,4 +169,26 @@
 .scroll-icon a:hover {
   background-color: transparent;
   text-decoration: none;
+}
+
+p.errors-txt {
+  color: #FF0000;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+footer {
+  height: 64px;
+  background-color: #0099cc;
+  width: 100%;
+  padding: 16px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+footer .footer-text {
+  vertical-align: middle;
+  color: #FFF;
+  margin: 0 auto;
+  font-size: 1.0em;
 }
