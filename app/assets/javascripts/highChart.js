@@ -33,7 +33,9 @@ var Map = {
         max: 1,
         stops: [
           [0, '#CC0033'],
+          [0.49999, '#efb2c1'],
           [0.5, '#FFFFFF'],
+          [0.50001, '#b2efc1'],
           [1, '#00CC33']
         ],
       },
@@ -41,18 +43,31 @@ var Map = {
       tooltip: {
         animation: true,
         shadow: false,
+        useHTML: true,
         followPointer: true,
-        headerFormat: '<span style="font-size:10px">{series.name}</span><br/>',
-        pointFormat: '<span style="font-size:10px"><strong>{point.name}</strong></span><br/><span style="font-size:9.5px">S: {point.value} | TS: {point.overall} | TC: {point.tweet_count}</span><br/>',
+        headerFormat: '',
+        pointFormat: '<span style="font-size:24px; line-height: 22px; font-weight: bold">{point.name}</span><br/>'
+          + '<br/>' // line break for whitespace in tooltip
+          + '<span style="font-size:13px; line-height: 18px">{series.name}</span><br/>'
+          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Sentiment Score: </span>'
+          + '<span style="font-weight:normal; font-size:16px">{point.value}</span><br/>'
+          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Overall Sentiment Score: </span>'
+          + '<span style="font-weight:normal; font-size:16px">{point.overall}</span><br/>'
+          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Tweet Count: </span>'
+          + '<span style="font-weight:normal; font-size:16px">{point.tweet_count}</span><br/>',
         footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
-        hideDelay: 50
+        hideDelay: 50,
+        style: {
+          font: '"HelveticaNeue", Arial, sans-serif',
+          padding: '24px'
+        }
       },
       legend: {
         reversed: false,
         title: {
-          text: ' <span style="color:#CC0033;font-weight:bold">red</span> is negative | <span style="color:#00CC33;font-weight:bold">green</span> is positive',
+          text: '<span style="font-weight: bold">Sentiment Score</span>',
           style: {
-            color: '#333',
+            color: '#333333',
             font: '13.5px "HelveticaNeue", Arial, sans-serif',
             fontWeight: 'normal'
           }
