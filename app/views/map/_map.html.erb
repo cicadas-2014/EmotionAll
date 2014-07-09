@@ -1,47 +1,45 @@
 <div id="outer-map-container" class="container-fluid">
-  <a name="map">
-  <div class="map-header"></a>
-  <div class="row center-block">
-    <% first_trend = @current_trends.shift %>
-    <h1>How does the world feel about ____?</h1>
-    <h2><small>Pick a trend to see:</small></h2>
-    <div id="trends-display">
-      <ul class="list-inline">
-        <li id="trend-<%= first_trend.id %>" class="active" >
-          <%= link_to first_trend.name, trend_path(first_trend) %>
-          <div class="errors-txt">
-          </div>
-        </li>
-        <% @current_trends.each do |trend| %>
-        <li id="trend-<%= trend.id %>">
-          <%= link_to trend.name, trend_path(trend) %>
-          <div class="errors-txt">
-          </div>
-        </li>
-        <% end %>
-      </ul>
+  <a name="map"></a>
+  <div class="map-header">
+    <div class="row center-block">
+      <h1>how does the world <span style="color: #CC0033">feel</span> about</h1>
+      <h2 id="trend-<%= @mapped_trend.id %>" class="mapped-trend"><%= @mapped_trend.name %></h2>
+      <h3><small>or click on another trend</small></h3>
+      <div id="trends-display">
+        <ul class="list-inline">
+          <% @current_trends.each do |trend| %>
+          <li id="trend-<%= trend.id %>">
+            <%= link_to trend.name, trend_path(trend) %>
+            <div class="errors-txt">
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
   <div class="row center-block">
     <div class="col-md-12">
+      <a name="map-view"></a>
       <div id="map-wrapper">
         <div id="map-container">
         </div>
-        <table id="legend">
-            <tr>
-              <td class="legend-header">S</td>
-              <td class="legend-body">Sentiment</td>
-            </tr>
-            <tr>
-              <td class="legend-header">TS</td>
-              <td class="legend-body">Total Sentiment</td>
-            </tr>
-            <tr>
-              <td class="legend-header">TC</td>
-              <td class="legend-body">Tweet Count</td>
-            </tr>
+        <div id="legend">
+        <table>
+          <tr>
+            <td class="legend-header">S</td>
+            <td class="legend-body">Sentiment</td>
+          </tr>
+          <tr>
+            <td class="legend-header">TS</td>
+            <td class="legend-body">Total Sentiment</td>
+          </tr>
+          <tr>
+            <td class="legend-header">TC</td>
+            <td class="legend-body">Tweet Count</td>
+          </tr>
         </table>
+        </div>
       </div>
     </div>
   </div>

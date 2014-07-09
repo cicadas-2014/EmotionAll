@@ -2,7 +2,8 @@ var Map = {
   dataInput: [],
   defaultView: function(topic, mapData, width) {
     var self = this,
-        width = width;
+        width = width,
+        title = topic;
     $('#map-container').highcharts('Map', {
       chart: {
         width: width,
@@ -50,6 +51,15 @@ var Map = {
         align: 'center',
         itemWidth: 200,
         reversed: false,
+        title: {
+          text: 'Sentiment Index',
+          style: {
+            color: '#333',
+            font: '16px "HelveticaNeue", Arial, sans-serif',
+            fontWeight: 'normal'
+
+          }
+        }
       },
       plotOptions: {
         series: {
@@ -91,11 +101,15 @@ var createMapView = {
   layoutMap: function(topic, mapData) {
     var deviceWidth = this.setMapWidth();
     Map.defaultView(topic, mapData, deviceWidth);
+    this.addMapTitle(topic);
   },
   setMapWidth: function() {
     var $width = $(document).width();
     var mapPadding = 50;
     return $width - (mapPadding * 2);
+  },
+  addMapTitle: function(title) {
+    $('h2').html(title);
   }
 };
 

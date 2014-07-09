@@ -8,6 +8,12 @@ var linkEvents = {
             self.trendId = $(this).attr('id').substring(6);
             fetchTweets(trend, self.trendId);
         });
+    },
+    launchOnReady: function() {
+        $trend = $('h2');
+        var trendId = $trend.attr('id').substring(6);
+        var trend = $trend.text();
+        fetchTweets(trend, trendId);
     }
 };
 
