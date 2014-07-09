@@ -40,14 +40,14 @@ group :test do
  gem 'faker'
  gem 'capybara', '~> 2.4.1'
  gem 'database_cleaner'
- gem 'capybara-webkit'
+ # gem 'capybara-webkit'
  gem 'shoulda-matchers'
  gem 'launchy'
 end
 
-group :production do
-  gem 'rails_12factor'
-end
+# group :production do
+#   gem 'rails_12factor'
+# end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
