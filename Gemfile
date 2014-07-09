@@ -45,9 +45,9 @@ group :test do
  gem 'launchy'
 end
 
-group :production do
-  gem 'rails_12factor'
-end
+# group :production do
+#   gem 'rails_12factor'
+# end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
