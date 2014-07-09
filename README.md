@@ -35,5 +35,11 @@ Choose away. And learn. Because maybe we just aren't so different after all.
 
 * Jake Huhn, Project Manager ([github](https://github.com/masidonion) | [twitter](https://twitter.com/huhnytunes)) 
 * Kevin Zhou, Team Lead ([github]() | [twitter]())
-* Danielle Adams, Front-End Specialist ([github]() | [twitter]())
-* Ruben Osorio, Back-End Specialist ([github]() | [twitter]())
+* Danielle Adams ([github]() | [twitter]())
+* Ruben Osorio ([github]() | [twitter]())
+
+### Homepage
+
+[EmotionAll](emotionall.ninefold-apps.com)
+
+
