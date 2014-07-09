@@ -4,6 +4,6 @@ class MapController < ApplicationController
   end
 
   def show
-    render :partial => 'map/map', :layout => false
+    render :nothing => true
   end
 end
