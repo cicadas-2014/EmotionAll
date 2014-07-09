@@ -33,7 +33,9 @@ var Map = {
         max: 1,
         stops: [
           [0, '#CC0033'],
+          [0.49999, '#efb2c1'],
           [0.5, '#FFFFFF'],
+          [0.50001, '#b2efc1'],
           [1, '#00CC33']
         ],
       },
@@ -50,7 +52,7 @@ var Map = {
       legend: {
         reversed: false,
         title: {
-          text: ' <span style="color:#CC0033;font-weight:bold">red</span> is negative | <span style="color:#00CC33;font-weight:bold">green</span> is positive',
+          text: '<span style="font-weight: bold">Sentiment Score</span>',
           style: {
             color: '#333',
             font: '13.5px "HelveticaNeue", Arial, sans-serif',
