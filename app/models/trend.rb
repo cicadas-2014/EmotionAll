@@ -15,7 +15,7 @@ class Trend < ActiveRecord::Base
 
 	# default options are recent tweets and english language
 	def tweet_search  # gets tweets connected to a trend
-		TwitterService.client.search("#{self.name}", result_type:"recent", lang: "en").attrs[:statuses]
+		TwitterService.client.search("#{self.name}", lang: "en").attrs[:statuses]
 		# in the future, add logic to get a more location-diverse sample of tweets
 	end
 
@@ -69,28 +69,24 @@ class Trend < ActiveRecord::Base
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API
 			trend.update_tweets_sentiments # makes Alchemy API calls if tweet doesn't have sentiments
+			Country.update_sentiments # updates the overall sentiment average for every country
 		end
 	end
 
 	def self.map_info(trend_id)
 		trend = Trend.find(trend_id)
-		tweets = trend.tweets.where("sentiment != 'neutral'") # only care about positive or negative tweets
-		countries = []
+		tweets = trend.tweets.where("sentiment != 'neutral'").to_a # only care about positive or negative tweets
+		country_codes = tweets.map(&:country_code).uniq
+		countries = Country.all.to_a
 		map_info = []
 
-		tweets.each do |t|
-			countries << t.country_code
-		end
-
-		countries.uniq.each do |c|
-			country_sentiments = []
-			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_sentiments << tweet.sentiment_score
-			end
+		country_codes.each do |c|
+			country_sentiments = tweets.select{ |t| t.country_code == c }.map(&:sentiment_score)
 			country_average = (country_sentiments.inject(:+) / country_sentiments.length).round(2)
+
 			map_info << { code: c,
 		        				value: country_average,
-		        				overall: Tweet.country_sentiment(c),
+		        				overall: countries.select{ |country| country.country_code == c }.first.overall_sentiment,
 		        				tweet_count: country_sentiments.length }
 		end
 
