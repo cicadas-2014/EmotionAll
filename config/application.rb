@@ -26,12 +26,14 @@ module EmotionAll
 
           def initialize
             @map_info = {}
-            Trend.all.each do |t|
-              @map_info[t.id] = Trend.map_info(t.id)
-            end
+            ActiveRecord::Base.connection.tables
+            if ActiveRecord::Base.connection.table_exists?('Trends')
+                Trend.all.each do |t|
+                  @map_info[t.id] = Trend.map_info(t.id)
+                end
             @updated_at = Time.now
+            end
           end
-
         end
 
         Rails.cache.write('cache', Cache.new)
