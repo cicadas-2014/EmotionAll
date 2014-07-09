@@ -38,8 +38,5 @@ Choose away. And learn. Because maybe we just aren't so different after all.
 * Danielle Adams ([github]() | [twitter]())
 * Ruben Osorio ([github]() | [twitter]())
 
-### Homepage
-
-[EmotionAll](emotionall.ninefold-apps.com)
-
+### [Homepage](emotionall.ninefold-apps.com)
 
