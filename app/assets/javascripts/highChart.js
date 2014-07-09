@@ -39,8 +39,12 @@ var Map = {
       colors: ['#0099CC'],
       tooltip: {
         animation: true,
-        pointFormat: '{point.name}: {point.value}',
-        shadow: false
+        shadow: false,
+        followPointer: true,
+        headerFormat: '<span style="font-size:10px">{series.name}</span><br/>',
+        pointFormat: '<span style="font-size:10px"><strong>{point.name}</strong></span><br/><span style="font-size:9.5px">S: {point.value} | TS: {point.overall} | TC: {point.tweet_count}</span><br/>',
+        footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
+        hideDelay: 50
       },
       legend: {
         align: 'center',
@@ -65,7 +69,7 @@ var Map = {
       series: [{
         data: self.dataInput,
         mapData: mapData,
-        name: 'Sentiment Index',
+        name: 'Sentiment Analysis',
       }]
     })
   }
