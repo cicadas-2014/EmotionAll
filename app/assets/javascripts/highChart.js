@@ -48,16 +48,13 @@ var Map = {
         hideDelay: 50
       },
       legend: {
-        align: 'center',
-        itemWidth: 200,
         reversed: false,
         title: {
-          text: 'Sentiment Index',
+          text: ' <span style="color:#CC0033;font-weight:bold">red</span> is negative | <span style="color:#00CC33;font-weight:bold">green</span> is positive',
           style: {
             color: '#333',
-            font: '16px "HelveticaNeue", Arial, sans-serif',
+            font: '13.5px "HelveticaNeue", Arial, sans-serif',
             fontWeight: 'normal'
-
           }
         }
       },
