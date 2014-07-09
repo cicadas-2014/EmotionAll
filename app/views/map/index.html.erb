@@ -1,12 +1,12 @@
 <%= render partial: "front" %>
 <div id="outer-map-container" class="container-fluid">
   <div class="row center-block">
-    <h1>How to use?</h1>
-    <h2><small>Here's how to use our application.</small></h2>
+    <% first_trend = @current_trends.shift %>
+    <% last_trend = @current_trends.pop %>
+    <h1>How does the world feel about ____?</h1>
+    <h2><small>Pick a trend to see:</small></h2>
     <div id="trends-display">
       <ul class="list-inline">
-        <% first_trend = @current_trends.shift %>
-        <% last_trend = @current_trends.pop %>
         <li id="trend-<%= first_trend.id %>" class="active" >
           <%= link_to first_trend.name, trend_path(first_trend) %>
           <div class="errors-txt">
@@ -24,6 +24,7 @@
           <div class="errors-txt">
           </div>
         </li>
+        <li class="active"><a href="#">></a></li>
       </ul>
     </div>
   </div>
@@ -32,6 +33,22 @@
       <div id="map-wrapper">
         <div id="map-container">
         </div>
+        <table id="legend">
+
+            <tr>
+              <td class="legend-header">S</td>
+              <td class="legend-body">Sentiment</td>
+            </tr>
+            <tr>
+              <td class="legend-header">TS</td>
+              <td class="legend-body">Total Sentiment</td>
+            </tr>
+            <tr>
+              <td class="legend-header">TC</td>
+              <td class="legend-body">Tweet Count</td>
+            </tr>
+
+        </table>
       </div>
     </div>
   </div>
