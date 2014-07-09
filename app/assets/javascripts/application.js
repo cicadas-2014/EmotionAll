@@ -16,5 +16,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  eventHandler();
+  linkEvents.launchOnReady();
+  linkEvents.accessTrend();
 });

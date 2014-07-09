@@ -25,11 +25,7 @@ describe "Tweet model methods" do
 		@tweet.analyze_sentiment
 		expect(@tweet.sentiment).not_to be_nil
 		expect(@tweet.sentiment_score).not_to be_nil
-    end
-    it "should convert sentiment decimal to whole number" do
-    	@tweet.update_attributes(sentiment_score: 1.0)
-		expect(@tweet.get_highmap_val).to be_a(Fixnum)
-    end
+  end
 end
 
 

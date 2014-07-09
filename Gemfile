@@ -40,8 +40,9 @@ group :test do
  gem 'faker'
  gem 'capybara', '~> 2.4.1'
  gem 'database_cleaner'
- gem 'capybara-webkit'
+ # gem 'capybara-webkit'
  gem 'shoulda-matchers'
+ gem 'launchy'
 end
 
 # group :production do

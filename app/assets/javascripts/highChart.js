@@ -2,7 +2,8 @@ var Map = {
   dataInput: [],
   defaultView: function(topic, mapData, width) {
     var self = this,
-        width = width;
+        width = width,
+        title = topic;
     $('#map-container').highcharts('Map', {
       chart: {
         width: width,
@@ -10,10 +11,10 @@ var Map = {
         backgroundColor: '#FFFFFF'
       },
       title: {
-        text: topic,
+        text: "",
         style: {
           color: '#0099CC',
-          font: '44px "HelveticaNeue", Arial, sans-serif'
+          font: '36px "HelveticaNeue", Arial, sans-serif'
         }
       },
       mapNavigation: {
@@ -21,7 +22,8 @@ var Map = {
         buttonOptions: {
           align: 'right',
           verticalAlign: 'bottom'
-        }
+        },
+        enableMouseWheelZoom: false
       },
       colorAxis: {
         type: 'linear',
@@ -35,7 +37,7 @@ var Map = {
           [1, '#00CC33']
         ],
       },
-      colors: ['#B4DA55'],
+      colors: ['#0099CC'],
       tooltip: {
         animation: true,
         shadow: false,
@@ -49,6 +51,15 @@ var Map = {
         align: 'center',
         itemWidth: 200,
         reversed: false,
+        title: {
+          text: 'Sentiment Index',
+          style: {
+            color: '#333',
+            font: '16px "HelveticaNeue", Arial, sans-serif',
+            fontWeight: 'normal'
+
+          }
+        }
       },
       plotOptions: {
         series: {
@@ -90,23 +101,15 @@ var createMapView = {
   layoutMap: function(topic, mapData) {
     var deviceWidth = this.setMapWidth();
     Map.defaultView(topic, mapData, deviceWidth);
+    this.addMapTitle(topic);
   },
   setMapWidth: function() {
-    $width = $(document).width();
-    console.log($width);
-    if ($width > 1280) {
-      return 1200;
-    } else if ($width > 1025) {
-      return 850;
-    } else if ($width > 960) {
-      return 800;
-    } else if ($width > 640) {
-      return 640;
-    } else if ($width > 480) {
-      return 480;
-    } else {
-      return 300;
-    };
+    var $width = $(document).width();
+    var mapPadding = 50;
+    return $width - (mapPadding * 2);
+  },
+  addMapTitle: function(title) {
+    $('h2').html(title);
   }
 };
 
