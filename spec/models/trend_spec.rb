@@ -17,7 +17,7 @@ describe "Trend model methods" do
     it "gets tweets connected to a trend" do
       expect(@trend.tweet_search).not_to be_nil
     end
-  describe "get json object for tweets" do
+  describe "get tweet objects" do
     before(:each) do
        @trend = Trend.create(name: "MyTrend", woeid: 23424977)
        @tweet = Tweet.create(country_code: "US", sentiment: "positive", sentiment_score: 0.5, trend_id: @trend.id)
@@ -27,16 +27,7 @@ describe "Trend model methods" do
       expect(@response).to_not be_empty
     end
   end
-  describe "get random trends" do
-    before(:each) do
-       @trend = Trend.create(name: "MyTrend", woeid: 23424977)
-       @tweet = Tweet.create(country_code: "US", sentiment: "positive", sentiment_score: 0.5, trend_id: @trend.id)
-       @response = Trend.random_trends
-    end
-    it "should create array" do
-      expect(@response).to_not be_empty
-    end
-  end
+  
   describe "get past trends" do
     before(:each) do
       15.times do

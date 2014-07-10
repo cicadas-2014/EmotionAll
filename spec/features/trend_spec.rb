@@ -2,18 +2,16 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature 'Top Header Management' do 
-  scenario 'shows the about page content' do
-    visit about_path
-    expect(page).to have_content 'wonder'
-  end
   describe'Trend' do
     it "has a valid factory" do 
       expect(FactoryGirl.build(:trend)).to be_valid
     end
   end
-  scenario "User can click on Creators Button" do
+  let!(:trend) { create :trend }
+  let!(:trends) { [trend, create(:trend)] }
+  scenario "User can click on About Button" do
       visit root_path
-      click_button("Creators")
+      click_button("About")
       expect(page.status_code).to be(200)
   end
 end
