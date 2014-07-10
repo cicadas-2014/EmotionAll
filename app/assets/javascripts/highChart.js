@@ -53,7 +53,7 @@ var Map = {
           + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Tweet Count: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.tweet_count}</span><br/>',
           footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
-          hideDelay: 50000000,
+          hideDelay: 80,
           style: {
             font: '"HelveticaNeue", Arial, sans-serif',
             padding: '24px'
