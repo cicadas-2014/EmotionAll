@@ -1,3 +1,5 @@
+
+
 var errorHandler = {
     Display: function(errorDiv, error) {
         $(errorDiv).html('<p class="errors-txt">Error fetching ' + error + '.</p>');

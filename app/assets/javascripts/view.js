@@ -1,5 +1,12 @@
-var linkEvents = {
-    accessTrend: function() {
+var Emotionall = {
+  init: function() {
+  this.setupTrendList();
+  this.setupScrollToMap();
+  this.setupLogoLink();
+  this.setupScrollToAbout();
+  this.launchMapView();
+  },
+  setupTrendList: function() {
         var self = this;
         $('#outer-map-container').on('click', 'li', function(event) {
             event.preventDefault();
@@ -9,30 +16,30 @@ var linkEvents = {
             fetchTweets(trend, self.trendId);
         });
     },
-    launchOnReady: function() {
-        $trend = $('h2');
-        var trendId = $trend.attr('id').substring(6);
-        var trend = $trend.text();
-        fetchTweets(trend, trendId);
-    },
-    scrollToMap: function() {
+    setupScrollToMap: function() {
         $('.scroll-icon').on('click', function(event) {
             event.preventDefault();
             var $anchor = $('#outer-map-container h1');
             $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
         })
     },
-    scrollToAbout: function() {
-        $('#btn-for-about').on('click', function() {
-            var $anchor = $('footer');
-            $('html, body').animate({ scrollTop: $(document).height()}, 700);
-        })
-    },
-    logoClick: function() {
+    setupLogoLink: function() {
         $('#logo').on('click', function() {
             var $anchor = $('#outer-map-container');
             $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
         })
+    },
+    setupScrollToAbout: function() {
+        $('#btn-for-about').on('click', function() {
+            var $anchor = $('footer');
+            $('html, body').animate({ scrollTop: $anchor.offset().top}, 700);
+        })
+    },
+    launchMapView: function() {
+        $trend = $('h2');
+        var trendId = $trend.attr('id').substring(6);
+        var trend = $trend.text();
+        fetchTweets(trend, trendId);
     }
 };
 
