@@ -7,19 +7,4 @@ class Tweet < ActiveRecord::Base
 													 sentiment_score: results["score"] || 0.0)
 	end
 
-	def self.country_sentiment(country_code)
-		tweets = Tweet.where("country_code = '#{country_code}' and sentiment_score is not null")
-		(tweets.pluck(:sentiment_score).inject(:+) / tweets.length).round(2)
-	end
-
-	def self.overall_country_sentiment
-		output = []
-
-		Tweet.pluck(:country_code).uniq.each do |country_code|
-			output << { code: country_code,
-									value: Tweet.country_sentiment(country_code) }
-		end
-
-		output
-	end
 end

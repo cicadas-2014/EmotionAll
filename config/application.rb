@@ -19,5 +19,24 @@ module EmotionAll
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.after_initialize do
+        class Cache
+
+          attr_reader :map_info, :updated_at
+
+          def initialize
+            @map_info = {}
+            Trend.all.each do |t|
+              @map_info[t.id] = Trend.map_info(t.id)
+            end
+            @updated_at = Time.now
+          end
+
+        end
+
+        Rails.cache.write('cache', Cache.new)
+    end
   end
 end
+
+
