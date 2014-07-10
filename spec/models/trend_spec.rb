@@ -11,12 +11,12 @@ describe "Trend model methods" do
     before(:each) do
          @trend= Trend.create(name: "MyTrend", woeid: 23424977, tweet_count: 0)
     end
-    it "add ten trends to Trend table" do
-      expect{Trend.current_trends}.to change{Trend.all.length}.by(10)
-    end
-    it "gets tweets connected to a trend" do
-      expect(@trend.tweet_search).not_to be_nil
-    end
+    # it "add ten trends to Trend table" do
+    #   expect{Trend.current_trends}.to change{Trend.all.length}.by(10)
+    # end
+    # it "gets tweets connected to a trend" do
+    #   expect(@trend.tweet_search).not_to be_nil
+    # end
   
   
   describe "get past trends" do
