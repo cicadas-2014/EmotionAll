@@ -8,7 +8,12 @@ class Trend < ActiveRecord::Base
 		new_trends.each do |trend|
 			existing_trend = Trend.find_or_initialize_by(name: trend.name)
 			existing_trend.updated_at = Time.now unless existing_trend.new_record?
-			existing_trend.woeid = woeid if existing_trend.new_record?
+
+			if existing_trend.new_record?
+				existing_trend.woeid = woeid
+				existing_trend.tweet_count = 0
+			end
+
 			existing_trend.save
 		end
 	end
