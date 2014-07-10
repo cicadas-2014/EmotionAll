@@ -20,12 +20,11 @@ end
 feature 'Trend List' do
   let!(:trend) { create :trend }
   let!(:trends) { [trend, create(:trend)] }
-  # scenario "User can see current trends list" do
-  #     @current_trends = trends
-  #     @past_trends = trends
-  #     visit root_path
-  #     expect(page).to have_content("Current Trends")
-  # end
+  scenario "User can see current trends list" do
+      @current_trends = trends
+      visit root_path
+      expect(page).to have_content("popular Twitter trend")
+  end
   # scenario "User can click on Current Trends Link" do
   #     @current_trends = trends
   #     @past_trends = trends
