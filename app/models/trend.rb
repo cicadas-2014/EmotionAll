@@ -98,7 +98,7 @@ class Trend < ActiveRecord::Base
 
 			map_info << { code: c,
 		        				value: country_average,
-		        				overall: countries.select{ |country| country.country_code == c }.first.overall_sentiment,
+		        				overall: countries.select{ |country| country.country_code == c }.first.overall_sentiment || 0.0,
 		        				tweet_count: country_sentiments.length }
 		end
 
