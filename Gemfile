@@ -64,6 +64,3 @@ gem 'whenever', :require => false
 
 # Alchemy gem
 gem 'alchemy-api-rb', :require => "alchemy_api"
-
-# ruby debugger
-gem 'pry_debug'
