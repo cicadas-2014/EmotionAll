@@ -100,6 +100,18 @@
   color: #FFF;
 }
 
+#map-wrapper {
+  margin: auto;
+}
+
+#map-container {
+  margin: auto;
+}
+
+.highcharts-map {
+  margin: auto;
+}
+
 p.map-footer {
   font-size: 1.2em;
   margin: 0 auto;
