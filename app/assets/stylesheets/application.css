@@ -100,22 +100,13 @@
   color: #FFF;
 }
 
-#map-wrapper {
-  margin: auto;
-}
-
-#map-container {
-  margin: auto;
-}
-
-.highcharts-map {
+.highcharts-container {
   margin: auto;
 }
 
 p.map-footer {
   font-size: 1.2em;
-  margin: 0 auto;
-  padding: 8px 20px 0 0 ;
+  margin: 8px auto;
 }
 
 #about-container {
@@ -165,11 +156,11 @@ p.map-footer {
 }
 
 #about-container dd {
-  margin: 24px 0;
+  margin: 24px 0 12px;
 }
 
-#about-container .api-logos {
-  margin: 24px 0;
+#about-container .api-logos img {
+  margin: 24px auto;
 }
 
 .scroll-icon {
@@ -206,9 +197,4 @@ footer .footer-text {
   color: #FFF;
   margin: 0 auto;
   font-size: 1.0em;
-}
-
-.col-md-1 img {
-  margin-left: 50%;
-  margin-top: 23%;
 }
