@@ -123,4 +123,18 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
+class ActionController::TestCase
+  def self.context *args, &block
+    super *args do
+      setup do
+        # establish the rails controller being tested
+        # https://github.com/citrusbyte/contest/issues/5#issuecomment-677003
+        ancestors = self.class.ancestors
+        test_case = ancestors[ancestors.index(ActionController::TestCase) - 1]
+        @controller = test_case.controller_class.new
+      end
+      class_eval &block
+    end
+  end
+end
 
