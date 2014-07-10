@@ -2,8 +2,8 @@ var Map = {
   dataInput: [],
   defaultView: function(topic, mapData, width) {
     var self = this,
-        width = width,
-        title = topic;
+    width = width,
+    title = topic;
     $('#map-container').highcharts('Map', {
       chart: {
         width: width,
@@ -11,11 +11,7 @@ var Map = {
         backgroundColor: '#FFFFFF'
       },
       title: {
-        text: "",
-        style: {
-          color: '#0099CC',
-          font: '36px "HelveticaNeue", Arial, sans-serif'
-        }
+        text: ""
       },
       mapNavigation: {
         enabled: true,
@@ -23,7 +19,8 @@ var Map = {
           align: 'right',
           verticalAlign: 'bottom'
         },
-        enableMouseWheelZoom: false
+        enableMouseWheelZoom: false,
+        enableDoubleClickZoom: false
       },
       colorAxis: {
         type: 'linear',
@@ -32,11 +29,11 @@ var Map = {
         min: -1,
         max: 1,
         stops: [
-          [0, '#CC0033'],
-          [0.49999, '#efb2c1'],
-          [0.5, '#FFFFFF'],
-          [0.50001, '#b2efc1'],
-          [1, '#00CC33']
+        [0, '#CC0033'],
+        [0.49999, '#efb2c1'],
+        [0.5, '#FFFFFF'],
+        [0.50001, '#b2efc1'],
+        [1, '#00CC33']
         ],
       },
       colors: ['#99d6ea'],
@@ -49,52 +46,52 @@ var Map = {
         pointFormat: '<span style="font-size:24px; line-height: 22px; font-weight: bold">{point.name}</span><br/>'
           + '<br/>' // line break for whitespace in tooltip
           + '<span style="font-size:13px; line-height: 18px">{series.name}</span><br/>'
-          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Sentiment Score: </span>'
+          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Trend Sentiment Score: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.value}</span><br/>'
           + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Overall Sentiment Score: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.overall}</span><br/>'
           + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Tweet Count: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.tweet_count}</span><br/>',
-        footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
-        hideDelay: 50,
-        style: {
-          font: '"HelveticaNeue", Arial, sans-serif',
-          padding: '24px'
-        }
-      },
-      legend: {
-        reversed: false,
-        title: {
-          text: '<span style="font-weight: bold">Sentiment Score</span>',
+          footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
+          hideDelay: 80,
           style: {
-            color: '#333333',
-            font: '13.5px "HelveticaNeue", Arial, sans-serif',
-            fontWeight: 'normal'
+            font: '"HelveticaNeue", Arial, sans-serif',
+            padding: '24px'
           }
-        }
-      },
-      plotOptions: {
-        series: {
-          joinBy: ['iso-a2', 'code'],
         },
-        states: {
-          hover: {
-            enabled: true
-          },
-          select: {
-            borderColor: 'black',
-            dashStyle: 'shortdot',
-            color: '#B4DA55'
+        legend: {
+          reversed: false,
+          title: {
+            text: '<span style="font-weight: bold">Sentiment Score</span>',
+            style: {
+              color: '#333333',
+              font: '13.5px "HelveticaNeue", Arial, sans-serif',
+              fontWeight: 'normal'
+            }
           }
-        }
-      },
-      series: [{
-        data: self.dataInput,
-        mapData: mapData,
-        name: 'Sentiment Analysis',
-      }]
-    })
-  }
+        },
+        plotOptions: {
+          series: {
+            joinBy: ['iso-a2', 'code'],
+          },
+          states: {
+            hover: {
+              enabled: true
+            },
+            select: {
+              borderColor: 'black',
+              dashStyle: 'shortdot',
+              color: '#B4DA55'
+            }
+          }
+        },
+        series: [{
+          data: self.dataInput,
+          mapData: mapData,
+          name: 'Sentiment Analysis',
+        }]
+      })
+}
 };
 
 var createMapView = {
