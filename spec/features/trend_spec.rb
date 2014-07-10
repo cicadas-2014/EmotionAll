@@ -11,32 +11,37 @@ feature 'Top Header Management' do
       expect(FactoryGirl.build(:trend)).to be_valid
     end
   end
+  scenario "User can click on Creators Button" do
+      visit root_path
+      click_button("Creators")
+      expect(page.status_code).to be(200)
+  end
 end
 
 
 feature 'Trend List' do
   let!(:trend) { create :trend }
   let!(:trends) { [trend, create(:trend)] }
-  scenario "User can see current trends list" do
-      @current_trends = trends
-      @past_trends = trends
-      visit root_path
-      expect(page).to have_content("Current Trends")
-  end
-  scenario "User can click on Current Trends Link" do
-      @current_trends = trends
-      @past_trends = trends
-      visit root_path
-      click_link("Current Trends")
-      expect(page.status_code).to be(200)
-  end
-  scenario "User can click on Past Trends Link" do
-      @current_trends = trends
-      @past_trends = trends
-      visit root_path
-      click_link("Past Trends")
-      expect(page.status_code).to be(200)
-  end
+  # scenario "User can see current trends list" do
+  #     @current_trends = trends
+  #     @past_trends = trends
+  #     visit root_path
+  #     expect(page).to have_content("Current Trends")
+  # end
+  # scenario "User can click on Current Trends Link" do
+  #     @current_trends = trends
+  #     @past_trends = trends
+  #     visit root_path
+  #     click_link("Current Trends")
+  #     expect(page.status_code).to be(200)
+  # end
+  # scenario "User can click on Creators Link" do
+  #     @current_trends = trends
+  #     @past_trends = trends
+  #     visit root_path
+  #     click_link("Creators")
+  #     expect(page.status_code).to be(200)
+  # end
 end
 
 

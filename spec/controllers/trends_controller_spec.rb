@@ -29,3 +29,35 @@ require 'spec_helper'
 #     end
 #   end
 # end
+
+# describe MapController do
+#   describe 'View index' do
+#     let!(:trend) { create :trend }
+#  	let!(:trends) { [trend, create(:trend)] }
+#  	trends = Trend.most_recent
+#  	trend = trends.shift
+#     it { expect(response).to be_success}
+#   end
+# end
+
+# describe TrendsController do
+#   describe 'GET #trends' do
+#   	render_views
+#   	before :each do  
+#   		{tweet: "Yo", trend: "yo"}.to_json
+#   	end
+#   	{tweet: "Yo", trend: "yo"}.to_json
+#   	it "returns json content" do
+#   		@trend = Trend.create(name: "Super Trends", woeid: 23424977)
+#   		# map_info = Trend.map_info(@trend.id)
+#   		# map_info = {tweet: "Yo", trend: "yo"}
+#     	#map_info.to_json
+
+#   		get :json, id: @trend.id
+#   		# binding.pry
+#   		{tweet: "Yo", trend: "yo"}.to_json
+#   		expect(response).to render_template(:json)
+ 
+#     end
+#   end
+# end

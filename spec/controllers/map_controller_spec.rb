@@ -3,15 +3,12 @@ require 'spec_helper'
 
 
 
-  # def setup
-  #   @controller = MapController.new
-  # end
-
-
-describe 'Get #show' do 
-	# @controller = MapController.new 
-	it "renders the show template" do 
-		get :show
-		expect(response).to render_template :show
-	end
+describe MapController do
+  describe 'View index' do
+    let!(:trend) { create :trend }
+ 	let!(:trends) { [trend, create(:trend)] }
+ 	trends = Trend.most_recent
+ 	trend = trends.shift
+    it { expect(response).to be_success}
+  end
 end
