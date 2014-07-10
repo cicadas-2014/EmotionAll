@@ -28,6 +28,9 @@ class Trend < ActiveRecord::Base
 		new_tweets = tweet_search
 		new_tweets.select{ |tweet| tweet[:place] != nil }.each do |t|
 			unless Tweet.find_by(tweetid: t[:id_str])
+
+				Country.find_or_create_by(country_code: t.country_code) # safety measure
+
 				if t[:geo]
 					Tweet.create(text: t[:text],
 										 	 tweetid: t[:id_str],
