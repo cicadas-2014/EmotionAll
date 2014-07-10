@@ -30,8 +30,8 @@ var Emotionall = {
   },
   setupScrollToAbout: function() {
     $('#btn-for-about').on('click', function() {
-      var $anchor = $('footer');
-      $('html, body').animate({ scrollTop: $anchor.offset().top}, 700);
+      var $anchor = $('#about-header h1');
+      $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
     })
   },
   launchMapView: function() {
