@@ -16,6 +16,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-  linkEvents.launchOnReady();
-  linkEvents.accessTrend();
+  Emotionall.init();
 });

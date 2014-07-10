@@ -4,7 +4,7 @@
     <div class="row center-block">
       <h1>how does the world <span style="color: #CC0033">feel</span> about</h1>
       <h2 id="trend-<%= @mapped_trend.id %>" class="mapped-trend"><%= @mapped_trend.name %></h2>
-      <h3><small>or click on another trend</small></h3>
+      <h3><small>or click on another <span style="color: #0099cc; font-weight: bold">Twitter</span> trend from today</small></h3>
       <div id="trends-display">
         <ul class="list-inline">
           <% @current_trends.each do |trend| %>
@@ -16,31 +16,16 @@
           <% end %>
         </ul>
       </div>
+      <h3><small>then hover over a country to see its sentiment score</small></h3>
     </div>
   </div>
   <div class="row center-block">
     <div class="col-md-12">
-      <a name="map-view"></a>
       <div id="map-wrapper">
         <div id="map-container">
         </div>
-        <div id="legend">
-        <table>
-          <tr>
-            <td class="legend-header">S</td>
-            <td class="legend-body">Sentiment</td>
-          </tr>
-          <tr>
-            <td class="legend-header">TS</td>
-            <td class="legend-body">Total Sentiment</td>
-          </tr>
-          <tr>
-            <td class="legend-header">TC</td>
-            <td class="legend-body">Tweet Count</td>
-          </tr>
-        </table>
-        </div>
       </div>
+      <p class="map-footer"><span style="color:#CC0033;font-weight:bold">red</span> is negative and <span style="color:#00CC33;font-weight:bold">green</span> is positive</p>
     </div>
   </div>
 </div>

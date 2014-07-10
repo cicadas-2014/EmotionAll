@@ -8,14 +8,19 @@ class Trend < ActiveRecord::Base
 		new_trends.each do |trend|
 			existing_trend = Trend.find_or_initialize_by(name: trend.name)
 			existing_trend.updated_at = Time.now unless existing_trend.new_record?
-			existing_trend.woeid = woeid if existing_trend.new_record?
+
+			if existing_trend.new_record?
+				existing_trend.woeid = woeid
+				existing_trend.tweet_count = 0
+			end
+
 			existing_trend.save
 		end
 	end
 
 	# default options are recent tweets and english language
 	def tweet_search  # gets tweets connected to a trend
-		TwitterService.client.search("#{self.name}", result_type:"recent", lang: "en").attrs[:statuses]
+		TwitterService.client.search("#{self.name}", lang: "en").attrs[:statuses]
 		# in the future, add logic to get a more location-diverse sample of tweets
 	end
 
@@ -52,7 +57,11 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(number)
 	end
 
-	def self.names_array
+	def self.most_popular(number=10)
+		Trend.order(tweet_count: :desc).take(number)
+	end
+
+	def self.names_array # returns an array to send to Twitter Stream API
 		Trend.order(updated_at: :desc).take(400).map(&:name)
 	end
 
@@ -69,28 +78,24 @@ class Trend < ActiveRecord::Base
 			trend.create_tweets # uses REST API to get most recent 100 tweets of a given trend
 			trend.find_own_tweets # for tweets that were saved using the Streaming API
 			trend.update_tweets_sentiments # makes Alchemy API calls if tweet doesn't have sentiments
+			trend.update_attributes(tweet_count: trend.tweets.count)
 		end
 	end
 
 	def self.map_info(trend_id)
 		trend = Trend.find(trend_id)
-		tweets = trend.tweets.where("sentiment != 'neutral'") # only care about positive or negative tweets
-		countries = []
+		tweets = trend.tweets.where("sentiment != 'neutral'").to_a # only care about positive or negative tweets
+		country_codes = tweets.map(&:country_code).uniq
+		countries = Country.all.to_a
 		map_info = []
 
-		tweets.each do |t|
-			countries << t.country_code
-		end
-
-		countries.uniq.each do |c|
-			country_sentiments = []
-			tweets.select{ |t| t.country_code == c }.each do |tweet|
-				country_sentiments << tweet.sentiment_score
-			end
+		country_codes.each do |c|
+			country_sentiments = tweets.select{ |t| t.country_code == c }.map(&:sentiment_score)
 			country_average = (country_sentiments.inject(:+) / country_sentiments.length).round(2)
+
 			map_info << { code: c,
 		        				value: country_average,
-		        				overall: Tweet.country_sentiment(c),
+		        				overall: countries.select{ |country| country.country_code == c }.first.overall_sentiment,
 		        				tweet_count: country_sentiments.length }
 		end
 
@@ -105,15 +110,6 @@ class Trend < ActiveRecord::Base
 		end
 
 		(average.inject(:+) / average.length).round(2)
-	end
-
-	def self.random_trends
-		recent_trends = []
-		4.times do
-			trend = self.most_recent.sample
-			recent_trends << trend unless recent_trends.include?(trend)
-		end
-		recent_trends
 	end
 
 	def self.old_trends

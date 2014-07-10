@@ -16,8 +16,13 @@
 
 #front-container {
   background-color: #0099cc;
-  padding: 240px 0;
+  padding: 200px 0 240px;
   width: 100%;
+}
+
+#front-container #logo {
+  cursor: pointer;
+  padding-left: 1em;
 }
 
 #front-container h1 {
@@ -27,8 +32,10 @@
   letter-spacing: 4px;
 }
 
-#front-container .no-fade {
-  opacity: 1.0 !important;
+#front-container h3 {
+  color: #FFF;
+  letter-spacing: 2px;
+  font-weight: normal;
 }
 
 #front-container .btn {
@@ -39,6 +46,7 @@
   display: inline;
   width: 80px;
   text-align: center;
+  outline: none;
 }
 
 #front-container .btn:hover {
@@ -64,55 +72,42 @@
 }
 
 #outer-map-container h2 {
-  font-size: 3.2em;
-  color: #00cc99;
+  font-size: 3.4em;
+  color: #0099cc;
 }
 
 #outer-map-container ul {
-  width: 64%;
+  width: 72%;
   text-align: center;
-  margin: 16px auto 0;
+  margin: 16px auto;
 }
 
 #outer-map-container ul li a {
-  color: #2B2B2B;
   font-size: 1.0em;
-  background-color: #00cc99;
   padding: 12px;
   line-height: 56px;
   border-radius: 4px;
+  background-color: #FFF;
+  color: #0099cc;
+  border: 1px solid #0099cc;
 }
 
 #outer-map-container ul li a:hover {
   text-decoration: none;
-  background-color: #CC0033;
+  border: 1px solid #0099cc;
+  background-color: #0099cc;
   color: #FFF;
 }
 
-#legend {
-  vertical-align: bottom;
-  width: 160px;
-  margin: -240px -240px 0 100px;
-  position: absolute;
-  border: 1px solid #00cc99;
-  border-radius: 4px;
-}
-
-#legend .legend-header {
-  font-weight: bold;
-  text-align: right;
-  padding: 4px 8px 4px 4px;
-  background-color: #00cc99;
-}
-
-#legend .legend-body {
-  text-align: left;
-  padding: 4px 4px 4px 8px;
+p.map-footer {
+  font-size: 1.2em;
+  margin: 0 auto;
+  padding: 8px 20px 0 0 ;
 }
 
 #about-container {
   background-color: #00cc99;
-  padding: 56px 40px;
+  padding: 64px 48px;
   width: 100%;
 }
 
@@ -120,9 +115,30 @@
   padding-bottom: 40px;
 }
 
+#about-container h3, #about-container dl, #about-container dd {
+  color: #ffffe4;
+  letter-spacing: 1px;
+}
+
+#about-container a {
+  background-color: #ffffe4;
+  color: #00cc99;
+}
+
+#about-container a:hover {
+  text-decoration: none;
+  background-color: #00cc99;
+  color: #ffffe4;
+}
+
 #about-container h1 {
-  font-size: 3.0em;
-  color: #FFF;
+  font-size: 3.2em;
+  color: #ffffe4;
+  margin-left: -24px;
+}
+
+#about-container h3 {
+  font-weight: normal;
 }
 
 #about-container dl {
@@ -134,7 +150,7 @@
 }
 
 .scroll-icon {
-  margin: 160px auto;
+  margin: 96px auto;
   font-size: 3.0em;
 }
 
@@ -145,4 +161,26 @@
 .scroll-icon a:hover {
   background-color: transparent;
   text-decoration: none;
+}
+
+p.errors-txt {
+  color: #FF0000;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+footer {
+  height: 64px;
+  background-color: #0099cc;
+  width: 100%;
+  padding: 16px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+footer .footer-text {
+  vertical-align: middle;
+  color: #FFF;
+  margin: 0 auto;
+  font-size: 1.0em;
 }
