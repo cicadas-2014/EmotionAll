@@ -45,12 +45,12 @@ var Map = {
         headerFormat: '',
         pointFormat: '<span style="font-size:24px; line-height: 22px; font-weight: bold">{point.name}</span><br/>'
           + '<br/>' // line break for whitespace in tooltip
-          + '<span style="font-size:13px; line-height: 18px">{series.name}</span><br/>'
-          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Trend Sentiment Score: </span>'
+          + '<span style="font-size:13px; line-height:18px">{series.name}</span><br/>'
+          + '<span style="font-size:16px; font-weight:bold; line-height: 24px">Trend Sentiment Score: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.value}</span><br/>'
-          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Overall Sentiment Score: </span>'
+          + '<span style="font-size:16px; font-weight:bold; line-height: 24px">Overall Sentiment Score: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.overall}</span><br/>'
-          + '<span style="font-size:16px; font-weight: bold; line-height: 24px">Tweet Count: </span>'
+          + '<span style="font-size:16px; font-weight:bold; line-height: 24px">Tweet Count: </span>'
           + '<span style="font-weight:normal; font-size:16px">{point.tweet_count}</span><br/>',
           footerFormat: '<span style="font-size:8px">Source: AlchemyAPI</span>',
           hideDelay: 80,
@@ -62,12 +62,12 @@ var Map = {
         legend: {
           reversed: false,
           title: {
-            text: '<span style="font-weight: bold">Sentiment Score</span>',
+            text: '<span style="font-weight:bold">Sentiment Score</span>',
             style: {
               color: '#333333',
               font: '13.5px "HelveticaNeue", Arial, sans-serif',
               fontWeight: 'normal'
-            }
+            },
           }
         },
         plotOptions: {

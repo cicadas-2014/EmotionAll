@@ -60,6 +60,10 @@ class Trend < ActiveRecord::Base
 		Trend.order(updated_at: :desc).take(number)
 	end
 
+	def self.old_trends
+		Trend.order(updated_at: :desc) - Trend.most_recent
+	end
+
 	def self.most_popular(number=10)
 		Trend.order(tweet_count: :desc).take(number)
 	end
@@ -106,16 +110,8 @@ class Trend < ActiveRecord::Base
 	end
 
 	def world_average
-		average = []
-
-		self.tweets.each do |t|
-			average << t.sentiment_score
-		end
+		average = tweets.where("sentiment_score != 0.0 and sentiment_score is not null").pluck(:sentiment_score)
 
 		(average.inject(:+) / average.length).round(2)
-	end
-
-	def self.old_trends
-		Trend.order(updated_at: :desc) - Trend.most_recent
 	end
 end
