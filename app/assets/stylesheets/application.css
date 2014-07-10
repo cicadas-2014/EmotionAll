@@ -191,3 +191,8 @@ footer .footer-text {
   margin: 0 auto;
   font-size: 1.0em;
 }
+
+.col-md-1 img {
+  margin-left: 50%;
+  margin-top: 23%;
+}
