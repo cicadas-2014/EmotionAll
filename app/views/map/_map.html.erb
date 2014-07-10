@@ -4,19 +4,7 @@
     <div class="row center-block">
       <h1>how does the world <span style="color: #CC0033">feel</span> about</h1>
       <h2 id="trend-<%= @mapped_trend.id %>" class="mapped-trend"><%= @mapped_trend.name %></h2>
-      <h3><small>or click on another popular <span style="color: #0099cc; font-weight: bold">Twitter</span> trend from this week</small></h3>
-      <div id="trends-display">
-        <ul class="list-inline">
-          <% @current_trends.each do |trend| %>
-          <li id="trend-<%= trend.id %>">
-            <%= link_to trend.name, trend_path(trend) %>
-            <div class="errors-txt">
-            </div>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-      <h3><small>then hover over a country to see its sentiment score</small></h3>
+      <h3><small>hover over a country to see its sentiment score</small></h3>
     </div>
   </div>
   <div class="row center-block">
@@ -24,8 +12,22 @@
       <div id="map-wrapper">
         <div id="map-container">
         </div>
-      <p class="map-footer"><span style="color:#CC0033;font-weight:bold">red</span> is negative and <span style="color:#00CC33;font-weight:bold">green</span> is positive</p>
+        <p class="map-footer"><span style="color:#CC0033;font-weight:bold">red</span> is negative and <span style="color:#00CC33;font-weight:bold">green</span> is positive</p>
       </div>
+    </div>
+  </div>
+  <div class="row center-block">
+    <h3><small>or click on another popular <span style="color: #0099cc; font-weight: bold">Twitter</span> trend from this week</small></h3>
+    <div id="trends-display">
+      <ul class="list-inline">
+        <% @current_trends.each do |trend| %>
+        <li id="trend-<%= trend.id %>">
+          <%= link_to trend.name, trend_path(trend) %>
+          <div class="errors-txt">
+          </div>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
