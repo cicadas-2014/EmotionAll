@@ -114,7 +114,7 @@ var createMapView = {
   },
   setMapWidth: function() {
     var $width = $(document).width();
-    var mapPadding = 50;
+    var mapPadding = 100;
     return $width - (mapPadding * 2);
   },
   addMapTitle: function(title) {
