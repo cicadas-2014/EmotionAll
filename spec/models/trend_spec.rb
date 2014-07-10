@@ -9,7 +9,7 @@ end
 
 describe "Trend model methods" do
     before(:each) do
-         @trend= Trend.create(name: "MyTrend", woeid: 23424977)
+         @trend= Trend.create(name: "MyTrend", woeid: 23424977, trend_count: 0)
     end
     it "add ten trends to Trend table" do
       expect{Trend.current_trends}.to change{Trend.all.length}.by(10)

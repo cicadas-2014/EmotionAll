@@ -4,7 +4,7 @@ class Cache
 
   def initialize
     @map_info = {}
-    # binding.pry
+
     if ActiveRecord::Base.connection.table_exists?('trends')
       Trend.all.each do |t|
         @map_info[t.id] = Trend.map_info(t.id)
