@@ -19,4 +19,9 @@ namespace :stream do
     Rails.cache.write('cache', Cache.new)
     system('bundle exec rails runner script/tweetstream.rb start')
   end
+
+  desc "Find daemon pid"
+  task :pid => :environment do
+    exec('cat tracker.pid')
+  end
 end
