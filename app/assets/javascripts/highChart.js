@@ -83,25 +83,7 @@ var Map = {
               dashStyle: 'shortdot',
               color: '#B4DA55'
             }
-          } // DON'T FORGET COMMA
-          // map: {
-          //   events: {
-          //     click: function(event) {
-          //       event.preventDefault();
-          //       console.log(this);
-          //       var $tooltip = $('.highcharts-tooltip span');
-          //       var trendId = $('[id^="trend"]').attr('id').substring(6);
-          //       var getTweets = $.get('/trends/' + trendId + '/tweets/' + 'US');
-          //       getTweets.success(function(tweet) {
-          //         $tooltip.css({'width':'250px','white-space':'normal'});
-          //         $tooltip.html(tweet);
-          //       });
-          //       getTweets.fail(function() {
-          //         $tooltip.html('Error fetching tweets.');
-          //       })
-          //     }
-          //   }
-          // }
+          }
         },
         series: [{
           data: self.dataInput,
