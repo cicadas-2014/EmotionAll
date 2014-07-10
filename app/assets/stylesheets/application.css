@@ -70,11 +70,19 @@
 
 #outer-map-container h1 {
   font-size: 3.0em;
+  padding: 0;
+  margin: 0 auto;
 }
 
 #outer-map-container h2 {
   font-size: 3.4em;
   color: #0099cc;
+  padding: 0;
+  margin: 10px auto 0;
+}
+
+#outer-map-container h3 {
+  margin: 8px auto;
 }
 
 #outer-map-container ul {
