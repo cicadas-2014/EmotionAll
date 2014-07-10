@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140709203348) do
     t.integer  "woeid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tweet_count"
+    t.integer  "tweet_count", default: 0
   end
 
   add_index "trends", ["tweet_count"], name: "index_trends_on_tweet_count", using: :btree

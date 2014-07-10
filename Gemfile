@@ -32,7 +32,7 @@ group :development, :test do
  gem 'jasmine'
  gem 'selenium-webdriver', '~> 2.42.0'
  gem 'jasmine-fixtures', '~> 0.1.7'
- gem 'pry'
+ gem 'pry', '~> 0.9.0'
  gem 'json_spec'
 end
 
@@ -64,3 +64,6 @@ gem 'whenever', :require => false
 
 # Alchemy gem
 gem 'alchemy-api-rb', :require => "alchemy_api"
+
+# ruby debugger
+gem 'pry_debug'
