@@ -16,7 +16,7 @@
 
 #front-container {
   background-color: #0099cc;
-  padding: 200px 0 240px;
+  padding: 200px 0 400px;
   width: 100%;
 }
 
@@ -57,6 +57,7 @@
 #front-container ul {
   margin: 0 auto;
   max-width: 300px;
+  text-align: center;
 }
 
 #outer-map-container {
@@ -120,10 +121,16 @@ p.map-footer {
   letter-spacing: 1px;
 }
 
+#about-container a.map-scroll-icon{
+  background-color: #00cc99;
+  color: #ffffe4;
+}
+
 #about-container a {
   background-color: #ffffe4;
   color: #00cc99;
 }
+
 
 #about-container a:hover {
   text-decoration: none;
@@ -150,7 +157,7 @@ p.map-footer {
 }
 
 .scroll-icon {
-  margin: 96px auto;
+  margin-top: 96px;
   font-size: 3.0em;
 }
 
