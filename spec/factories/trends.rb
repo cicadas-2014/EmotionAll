@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :trend do
-    trend "MyString"
-    woeid 1
+    name { "World Cup" }
+    woeid { 23424977 }
   end
 end

@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EmotionAll</title>
+  <title>emotionall</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src="http://code.highcharts.com/maps/modules/map.js"></script>
   <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
 </head>
 <body>
-	<header>
-		<div id="logo">
-		<h1>EmotionAll</h1>
-		</div>
-		<nav>
-		<ul>
-		<li>Trends</li>
-		<li>About</li>
-		</ul>
-		</nav>
-	</header>
-	<%= yield %>
+  <%= yield %>
+  <footer>
+    <p class="footer-text">Made at DBC NYC <span class="glyphicon glyphicon-book"></span></p>
+  </footer>
 </body>
 </html>

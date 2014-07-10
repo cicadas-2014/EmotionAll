@@ -14,7 +14,7 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-RSpec.configure do |config|
+# RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -75,4 +75,52 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 =end
+# end
+
+require 'capybara/rspec'
+# require 'capybara/rails'
+require "selenium-webdriver"
+require 'capybara/dsl'
+require 'capybara_helpers'
+
+# module CapybaraHelpers
+#   def wait_for_ajax_to_finish
+#     page.document.synchronize do
+#       raise AjaxStillWorking unless page.evaluate_script('jQuery.active == 0')
+#     end
+#   end
+# end
+
+
+# class AjaxStillWorking < Capybara::ElementNotFound;end
+
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+# require 'rspec/autorun'
+
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+  config.include CapybaraHelpers
+  config.include Capybara::DSL
+  config.include Capybara::RSpecMatchers
+
+  config.use_transactional_fixtures = false
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.infer_base_class_for_anonymous_controllers = false
+
+  config.order = "random"
 end
+
+

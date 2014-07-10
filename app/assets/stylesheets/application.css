@@ -14,36 +14,180 @@
  *= require_self
  */
 
-/* High-chart Map Style */
-#map-wrapper {
-  height: 500px;
-  width: 800px;
+#front-container {
+  background-color: #0099cc;
+  padding: 200px 0 400px;
+  width: 100%;
+}
+
+#front-container #logo {
+  cursor: pointer;
+  padding-left: 1em;
+}
+
+#front-container h1 {
+  color: #FFF;
+  font-size: 6.0em;
+  display: inline;
+  letter-spacing: 4px;
+}
+
+#front-container h3 {
+  color: #FFF;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+#front-container .btn {
+  border: 1px solid #FFF;
+  background-color: transparent;
+  color: #FFF;
+  margin: 64px 24px 40px;
+  display: inline;
+  width: 80px;
+  text-align: center;
+  outline: none;
+}
+
+#front-container .btn:hover {
+  background-color: #FFF;
+  color: #0099cc;
+}
+
+#front-container ul {
   margin: 0 auto;
-  padding: 0;
+  max-width: 300px;
+  text-align: center;
 }
 
-#map-container {
+#outer-map-container {
+  width: 100%;
   margin: 0 auto;
+  padding: 40px 10px;
+  background-color: #FFF;
+  text-align: center;
 }
 
-.highcharts-tooltip {
-	
+#outer-map-container h1 {
+  font-size: 3.0em;
 }
 
-#logo {
-	display: inline-block;
+#outer-map-container h2 {
+  font-size: 3.4em;
+  color: #0099cc;
 }
 
-h1 {
-	font-family: "HelveticaNeue", Arial, sans-serif;
+#outer-map-container ul {
+  width: 72%;
+  text-align: center;
+  margin: 16px auto;
 }
 
-nav {
-	display: inline-block;
-	float: right;
+#outer-map-container ul li a {
+  font-size: 1.0em;
+  padding: 12px;
+  line-height: 56px;
+  border-radius: 4px;
+  background-color: #FFF;
+  color: #0099cc;
+  border: 1px solid #0099cc;
 }
 
-nav li {
-	list-style: none;
-	display: inline-block;
+#outer-map-container ul li a:hover {
+  text-decoration: none;
+  border: 1px solid #0099cc;
+  background-color: #0099cc;
+  color: #FFF;
+}
+
+p.map-footer {
+  font-size: 1.2em;
+  margin: 0 auto;
+  padding: 8px 20px 0 0 ;
+}
+
+#about-container {
+  background-color: #00cc99;
+  padding: 64px 48px;
+  width: 100%;
+}
+
+#about-header {
+  padding-bottom: 40px;
+}
+
+#about-container h3, #about-container dl, #about-container dd {
+  color: #ffffe4;
+  letter-spacing: 1px;
+}
+
+#about-container a.map-scroll-icon{
+  background-color: #00cc99;
+  color: #ffffe4;
+}
+
+#about-container a {
+  background-color: #ffffe4;
+  color: #00cc99;
+}
+
+
+#about-container a:hover {
+  text-decoration: none;
+  background-color: #00cc99;
+  color: #ffffe4;
+}
+
+#about-container h1 {
+  font-size: 3.2em;
+  color: #ffffe4;
+  margin-left: -24px;
+}
+
+#about-container h3 {
+  font-weight: normal;
+}
+
+#about-container dl {
+  font-size: 1.4em;
+}
+
+#about-container dd {
+  padding-bottom: 12px;
+}
+
+.scroll-icon {
+  margin-top: 96px;
+  font-size: 3.0em;
+}
+
+.scroll-icon a {
+  color: #FFF;
+}
+
+.scroll-icon a:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+p.errors-txt {
+  color: #FF0000;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+footer {
+  height: 64px;
+  background-color: #0099cc;
+  width: 100%;
+  padding: 16px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+footer .footer-text {
+  vertical-align: middle;
+  color: #FFF;
+  margin: 0 auto;
+  font-size: 1.0em;
 }
