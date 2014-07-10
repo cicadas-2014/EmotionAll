@@ -17,9 +17,9 @@ var Emotionall = {
         });
     },
     setupScrollToMap: function() {
-        $('#top-scroll-icon').on('click', function(event) {
+        $('.scroll-icon').on('click', function(event) {
             event.preventDefault();
-            var $anchor = $('#outer-map-container');
+            var $anchor = $('#outer-map-container h1');
             $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
         })
     },
@@ -31,8 +31,8 @@ var Emotionall = {
     },
     setupScrollToAbout: function() {
         $('#btn-for-about').on('click', function() {
-            var $anchor = $('#about-container');
-            $('html, body').animate({ scrollTop: $anchor.offset().top}, 500);
+            var $anchor = $('footer');
+            $('html, body').animate({ scrollTop: $anchor.offset().top}, 700);
         })
     },
     launchMapView: function() {
