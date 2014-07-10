@@ -1,12 +1,12 @@
 namespace :stream do
   desc "Start Twitter stream"
   task :start => :environment do
-    exec('bundle exec rails runner script/tweetstream.rb start')
+    system('bundle exec rails runner script/tweetstream.rb start')
   end
 
   desc "Stop Twitter stream"
   task :stop => :environment do
-    exec('bundle exec rails runner script/tweetstream.rb stop')
+    system('bundle exec rails runner script/tweetstream.rb stop')
   end
 
   desc "Grab trends/tweets from REST API and restart Twitter stream"
@@ -22,6 +22,6 @@ namespace :stream do
 
   desc "Find daemon pid"
   task :pid => :environment do
-    exec('cat tracker.pid')
+    system('cat tracker.pid')
   end
 end

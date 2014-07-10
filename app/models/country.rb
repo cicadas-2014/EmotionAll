@@ -12,8 +12,8 @@ class Country < ActiveRecord::Base
   end
 
   def self.new_countries
-    Tweet.all.each do |t|
-      Country.find_or_create_by(country_code: t.country_code)
+    Tweet.all.pluck(:country_code).uniq.each do |c|
+      Country.find_or_create_by(country_code: c)
     end
   end
 end
