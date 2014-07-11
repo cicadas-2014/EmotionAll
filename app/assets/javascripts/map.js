@@ -5,7 +5,7 @@ var Map = {
     $('#map-container').highcharts('Map', {
       chart: {
         width: width,
-        height: 630,
+        height: 825,
         backgroundColor: '#FFFFFF'
       },
       title: {
