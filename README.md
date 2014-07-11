@@ -34,9 +34,9 @@ Choose away. And learn. Because maybe we just aren't so different after all.
 ### Contributors 
 
 * Jake Huhn, Project Manager ([github](https://github.com/masidonion) | [twitter](https://twitter.com/huhnytunes)) 
-* Kevin Zhou, Team Lead ([github]() | [twitter]())
+* Kevin Zhou, Team Lead ([github](http://github.com/kz363) | [twitter]())
 * Danielle Adams ([github](http://github.com/danielleadams) | [twitter](http://twitter.com/dadams_1))
-* Ruben Osorio ([github]() | [twitter]())
+* Ruben Osorio ([github](http://github.com/newrube7) | [twitter]())
 
 ### [Homepage](http://emotionall.ninefold-apps.com)
 
