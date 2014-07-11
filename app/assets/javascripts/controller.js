@@ -62,7 +62,7 @@ var createMapView = {
   },
   setMapWidth: function() {
     var $width = $(document).width();
-    var mapPadding = 200;
+    var mapPadding = 75;
     return $width - (mapPadding * 2);
   },
   addTrendTitle: function(title) {
