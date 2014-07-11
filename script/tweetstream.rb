@@ -1,7 +1,5 @@
 require 'tweetstream'
 
-# root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-# require File.join(root, "config", "environment")
 ENV["RAILS_ENV"] ||= "production"
 
 TweetStream.configure do |config|
@@ -16,7 +14,6 @@ daemon = TweetStream::Daemon.new('tracker', :log_output => false) # change to tr
 
 daemon.on_inited do
 	ActiveRecord::Base.connection.reconnect!
-	# ActiveRecord::Base.logger = Logger.new(File.open(File.join(root,'log','stream.log'), 'w+'))
 end
 
 daemon.track(Trend.names_array) do |t|
@@ -40,7 +37,3 @@ daemon.track(Trend.names_array) do |t|
 		end
 	end
 end
-
-# @client = TweetStream::Client.new
-# @client.track(['bieber','Happy 5th of July']) do |t| puts "#{t.text} #{t.geo.coordinates}"  end
-# @client.locations('-180,-90,180,90') do |t| puts t.place.full_name end
