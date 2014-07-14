@@ -1,11 +1,14 @@
 rvm:
-  - 2.0.0
+- 2.0.0
 env:
+  matrix:
   - DB=postgresql
+  global:
+    secure: g5s7it6pWsPwRDYy0E+dEaZwF4sfzwkRVjkhFVA2YJBVNzzY+gtg5mijJ2paNNNDRYw3migmr9GFySSpYwj4Gk2NWSoPIAaKAd3E6Qj5y45hrGRKWOruheCFGCd5YqhfbKyVPRd9keFrN3qEfdWXsg5Gow/h1oPSZJkwXf9WiRg=
 script:
-  - bundle exec rake spec
+- bundle exec rake spec
 before_script:
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
-bundler_args: --binstubs=./bundler_stubs
+- bundle exec rake db:create RAILS_ENV=test
+- bundle exec rake db:migrate
+- bundle exec rake db:test:prepare
+bundler_args: "--binstubs=./bundler_stubs"
