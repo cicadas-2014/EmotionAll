@@ -33,10 +33,10 @@ Choose away. And learn. Because maybe we just aren't so different after all.
 
 ### Contributors 
 
-* Jake Huhn, Project Manager ([github](https://github.com/masidonion) | [twitter](https://twitter.com/huhnytunes)) 
-* Kevin Zhou, Team Lead ([github]() | [twitter]())
-* Danielle Adams ([github]() | [twitter]())
-* Ruben Osorio ([github]() | [twitter]())
+* Jake Huhn, Project Manager ([github](https://github.com/huhnytunes) | [twitter](https://twitter.com/huhnytunes)) 
+* Kevin Zhou, Team Lead ([github](http://github.com/kz363))
+* Danielle Adams, Front-End Ninja ([github](http://github.com/danielleadams) | [twitter](http://twitter.com/dadams_1))
+* Ruben Osorio ([github](http://github.com/newrube7))
 
 ### [Homepage](http://emotionall.ninefold-apps.com)
 
