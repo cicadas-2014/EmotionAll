@@ -102,7 +102,7 @@ GEM
     http (0.5.1)
       http_parser.rb
     http_parser.rb (0.6.0)
-    i18n (0.6.9)
+    i18n (0.6.11)
     jasmine (2.0.2)
       jasmine-core (~> 2.0.0)
       phantomjs
@@ -132,7 +132,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.3.5)
+    minitest (5.4.0)
     multi_json (1.10.1)
     multipart-post (1.2.0)
     net-http-persistent (2.9.4)
