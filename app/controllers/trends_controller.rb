@@ -4,4 +4,3 @@ class TrendsController < ApplicationController
     render json: map_info.to_json
   end
 end
-
