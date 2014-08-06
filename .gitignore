@@ -45,3 +45,5 @@ tracker.pid
 
 # Kevin's files
 notes.txt
+*.dump
+*.sql
