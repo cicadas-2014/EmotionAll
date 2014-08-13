@@ -1,4 +1,4 @@
-[EmotionAll](http://emotionall.ninefold-apps.com)
+[EmotionAll](http://emotionall.ly)
 ==========
 
 We are always connecting, but are we really connected? 
@@ -38,5 +38,5 @@ Choose away. And learn. Because maybe we just aren't so different after all.
 * Danielle Adams, Front-End Ninja ([github](http://github.com/danielleadams) | [twitter](http://twitter.com/dadams_1))
 * Ruben Osorio ([github](http://github.com/newrube7))
 
-### [Homepage](http://emotionall.ninefold-apps.com)
+### [Homepage](http://emotionall.ly)
 
