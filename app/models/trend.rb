@@ -68,6 +68,10 @@ class Trend < ActiveRecord::Base
 		Trend.order(tweet_count: :desc).take(number)
 	end
 
+	def self.most_recent_and_popular(number=10, time=1.week.ago)
+		Trend.where('created_at >= ?', time).order(tweet_count: :desc).take(number)
+	end
+
 	def self.names_array # returns an array to send to Twitter Stream API
 		Trend.order(updated_at: :desc).take(30).map(&:name)
 	end
