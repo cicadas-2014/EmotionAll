@@ -11,10 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709203348) do
+ActiveRecord::Schema.define(version: 20141111232531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
+  enable_extension "autoinc"
+  enable_extension "btree_gin"
+  enable_extension "btree_gist"
+  enable_extension "chkpass"
+  enable_extension "citext"
+  enable_extension "cube"
+  enable_extension "dblink"
+  enable_extension "dict_int"
+  enable_extension "dict_xsyn"
+  enable_extension "earthdistance"
+  enable_extension "file_fdw"
+  enable_extension "fuzzystrmatch"
+  enable_extension "hstore"
+  enable_extension "insert_username"
+  enable_extension "intagg"
+  enable_extension "intarray"
+  enable_extension "isn"
+  enable_extension "lo"
+  enable_extension "ltree"
+  enable_extension "moddatetime"
+  enable_extension "pageinspect"
+  enable_extension "pg_buffercache"
+  enable_extension "pg_freespacemap"
+  enable_extension "pg_stat_statements"
+  enable_extension "pg_trgm"
+  enable_extension "pgcrypto"
+  enable_extension "pgrowlocks"
+  enable_extension "pgstattuple"
+  enable_extension "refint"
+  enable_extension "seg"
+  enable_extension "sslinfo"
+  enable_extension "tablefunc"
+  enable_extension "tcn"
+  enable_extension "test_parser"
+  enable_extension "timetravel"
+  enable_extension "tsearch2"
+  enable_extension "unaccent"
+  enable_extension "uuid-ossp"
+  enable_extension "xml2"
 
   create_table "countries", force: true do |t|
     t.string   "country_code"
@@ -48,9 +88,11 @@ ActiveRecord::Schema.define(version: 20140709203348) do
     t.integer  "trend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "country_id"
   end
 
   add_index "tweets", ["country_code"], name: "index_tweets_on_country_code", using: :btree
+  add_index "tweets", ["country_id"], name: "index_tweets_on_country_id", using: :btree
   add_index "tweets", ["sentiment"], name: "index_tweets_on_sentiment", using: :btree
   add_index "tweets", ["sentiment_score"], name: "index_tweets_on_sentiment_score", using: :btree
   add_index "tweets", ["text"], name: "index_tweets_on_text", using: :btree

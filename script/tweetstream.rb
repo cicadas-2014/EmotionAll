@@ -20,7 +20,7 @@ daemon.track(Trend.names_array) do |t|
 	# only care about tweets with a place object to get the country code
 	# tweets don't inherently know what trend they belong to, so use Trend#find_own_tweets
 	unless Tweet.find_by(tweetid: t.attrs[:id_str]) # still need this because of tweets gathered from REST API
-  	if t.place? && t.lang == 'en'
+		if t.place? && t.lang == 'en'
 			if t.geo?
 				Tweet.create(text: t.text,
 										 tweetid: t.attrs[:id_str],
